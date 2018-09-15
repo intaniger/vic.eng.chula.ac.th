@@ -1,0 +1,10 @@
+body {
+  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
+    'Lucida Grande', 'Kanit', sans-serif!important;
+}
+.thai{
+  font-family: 'Kanit', sans-serif!important;
+}
+.particles-js-canvas-el{
+  background-color: #042340;
+}
