@@ -16,7 +16,19 @@ import "../lib/illuminated.js";
 
 const {Vec2, Lamp, Lighting} = window.illuminated
 const {Column, Row} = Grid
-//
+
+const moonRadius = 300
+
+const dOriginToHighest = 1.25 * window.innerHeight;
+const halfInnerWidth = 0.5 * window.innerWidth;
+
+const frameWidth = Math.floor((((dOriginToHighest)**2) + (moonRadius**2)) ** 0.5 + moonRadius)
+const frameHeight = 2 * moonRadius
+
+let canvas
+let ctx
+let contentHeight = 1000 ** 2
+const rotatableAngle =  Math.PI - ( 2 * (Math.acos((halfInnerWidth)/(dOriginToHighest)) - Math.atan(moonRadius/dOriginToHighest)))
 
 class HomePage extends Component{
   state = {
@@ -26,19 +38,24 @@ class HomePage extends Component{
       left:0,
       position:"relative"
     },
+    contentHeight:0,
+    offsetAngle:0
   }
-  renderMoon = () => {
-    const canvas = document.getElementById('sun-moon-background');
-    const ctx = canvas.getContext('2d');
+  renderMoon = (angle) => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.translate(halfInnerWidth, 1.5 * window.innerHeight)
+    ctx.rotate(Math.PI + Math.acos((halfInnerWidth)/(dOriginToHighest)) - Math.atan(moonRadius/dOriginToHighest) + angle)
     const lighting = new Lighting({
       light: new Lamp({
-        position: new Vec2(0.1*canvas.width, 0.2*canvas.height),
-        distance: 400,
+        position: new Vec2(frameWidth - moonRadius, moonRadius),
+        distance: moonRadius,
         color: "rgba(254, 252, 215, 0.8)"
       }),
     });
     lighting.compute(canvas.width, canvas.height);
     lighting.render(ctx);
+    // requestAnimationFrame(this.renderMoon)
   }
   render = () => (
     <div>
@@ -46,28 +63,108 @@ class HomePage extends Component{
         <div style={{position:"fixed",  width:"100%", height:"100%"}}>
           <canvas width={window.innerWidth} height={window.innerHeight} style={{background:"transparent"}} id="sun-moon-background"/>
         </div>
-        <img alt="Mountain background" style={{width:"100%", filter:" grayscale(100%) contrast(60%) brightness(20%)", opacity:1, zIndex:4,position:"absolute", left:0, bottom:0}} src={Mountain}/>
+        {/* <img alt="Mountain background" style={{width:"100%", filter:" grayscale(100%) contrast(60%) brightness(20%)", opacity:1, zIndex:4,position:"absolute", left:0, bottom:0}} src={Mountain}/> */}
       </div>
-      <div style={{position:"relative", zIndex:1000}}>
+      <div id="content" style={{position:"relative", zIndex:1000}}>
         {/* Web Content Here */}
           <Grid columns={16} centered>
             <Column width={14}>
-              <Grid>
-                <Column width={8} floated="right">
-                  <Grid verticalAlign='middle' centered style={{height:"100vh"}}>
-                    <Row stretched>
-                      <Column style={{...this.state.LogoStyle}} width={4}>
-                        <img alt="Vidvapath logo" src={VICLogo}/>
-                      </Column>
-                      <Column width={12}>
-                        <VIC style={{width:"100%"}}/>
-                        <h1 style={{margin:0, color:"#BEBEBE", fontSize: 18}} className="thai small">
-                          {"นิสิตทุนคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย".substr(0,Math.floor(this.state.currentSubheading1Length))}
-                        </h1>
-                      </Column>
-                    </Row>
-                  </Grid>
-                </Column>
+              <Grid id="main-content">
+                <Row>
+                  <Column width={8} floated="right">
+                    <Grid verticalAlign='middle' centered style={{height:"100vh"}}>
+                      <Row stretched>
+                        <Column style={{...this.state.LogoStyle}} width={4}>
+                          <img alt="Vidvapath logo" src={VICLogo}/>
+                        </Column>
+                        <Column width={12}>
+                          <VIC style={{width:"100%"}}/>
+                          <h1 style={{margin:0, color:"#BEBEBE", fontSize: 18}} className="thai small">
+                            {"นิสิตทุนคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย".substr(0,Math.floor(this.state.currentSubheading1Length))}
+                          </h1>
+                        </Column>
+                      </Row>
+                    </Grid>
+                  </Column>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
+                <Row>
+                  <p className="thai">Voluntary Intania Camp</p><br/>
+                </Row>
               </Grid>
             </Column>
           </Grid>
@@ -75,7 +172,14 @@ class HomePage extends Component{
     </div>
   )
   componentDidMount = () => {
-    this.renderMoon()
+    canvas = document.getElementById('sun-moon-background');
+    ctx = canvas.getContext('2d');
+    this.renderMoon((window.scrollY / contentHeight) * rotatableAngle)
+    contentHeight = Math.min(contentHeight, document.body.scrollHeight - document.body.offsetHeight)
+    window.addEventListener("scroll", (e) => {
+      console.log(window.scrollY, contentHeight, rotatableAngle)
+      this.renderMoon((window.scrollY / contentHeight) * rotatableAngle)
+    })
     window.particlesJS("background", ParticleConfig)
     if(ScrollMagic !== null){
       const controller = new ScrollMagic.Controller()

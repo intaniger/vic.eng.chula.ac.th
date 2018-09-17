@@ -1,9 +1,17 @@
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 export default {
   webpack: (config, { defaultLoaders }) => {
     config.module.rules = [{
       oneOf: [
         defaultLoaders.jsLoader,
-        defaultLoaders.cssLoader,
+        {
+          test: /\.css$/,
+          use: ExtractTextPlugin.extract({
+            fallback: "style-loader",
+            use: "css-loader"
+          })
+        },
         {
           test: /\.svg$/,
           use: [
@@ -24,25 +32,24 @@ export default {
         defaultLoaders.fileLoader,
       ]
     }]
+    config.plugins.push(new ExtractTextPlugin("styles.css"))
     return config;
   },
   getSiteData: () => ({
     title: 'React Static',
   }),
-  getRoutes: async () => {
-    return [
-      {
-        path: '/',
-        component: 'src/containers/Home',
-      },
-      {
-        path: '/about',
-        component: 'src/containers/About',
-      },
-      {
-        is404: true,
-        component: 'src/containers/404',
-      },
-    ]
-  },
+  getRoutes: async () => ([
+    {
+      path: '/',
+      component: 'src/containers/Home',
+    },
+    {
+      path: '/about',
+      component: 'src/containers/About',
+    },
+    {
+      is404: true,
+      component: 'src/containers/404',
+    },
+  ])
 }
