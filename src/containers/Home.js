@@ -9,12 +9,13 @@ import BackgroundAnimation from "../scenes/Background"
 
 import Mountain from '../asset/mountain.png'
 import VICLogo from '../asset/VICLogo.png'
-
+import pic1 from '../asset/pic1.jpg'
 import VIC from '../asset/VIC.svg'
 import ParticleConfig from '../asset/particle_config.json'
 
 
 import "../lib/illuminated.js";
+import { white } from '../../node_modules/ansi-colors';
 
 const {Vec2, Lamp, Lighting} = window.illuminated
 const {Column, Row} = Grid
@@ -46,35 +47,35 @@ class HomePage extends Component{
       light: new Lamp({
         position: new Vec2(dOriginToHighest, moonRadius),
         distance: moonRadius,
-        color: "rgba(254, 252, 215, 0.8)"
-      }),
-    });
+        color: "rgba(254, 252, 215, 0.8)"}),});
     lighting.compute(canvas.width, canvas.height);
     lighting.render(ctx);
   }
   render = () => (
     <div>
       <div style={{position:"fixed", zIndex: 2, width:"100%", height:"100%", top:0, left:0}} id="background">
-        <div style={{position:"fixed",  width:"100%", height:"100%"}}>
+        
+        <div style={{position:"fixed",  width:"100vw", height:"100vh"}}>
           <canvas width={window.innerWidth} height={1.5 * window.innerHeight} style={{background:"transparent", transform: "rotate(0deg)", transformOrigin: "50% 100%"}} id="sun-moon-background"/>
         </div>
         <img alt="Mountain background" id="mountain-background" style={{width:"100%", filter:" grayscale(100%) contrast(60%) brightness(20%)", opacity:1, zIndex:4,position:"absolute", left:0, bottom:0}} src={Mountain}/>
+        
       </div>
-      <div id="content" style={{position:"relative", zIndex:1000}}>
+      <div id="content" style={{position:"absolute",top:0, left:0,zIndex:1000}}>
         {/* Web Content Here */}
           <Grid columns={16} centered>
-            <Column width={14}>
+            <Column width={14}  centered >
               <Grid id="main-content">
                 <Row id="head1">
-                  <Column width={8} floated="right">
-                    <Grid verticalAlign='middle' centered style={{height:"100vh"}}>
+                  <Column centered>
+                    <Grid verticalAlign='middle' centered style={{height:"102vh"}}>
                       <Row stretched>
                         <Column style={{...this.state.LogoStyle}} width={4}>
                           <img alt="Vidvapath logo" src={VICLogo}/>
                         </Column>
                         <Column width={12}>
                           <VIC style={{width:"100%"}}/>
-                          <h1 style={{margin:0, color:"#BEBEBE", fontSize: 18}} className="thai small">
+                          <h1 style={{margin:0, color:"#BEBEBE", fontSize: "2.5vw"}} className="thai small">
                             {"นิสิตทุนคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย".substr(0,Math.floor(this.state.currentSubheading1Length))}
                           </h1>
                         </Column>
@@ -82,12 +83,47 @@ class HomePage extends Component{
                     </Grid>
                   </Column>
                 </Row>
-                {
-                  [...Array(100).keys()].map(()=>(<Row>
-                    <p className="thai">Voluntary Intania Camp</p><br/>
-                  </Row>))
-                }
+                <Row id="Content1" centered>
+                  <Grid centered>
+                    <Row>
+                    <h1  style={{margin:"10vh",padding:0, color:"#ffffff",textAlign: 'center', fontSize: 80}} className="thai small">
+                        {"จุดเริ่มต้นของค่ายวิศวพัฒน์"}
+                    </h1>
+                    </Row>
+                    <Row style={{margin:0,padding:0,}}> 
+                      <Column  width={6} floated="right">
+                          <img style={{width:"75%",height:"75%"}} alt="Start pic" src={pic1}/>
+                      </Column>
+                      <Column width={6} floated="left">
+                        <h1  style={{color:"#ffffff",textAlign: 'center', fontSize: 20}} className="thai small">
+                          {"จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์"}
+                        </h1>
+                      </Column>
+                    </Row>
+                    <Row style={{margin:0,padding:0,}}>
+                      <Column  width={6} floated="right">
+                        <h1  style={{color:"#ffffff",textAlign: 'center', fontSize: 20}} className="thai small">
+                          {"จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์"}
+                        </h1>
+                      </Column>
+                      <Column width={6} floated="left">
+                          <img style={{width:"75%",height:"75%"}} alt="Start pic" src={pic1}/>
+                      </Column>
+                    </Row>
+                    <Row vertstyle={{margin:0,padding:0,}}>
+                      <Column width={6} floated="right">
+                          <img style={{width:"75%",height:"75%"}} alt="Start pic" src={pic1}/>
+                      </Column>
+                      <Column width={6} floated="left">
+                        <h1  style={{color:"#ffffff",textAlign: 'center', fontSize: 20}} className="thai small">
+                          {"จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์"}
+                        </h1>
+                      </Column>
+                    </Row>
+                  </Grid>
+                </Row>
               </Grid>
+              
             </Column>
           </Grid>
         </div>
