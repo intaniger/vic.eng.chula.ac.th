@@ -9,6 +9,7 @@ import BackgroundAnimation from "../scenes/Background"
 
 import Mountain from '../asset/mountain.png'
 import VICLogo from '../asset/VICLogo.png'
+import Moon from '../asset/moon.png'
 
 import VIC from '../asset/VIC.svg'
 import ParticleConfig from '../asset/particle_config.json'
@@ -16,13 +17,18 @@ import ParticleConfig from '../asset/particle_config.json'
 
 import "../lib/illuminated.js";
 
-const {Vec2, Lamp, Lighting} = window.illuminated
 const {Column, Row} = Grid
 
-const moonRadius = 300
-const dOriginToHighest = 1.25 * window.innerHeight;
-const halfInnerWidth = 0.5 * window.innerWidth;
-const rotatableAngle =  Math.PI - ( 2 * (Math.acos((halfInnerWidth - moonRadius)/(dOriginToHighest))))
+const R = 300
+const acos = Math.acos
+const sin = Math.sin;
+const W = window.innerWidth
+const H = window.innerHeight
+const MoonFactor = (H < W) ? 1:0.5
+const factor = (H < W) ? 1.5 * Math.ceil(H / W) : 0.7
+const RotateRadius = (factor * H)
+const firstMoonHoffset = (factor * H)  - (RotateRadius)*sin(acos(W / (2 * RotateRadius)));
+const rotatableAngle =  Math.PI - ( 2 * (Math.acos((W /(2 * RotateRadius)))));
 
 class HomePage extends Component{
   state = {
@@ -35,66 +41,51 @@ class HomePage extends Component{
     contentHeight:0,
     offsetAngle:0
   }
-  renderMoon = () => {
-    console.log(Math.acos((halfInnerWidth - moonRadius)/(dOriginToHighest)), Math.atan((moonRadius - 50)/dOriginToHighest))
-    const canvas = document.getElementById('sun-moon-background');
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-    ctx.translate(halfInnerWidth, 1.5 * window.innerHeight)
-    ctx.rotate(Math.PI + Math.acos((halfInnerWidth - moonRadius)/(dOriginToHighest)) - Math.atan((moonRadius - 50)/dOriginToHighest))
-    const lighting = new Lighting({
-      light: new Lamp({
-        position: new Vec2(dOriginToHighest, moonRadius),
-        distance: moonRadius,
-        color: "rgba(254, 252, 215, 0.8)"
-      }),
-    });
-    lighting.compute(canvas.width, canvas.height);
-    lighting.render(ctx);
-  }
-  render = () => (
-    <div>
-      <div style={{position:"fixed", zIndex: 2, width:"100%", height:"100%", top:0, left:0}} id="background">
-        <div style={{position:"fixed",  width:"100%", height:"100%"}}>
-          <canvas width={window.innerWidth} height={1.5 * window.innerHeight} style={{background:"transparent", transform: "rotate(0deg)", transformOrigin: "50% 100%"}} id="sun-moon-background"/>
+  render = () => {
+    console.log(factor, RotateRadius, firstMoonHoffset, rotatableAngle)
+    return(
+      <div>
+        <div style={{position:"fixed", zIndex: 2, width:"100%", height:"100%", top:0, left:0}} id="background">
+          <div style={{position:"fixed",  width:window.innerWidth, height: RotateRadius, transform: `rotate(0deg) translate(-${0.5 * MoonFactor * R}px, ${firstMoonHoffset}px)`, transformOrigin: "50% 100%"}} id="sun-moon-background">
+            <img alt="Moon" src={Moon} style={{width:`${MoonFactor * R}px`}} />
+          </div>
+          <img alt="Mountain background" id="mountain-background" style={{width:"100%", filter:" grayscale(100%) contrast(60%) brightness(20%)", opacity:1, zIndex:4,position:"absolute", left:0, bottom:0}} src={Mountain}/>
         </div>
-        <img alt="Mountain background" id="mountain-background" style={{width:"100%", filter:" grayscale(100%) contrast(60%) brightness(20%)", opacity:1, zIndex:4,position:"absolute", left:0, bottom:0}} src={Mountain}/>
+        <div id="content" style={{position:"relative", zIndex:1000}}>
+          {/* Web Content Here */}
+            <Grid columns={16} centered>
+              <Column width={14}>
+                <Grid id="main-content">
+                  <Row id="head1">
+                    <Column width={8} floated="right">
+                      <Grid verticalAlign='middle' centered style={{height:"100vh"}}>
+                        <Row stretched>
+                          <Column style={{...this.state.LogoStyle}} width={4}>
+                            <img alt="Vidvapath logo" src={VICLogo}/>
+                          </Column>
+                          <Column width={12}>
+                            <VIC style={{width:"100%"}}/>
+                            <h1 style={{margin:0, color:"#BEBEBE", fontSize: 18}} className="thai small">
+                              {"นิสิตทุนคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย".substr(0,Math.floor(this.state.currentSubheading1Length))}
+                            </h1>
+                          </Column>
+                        </Row>
+                      </Grid>
+                    </Column>
+                  </Row>
+                  {
+                    [...Array(100).keys()].map(()=>(<Row>
+                      <p className="thai">Voluntary Intania Camp</p><br/>
+                    </Row>))
+                  }
+                </Grid>
+              </Column>
+            </Grid>
+          </div>
       </div>
-      <div id="content" style={{position:"relative", zIndex:1000}}>
-        {/* Web Content Here */}
-          <Grid columns={16} centered>
-            <Column width={14}>
-              <Grid id="main-content">
-                <Row id="head1">
-                  <Column width={8} floated="right">
-                    <Grid verticalAlign='middle' centered style={{height:"100vh"}}>
-                      <Row stretched>
-                        <Column style={{...this.state.LogoStyle}} width={4}>
-                          <img alt="Vidvapath logo" src={VICLogo}/>
-                        </Column>
-                        <Column width={12}>
-                          <VIC style={{width:"100%"}}/>
-                          <h1 style={{margin:0, color:"#BEBEBE", fontSize: 18}} className="thai small">
-                            {"นิสิตทุนคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย".substr(0,Math.floor(this.state.currentSubheading1Length))}
-                          </h1>
-                        </Column>
-                      </Row>
-                    </Grid>
-                  </Column>
-                </Row>
-                {
-                  [...Array(100).keys()].map(()=>(<Row>
-                    <p className="thai">Voluntary Intania Camp</p><br/>
-                  </Row>))
-                }
-              </Grid>
-            </Column>
-          </Grid>
-        </div>
-    </div>
-  )
+    )
+  }
   componentDidMount = () => {
-    this.renderMoon()
     window.particlesJS("background", ParticleConfig)
     if(ScrollMagic !== null){
       const controller = new ScrollMagic.Controller()
@@ -128,6 +119,7 @@ class HomePage extends Component{
         controller.addScene(scene1)
       }
     }
+    this.forceUpdate()
   }
 }
 

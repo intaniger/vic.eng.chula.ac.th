@@ -5,7 +5,7 @@ import { NodeGroup } from 'react-move'
 import { withContext, getContext } from 'recompose'
 import PropTypes from 'prop-types'
 import { hot } from 'react-hot-loader'
-// import 'semantic-ui-css/semantic.min.css';
+import 'semantic-ui-css/semantic.min.css';
 //
 import Routes from 'react-static-routes'
 
@@ -100,7 +100,7 @@ const AnimatedRoutes = getContext({
                     }}
                   >
                     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet" />
-                    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css"/>
+                    {/* <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css"/> */}
                     <data.Comp {...data.props} />
                   </PreservedRouterContext>
                 )
