@@ -8,3 +8,38 @@ body {
 .particles-js-canvas-el{
   background-color: #042340;
 }
+.intro-head::before{
+  content: "“ค่ายวิศวพัฒน์”\A";
+  font-size: 50px;
+  margin-left: 70px;
+}
+#intro_paragraph{
+  color: #ffffff;
+  text-align: left;
+}
+.intro-head{
+  font-size: 28px!important;
+}
+.intro-sub{
+  font-size: 25px!important;
+}
+.subheading{
+  font-size: 22px;
+}
+@media only screen and (max-width: 768px){
+  .intro-head{
+    font-size: 20px!important;
+  }
+  .intro-sub{
+    font-size: 16px!important;
+  }
+  .subheading{
+    font-size: 1.2vh;
+  }
+  .intro-head::before{
+    content: "“ค่ายวิศวพัฒน์”\A";
+    white-space: pre;
+    font-size: 50px;
+    margin-left: 0px;
+  }
+}

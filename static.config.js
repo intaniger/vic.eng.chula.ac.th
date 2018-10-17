@@ -1,4 +1,5 @@
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 export default {
   webpack: (config, { defaultLoaders }) => {
@@ -33,6 +34,7 @@ export default {
       ]
     }]
     config.plugins.push(new ExtractTextPlugin("styles.css"))
+    config.plugins.push(new UglifyJSPlugin())
     return config;
   },
   getSiteData: () => ({
