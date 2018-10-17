@@ -33,8 +33,11 @@ export default {
         defaultLoaders.fileLoader,
       ]
     }]
+    if(Object.getPrototypeOf(config.plugins[config.plugins.length - 1]).constructor.name === "UglifyJsPlugin"){
+      console.log("ตรวจพบการใช้ปลั๊กอินหัวควย กำลังเปลี่ยนปลั๊กอินโดยอัตโนมัติ...")
+      config.plugins[config.plugins.length - 1] = new UglifyJSPlugin()
+    }
     config.plugins.push(new ExtractTextPlugin("styles.css"))
-    config.plugins.push(new UglifyJSPlugin())
     return config;
   },
   getSiteData: () => ({

@@ -162,7 +162,7 @@ class HomePage extends Component{
         controller.addScene(scene1)
       }
       // <------------ History Animation --------------->
-      const HistoryFadeInScene = new ScrollMagic.Scene({triggerElement:"#intro_paragraph", duration:0.2 * H, offset:-0.3 * H}).setTween(
+      const HistoryFadeInScene = new ScrollMagic.Scene({triggerElement:"#intro_paragraph", duration:0.5 * H, offset:-0.3 * H}).setTween(
         TweenMax.staggerFromTo("#intro_paragraph", 0.2, {x:-50, opacity:0}, {x:0, opacity:1}, 0.5),
       )
       const HistoryFadeOutScene = new ScrollMagic.Scene({triggerElement:"#intro_paragraph", duration:0.2 * H, offset:-0.3 * H}).setTween(
