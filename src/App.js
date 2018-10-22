@@ -5,7 +5,9 @@ import { NodeGroup } from 'react-move'
 import { withContext, getContext } from 'recompose'
 import PropTypes from 'prop-types'
 import { hot } from 'react-hot-loader'
+
 import 'semantic-ui-css/semantic.min.css';
+import VICLogo from './asset/VICLogo.png'
 //
 import Routes from 'react-static-routes'
 
@@ -23,6 +25,7 @@ const AnimatedRoutes = getContext({
   <Route
     path="*"
     render={props => {
+      document.title = "ค่ายวิศวพัฒน์ จุฬาลงกรณ์มหาวิทยาลัย"
       // Get the component for this path
       let Comp = getComponentForPath(cleanPath(props.location.pathname))
       if (!Comp) {
@@ -100,6 +103,8 @@ const AnimatedRoutes = getContext({
                     }}
                   >
                     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet" />
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous"/>
+                    <link href={VICLogo} rel="icon" />
                     {/* <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css"/> */}
                     <data.Comp {...data.props} />
                   </PreservedRouterContext>

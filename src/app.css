@@ -26,6 +26,16 @@ body {
 .subheading{
   font-size: 22px;
 }
+.vic-job-headline{
+  color: #ffffff;
+  font-size: 32px!important;
+}
+.h1{
+  font-size: 40px;
+}
+.white{
+  color: white;
+}
 @media only screen and (max-width: 768px){
   .intro-head{
     font-size: 20px!important;
@@ -41,5 +51,8 @@ body {
     white-space: pre;
     font-size: 50px;
     margin-left: 0px;
+  }
+  .h1{
+    font-size: 28px;
   }
 }

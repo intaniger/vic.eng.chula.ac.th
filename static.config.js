@@ -53,6 +53,10 @@ export default {
       component: 'src/containers/About',
     },
     {
+      path: '/register',
+      component: 'src/containers/Registration',
+    },
+    {
       is404: true,
       component: 'src/containers/404',
     },

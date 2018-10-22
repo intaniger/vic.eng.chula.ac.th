@@ -12,11 +12,12 @@ import VICLogo from '../asset/VICLogo.png'
 import Moon from '../asset/moon.png'
 import pic1 from '../asset/pic1.jpg'
 import section_1_img_1 from '../asset/section1_1.jpg'
-import section_1_img_3 from '../asset/section1_3.jpg'
-import section_1_img_4 from '../asset/section1_4.jpg'
-import section_1_img_5 from '../asset/section1_5.jpg'
-import section_1_img_6 from '../asset/section1_6.jpg'
+import section_1_img_2 from '../asset/section1_2.jpg'
+
 import VIC from '../asset/VIC.svg'
+import ToolIcon from '../asset/tools.svg'
+import ActivityIcon from '../asset/sprout.svg'
+
 import ParticleConfig from '../asset/particle_config.json'
 import './style.css'
 
@@ -87,22 +88,36 @@ class HomePage extends Component {
                     ค่ายวิศวพัฒน์ คืออะไร?
                   </h1>
                 </Row> */}
-                <Row style={{ margin: "10vh 0", padding: 0, }}>
+                <Row id="intro_paragraph">
                   <Column floated="left" width={8}>
-                    <Grid centered>
-                      <Image.Group style={{ alignItems: 'center' }} size="large" id="HistoryImageGroup">
-                        <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={section_1_img_4} id="HistoryImage" />
-                        <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={section_1_img_6} id="HistoryImage" />
-                      </Image.Group>
+                    <Grid>
+                      <Row centered>
+                        <Column width={10}>
+                          <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={section_1_img_1}/>
+                        </Column>
+                      </Row>
                     </Grid>
                   </Column>
                   <Column floated="right" width={8}>
-                    <p className="thai small intro-head" id="intro_paragraph" >
+                    <p className="thai small intro-head">
                       ถือกำเนิดขึ้นจากการรวมกลุ่มกันของนิสิตทุนวิศวฯ จุฬาฯ เพื่อทำกิจกรรมตอบแทนมหาวิทยาลัย และสังคมภายนอก
                       เนื่องด้วยความตระหนักและมีจิตสำนึกในฐานะการเป็นผู้รับ ที่ได้รับโอกาสทางการศึกษาจากจุฬาลงกรณ์มหาวิทยาลัย และต้องการส่งต่อ แบ่งปันโอกาสด้วยความรู้ความสามารถของตน
-                    </p><br /><br />
-                    <p className="thai small intro-sub" id="intro_paragraph">
-                      &nbsp;&nbsp;&nbsp;&nbsp;ค่ายวิศวพัฒน์จึงถือกำเนิดขึ้นมา เพื่อเปิดโอกาสให้นิสิตทุน และนิสิตวิศวฯจุฬาฯ ได้นำความสามารถที่มี ออกไปช่วยเหลือสังคมในหลากหลายมิติ และในบริบทต่างๆโดยไม่จำกัด และไม่ปิดกั้นความเฉพาะของงาน
+                    </p>
+                  </Column>
+                </Row>
+                <Row id="intro_paragraph">
+                  <Column floated="left" width={8}>
+                    <Grid>
+                      <Row centered>
+                        <Column width={10}>
+                          <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={section_1_img_2} />
+                        </Column>
+                      </Row>
+                    </Grid>
+                  </Column>
+                  <Column floated="right" width={8}>
+                    <p className="thai small intro-sub">
+                      &nbsp;&nbsp;&nbsp;&nbsp;ค่ายวิศวพัฒน์จึงถือเป็นค่ายที่เปิดโอกาสให้นิสิตทุน และนิสิตวิศวฯจุฬาฯ ได้นำความสามารถที่มี ออกไปช่วยเหลือสังคมในหลากหลายมิติ และในบริบทต่างๆโดยไม่จำกัด และไม่ปิดกั้นความเฉพาะของงาน
                       ไม่ว่าจะเป็นงานโยธา งานวิชาการ งานเทคโนโลยี หรืองานที่ต้องใช้องค์ความรู้ทางวิศวกรรมด้านต่างๆ โดยเน้นการมีส่วนร่วมกับชุมชน ด้วยหลักของการ <strong>“เข้าถึง เข้าใจ และพัฒนา”</strong> เพื่อช่วยเหลือ และพัฒนาได้ตรงสาเหตุที่แท้จริงของปัญหาเหล่านั้น นำไปสู่การสร้างชุมชนที่เข้มแข็ง
                     </p>
                   </Column>
@@ -117,15 +132,19 @@ class HomePage extends Component {
                     <Grid  style={{ height: "100%" }}>
                       <Row centered height={50}>
                         <Grid>
-                          <Row centered><div style={{ width: "100px", height: "100px", border: "3px solid white" }} /></Row>
-                          <Row centered><p className="thai small intro-sub" id="intro_paragraph">ปรับปรุงระบบชลประทาน</p></Row>
+                          <Row centered>
+                            <ToolIcon style={{ width: "150px", height: "150px", padding:5 }}/>
+                          </Row>
+                          <Row centered><p className="thai vic-job-headline">ปรับปรุงระบบชลประทาน</p></Row>
                         </Grid>
                       </Row>
                       <div className="verticalLine" />
                       <Row centered height={50}>
                         <Grid>
-                          <Row centered><div style={{ width: "100px", height: "100px", border: "3px solid white" }} /></Row>
-                          <Row centered><p className="thai small intro-sub" id="intro_paragraph">ปรับปรุงระบบชลประทาน</p></Row>
+                          <Row centered>
+                            <ActivityIcon style={{ width: "150px", height: "150px", padding:5 }}/>
+                          </Row>
+                          <Row centered><p className="thai vic-job-headline">กิจกรรมปฏิสัมพันธ์กับชุมชน</p></Row>
                         </Grid>
                       </Row>
                     </Grid>
@@ -136,7 +155,7 @@ class HomePage extends Component {
 
             </div>
             {
-              [...Array(20).keys()].map(() => (
+              [...Array(7).keys()].map(() => (
                 <Row style={{ marginBottom: "10vh", padding: 0, }}>
                   <Column width={7} floated="right">
                     <img style={imageStyle} alt="Start pic" src={pic1} />
@@ -174,7 +193,7 @@ class HomePage extends Component {
           scheduler1.add(Tween.fromTo(`path.char_${charIndex}`, 0.2, { strokeDashoffset: charSVG.getTotalLength() }, { strokeDashoffset: 0 }), 0.2 * (charIndex - 1))
         }
         // Fill "วิศวพัฒน์" text with #fff68f (bright yellow) color
-        scheduler1.add(Tween.fromTo(`path`, 2.6, { fill: "#fff68f00", ease: Expo.easeIn }, { fill: "#fff68f", ease: Expo.easeIn }), 0)
+        scheduler1.add(Tween.fromTo(`path[class^="char"]`, 2.6, { fill: "#fff68f00", ease: Expo.easeIn }, { fill: "#fff68f", ease: Expo.easeIn }), 0)
 
         // Printing "นิสิตทุนคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย" text
         scheduler1.add(Tween.to(this.state, 1, { currentSubheading1Length: 47, onUpdate: () => this.forceUpdate(), ease: Linear.easeInOut }), 2.6)
@@ -188,18 +207,55 @@ class HomePage extends Component {
         controller.addScene(scene1)
       }
       // <------------ History Animation --------------->
-      const HistoryFadeInScene = new ScrollMagic.Scene({ triggerElement: "#intro_paragraph", duration: 0.5 * H, offset: -0.3 * H }).setTween(
-        TweenMax.staggerFromTo("#intro_paragraph", 0.2, { x: -50, opacity: 0 }, { x: 0, opacity: 1 }, 0.5),
-      )
-      const HistoryFadeOutScene = new ScrollMagic.Scene({ triggerElement: "#intro_paragraph", duration: 0.2 * H, offset: -0.3 * H }).setTween(
-        "#head1", { opacity: 0 }
-      )
-      const HistoryImageScene = new ScrollMagic.Scene({ triggerElement: "#HistoryImageGroup", duration: 0.5 * H, offset: -0.2 * H }).setTween(
-        TweenMax.staggerFromTo("#HistoryImage", 1, { opacity: 0, height: 0 }, { opacity: 1, height: 300 }, 0.5)
-      )
-      controller.addScene(HistoryFadeInScene)
-      controller.addScene(HistoryFadeOutScene)
-      controller.addScene(HistoryImageScene)
+      {
+        const HistoryFadeInScene = new ScrollMagic.Scene({ triggerElement: "#intro_paragraph", duration: 0.5*H, offset: 0 }).setTween(
+          TweenMax.staggerFromTo("#intro_paragraph", 0.2, { x: -50, opacity: 0 }, { x: 0, opacity: 1 }, 0.5),
+        )
+        const HistoryFadeOutScene = new ScrollMagic.Scene({ triggerElement: "#intro_paragraph", duration: 0.2 * H, offset: -0.3 * H }).setTween(
+          "#head1", { opacity: 0 }
+        )
+        controller.addScene(HistoryFadeInScene)
+        controller.addScene(HistoryFadeOutScene)
+      }
+      // <------------ Job Intro Animation --------------->
+      {
+        const FayJobScene = new ScrollMagic.Scene({ triggerElement: "#camp_infor", tweenChanges: true, reverse: false })
+        const FaySceneScheduler = new TimelineLite() // Animation time schedule
+
+        // Tools icon animation
+        const toolSVG = document.querySelector(`path.tools_1`)
+        toolSVG.style.stroke = "#ffffff"
+        toolSVG.style.strokeWidth = "5px"
+        toolSVG.style.strokeDasharray = toolSVG.getTotalLength()
+        toolSVG.style.ease = Linear.easeNone
+        FaySceneScheduler.add(Tween.fromTo(`path.tools_1`, 3, { strokeDashoffset: toolSVG.getTotalLength() }, { strokeDashoffset: 0 }), 0)
+
+        // Sprout icon animation
+
+        const sproutSVG1 = document.querySelector(`path.sprout_1`)
+        sproutSVG1.style.stroke = "#ffffff"
+        sproutSVG1.style.strokeWidth = "5px"
+        sproutSVG1.style.strokeDasharray = sproutSVG1.getTotalLength()
+        sproutSVG1.style.ease = Linear.easeNone
+        FaySceneScheduler.add(Tween.fromTo(`path.sprout_1`, 1.5, { strokeDashoffset: sproutSVG1.getTotalLength() }, { strokeDashoffset: 0 }), 0)
+
+        const sproutSVG2 = document.querySelector(`path.sprout_2`)
+        sproutSVG2.style.stroke = "#ffffff"
+        sproutSVG2.style.strokeWidth = "5px"
+        sproutSVG2.style.strokeDasharray = sproutSVG2.getTotalLength()
+        sproutSVG2.style.ease = Linear.easeNone
+        FaySceneScheduler.add(Tween.fromTo(`path.sprout_2`, 1.5, { strokeDashoffset: sproutSVG2.getTotalLength() }, { strokeDashoffset: 0 }), 0)
+
+
+        FaySceneScheduler.add(Tween.fromTo(`.vic-job-headline`, 3, { opacity: 0 }, { opacity: 1 }), 0)
+        FaySceneScheduler.add(Tween.fromTo(`.verticalLine`, 1.5, { width: "0%", ease: Expo.easeOut }, { width: "100%", ease: Expo.easeOut }), 0)
+
+        // Add schedule to scene
+        FayJobScene.setTween(FaySceneScheduler)
+
+        // Add scene to controller
+        controller.addScene(FayJobScene)
+      }
     }
     this.forceUpdate()
   }
