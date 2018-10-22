@@ -1,0 +1,15 @@
+.fullheight {
+    min-height: 100vh;
+}
+.fullwidth {
+    width: 100%;
+}
+.margin {
+    margin: 0;
+}
+.verticalLine{
+    height:3px;
+    width: 100%;
+    padding:0;
+    background-color:white;
+}

@@ -18,26 +18,26 @@ import section_1_img_5 from '../asset/section1_5.jpg'
 import section_1_img_6 from '../asset/section1_6.jpg'
 import VIC from '../asset/VIC.svg'
 import ParticleConfig from '../asset/particle_config.json'
-
+import './style.css'
 
 import "../lib/illuminated.js";
 /* import { white } from '../../node_modules/ansi-colors'; */
 
-const {Column, Row} = Grid
+const { Column, Row } = Grid
 
 const R = 300
 const acos = Math.acos
 const sin = Math.sin;
 const W = window.innerWidth
 const H = window.innerHeight
-const MoonFactor = (H < W) ? 1:0.5
+const MoonFactor = (H < W) ? 1 : 0.5
 const factor = (H < W) ? 1.5 * Math.ceil(H / W) : 0.7
 const RotateRadius = (factor * H)
-const firstMoonHoffset = (factor * H)  - (RotateRadius)*sin(acos(W / (2 * RotateRadius)));
-const rotatableAngle =  Math.PI - ( 2 * (Math.acos((W /(2 * RotateRadius)))));
+const firstMoonHoffset = (factor * H) - (RotateRadius) * sin(acos(W / (2 * RotateRadius)));
+const rotatableAngle = Math.PI - (2 * (Math.acos((W / (2 * RotateRadius)))));
 const imageStyle = { width: "75%", height: "75%", display: "block", marginLeft: "auto", marginRight: "auto" };
 
-class HomePage extends Component{
+class HomePage extends Component {
   state = {
     currentSubheading1Length: 0,
     LogoStyle: {
@@ -50,29 +50,29 @@ class HomePage extends Component{
   }
   render = () => (
     <div>
-      <div style={{position:"fixed", zIndex: 2, width:"100%", height:"100%", top:0, left:0}} id="background">
-        <div style={{position:"fixed",  width:window.innerWidth, height: RotateRadius, transform: `rotate(0deg) translate(-${0.5 * MoonFactor * R}px, ${firstMoonHoffset}px)`, transformOrigin: "50% 100%"}} id="sun-moon-background">
-          <img alt="Moon" src={Moon} style={{width:`${MoonFactor * R}px`}} />
+      <div style={{ position: "fixed", zIndex: 2, width: "100%", height: "100%", top: 0, left: 0 }} id="background">
+        <div style={{ position: "fixed", width: window.innerWidth, height: RotateRadius, transform: `rotate(0deg) translate(-${0.5 * MoonFactor * R}px, ${firstMoonHoffset}px)`, transformOrigin: "50% 100%" }} id="sun-moon-background">
+          <img alt="Moon" src={Moon} style={{ width: `${MoonFactor * R}px` }} />
         </div>
-        <img alt="Mountain background" id="mountain-background" style={{width:"100%", filter:" grayscale(100%) contrast(60%) brightness(20%)", opacity:1, zIndex:4,position:"absolute", left:0, bottom:0}} src={Mountain}/>
+        <img alt="Mountain background" id="mountain-background" style={{ width: "100%", filter: " grayscale(100%) contrast(60%) brightness(20%)", opacity: 1, zIndex: 4, position: "absolute", left: 0, bottom: 0 }} src={Mountain} />
       </div>
-      <div id="content" style={{position:"relative", zIndex:1000}}>
+      <div id="content" style={{ position: "relative", zIndex: 1000 }}>
         {/* Web Content Here */}
         <Grid columns={16} centered>
           <Column width={14} centered >
             <Grid>
               <Row id="head1">
                 <Column computer={8} mobile={16} floated="right">
-                  <Grid verticalAlign='middle' centered style={{height:"100vh"}}>
+                  <Grid verticalAlign='middle' centered style={{ height: "100vh" }}>
                     <Row stretched>
-                      <Column style={{...this.state.LogoStyle}} width={4}>
-                        <img alt="Vidvapath logo" src={VICLogo}/>
+                      <Column style={{ ...this.state.LogoStyle }} width={4}>
+                        <img alt="Vidvapath logo" src={VICLogo} />
                       </Column>
                       <Column width={12}>
-                        <VIC style={{width:"100%"}}/>
-                        <h1 style={{margin:0, color:"#BEBEBE"}} className="thai small subheading">
+                        <VIC style={{ width: "100%" }} />
+                        <h1 style={{ margin: 0, color: "#BEBEBE" }} className="thai small subheading">
                           {/* fontSize will be 2.5vw in case mobile */}
-                          {"นิสิตทุนคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย".substr(0,Math.floor(this.state.currentSubheading1Length))}
+                          {"นิสิตทุนคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย".substr(0, Math.floor(this.state.currentSubheading1Length))}
                         </h1>
                       </Column>
                     </Row>
@@ -80,38 +80,63 @@ class HomePage extends Component{
                 </Column>
               </Row>
             </Grid>
-            <div style={{paddingBottom:300}}>
+            <div style={{ paddingBottom: 300 }}>
               <Grid id="intro" verticalAlign='middle' centered>
                 {/* <Row centered>
                   <h1 style={{ margin: "10vh", padding: 0, color: "#ffffff", textAlign: 'center', fontSize: 80 }} className="thai small">
                     ค่ายวิศวพัฒน์ คืออะไร?
                   </h1>
                 </Row> */}
-                <Row style={{ margin: "10vh 0", padding: 0,}} centered>
-                  <Column width={16}>
-                    <p  className="thai small intro-head" id="intro_paragraph" >
+                <Row style={{ margin: "10vh 0", padding: 0, }}>
+                  <Column floated="left" width={8}>
+                    <Grid centered>
+                      <Image.Group style={{ alignItems: 'center' }} size="large" id="HistoryImageGroup">
+                        <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={section_1_img_4} id="HistoryImage" />
+                        <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={section_1_img_6} id="HistoryImage" />
+                      </Image.Group>
+                    </Grid>
+                  </Column>
+                  <Column floated="right" width={8}>
+                    <p className="thai small intro-head" id="intro_paragraph" >
                       ถือกำเนิดขึ้นจากการรวมกลุ่มกันของนิสิตทุนวิศวฯ จุฬาฯ เพื่อทำกิจกรรมตอบแทนมหาวิทยาลัย และสังคมภายนอก
                       เนื่องด้วยความตระหนักและมีจิตสำนึกในฐานะการเป็นผู้รับ ที่ได้รับโอกาสทางการศึกษาจากจุฬาลงกรณ์มหาวิทยาลัย และต้องการส่งต่อ แบ่งปันโอกาสด้วยความรู้ความสามารถของตน
-                    </p><br/><br/>
-                    <p  className="thai small intro-sub" id="intro_paragraph">
+                    </p><br /><br />
+                    <p className="thai small intro-sub" id="intro_paragraph">
                       &nbsp;&nbsp;&nbsp;&nbsp;ค่ายวิศวพัฒน์จึงถือกำเนิดขึ้นมา เพื่อเปิดโอกาสให้นิสิตทุน และนิสิตวิศวฯจุฬาฯ ได้นำความสามารถที่มี ออกไปช่วยเหลือสังคมในหลากหลายมิติ และในบริบทต่างๆโดยไม่จำกัด และไม่ปิดกั้นความเฉพาะของงาน
                       ไม่ว่าจะเป็นงานโยธา งานวิชาการ งานเทคโนโลยี หรืองานที่ต้องใช้องค์ความรู้ทางวิศวกรรมด้านต่างๆ โดยเน้นการมีส่วนร่วมกับชุมชน ด้วยหลักของการ <strong>“เข้าถึง เข้าใจ และพัฒนา”</strong> เพื่อช่วยเหลือ และพัฒนาได้ตรงสาเหตุที่แท้จริงของปัญหาเหล่านั้น นำไปสู่การสร้างชุมชนที่เข้มแข็ง
                     </p>
                   </Column>
                 </Row>
-                <Row style={{ marginBottom: "10vh", padding: 0, }}>
-                  <Image.Group size="large" id="HistoryImageGroup">
-                    <Image src={section_1_img_3} id="HistoryImage" />
-                    <Image src={section_1_img_4} id="HistoryImage" />
-                    <Image src={section_1_img_5} id="HistoryImage" />
-                    <Image src={section_1_img_1} id="HistoryImage" />
-                    <Image src={section_1_img_6} id="HistoryImage" />
-                  </Image.Group>
+              </Grid>
+              <Grid id="camp_infor" centered>
+                <Row style={{ margin: "10vh 0",  width: "500px"}} centered>
+                  <Column width={8} floated="left">
+                    <div style={{ width: "500px", height: "70vh", border: "3px solid white" }} />{/* GOOGLE MAP API */}
+                  </Column>
+                  <Column verticalAlign='middle' width={8} floated="right">
+                    <Grid  style={{ height: "100%" }}>
+                      <Row centered height={50}>
+                        <Grid>
+                          <Row centered><div style={{ width: "100px", height: "100px", border: "3px solid white" }} /></Row>
+                          <Row centered><p className="thai small intro-sub" id="intro_paragraph">ปรับปรุงระบบชลประทาน</p></Row>
+                        </Grid>
+                      </Row>
+                      <div className="verticalLine" />
+                      <Row centered height={50}>
+                        <Grid>
+                          <Row centered><div style={{ width: "100px", height: "100px", border: "3px solid white" }} /></Row>
+                          <Row centered><p className="thai small intro-sub" id="intro_paragraph">ปรับปรุงระบบชลประทาน</p></Row>
+                        </Grid>
+                      </Row>
+                    </Grid>
+                  </Column>
+
                 </Row>
               </Grid>
+
             </div>
             {
-              [...Array(20).keys()].map(()=>(
+              [...Array(20).keys()].map(() => (
                 <Row style={{ marginBottom: "10vh", padding: 0, }}>
                   <Column width={7} floated="right">
                     <img style={imageStyle} alt="Start pic" src={pic1} />
@@ -123,6 +148,7 @@ class HomePage extends Component{
                   </Column>
                 </Row>))
             }
+
           </Column>
         </Grid>
       </div>
@@ -162,14 +188,14 @@ class HomePage extends Component{
         controller.addScene(scene1)
       }
       // <------------ History Animation --------------->
-      const HistoryFadeInScene = new ScrollMagic.Scene({triggerElement:"#intro_paragraph", duration:0.5 * H, offset:-0.3 * H}).setTween(
-        TweenMax.staggerFromTo("#intro_paragraph", 0.2, {x:-50, opacity:0}, {x:0, opacity:1}, 0.5),
+      const HistoryFadeInScene = new ScrollMagic.Scene({ triggerElement: "#intro_paragraph", duration: 0.5 * H, offset: -0.3 * H }).setTween(
+        TweenMax.staggerFromTo("#intro_paragraph", 0.2, { x: -50, opacity: 0 }, { x: 0, opacity: 1 }, 0.5),
       )
-      const HistoryFadeOutScene = new ScrollMagic.Scene({triggerElement:"#intro_paragraph", duration:0.2 * H, offset:-0.3 * H}).setTween(
-        "#head1", {opacity:0}
+      const HistoryFadeOutScene = new ScrollMagic.Scene({ triggerElement: "#intro_paragraph", duration: 0.2 * H, offset: -0.3 * H }).setTween(
+        "#head1", { opacity: 0 }
       )
-      const HistoryImageScene = new ScrollMagic.Scene({triggerElement:"#HistoryImageGroup", duration:0.5 * H, offset:-0.2 * H}).setTween(
-        TweenMax.staggerFromTo("#HistoryImage", 1, {opacity:0, height:0}, {opacity:1, height:300}, 0.5)
+      const HistoryImageScene = new ScrollMagic.Scene({ triggerElement: "#HistoryImageGroup", duration: 0.5 * H, offset: -0.2 * H }).setTween(
+        TweenMax.staggerFromTo("#HistoryImage", 1, { opacity: 0, height: 0 }, { opacity: 1, height: 300 }, 0.5)
       )
       controller.addScene(HistoryFadeInScene)
       controller.addScene(HistoryFadeOutScene)
