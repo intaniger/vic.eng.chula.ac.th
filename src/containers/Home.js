@@ -149,7 +149,34 @@ class HomePage extends Component {
                       </Row>
                     </Grid>
                   </Column>
-
+                </Row>
+              </Grid>
+              <Grid id="timline" centered >
+                <Row style={{ margin: "10vh 0",  width: "500px"}} centered verticalAlign="middle">
+                  <Column width={3} floated="centered">
+                    <Row>
+                    <div style={{ width: "180px", height: "30vh", border: "3px solid white" }}> </div>
+                    </Row>
+                    <Row centreed><p className="thai vic-job-headline"> Step 1</p> </Row>
+                  </Column>
+                  <Column width={3} floated="centered" verticalAlign="middle">
+                   <div style={{width:"200px", height: "3px",padding:"0",backgroundColor:"white",}}></div>
+                  </Column>
+                  <Column width={3} floated="centered">
+                    <Row>
+                      <div style={{ width: "180px", height: "30vh", border: "3px solid white" }}> </div>
+                    </Row>
+                    <Row centreed><p className="thai vic-job-headline"> Step 2</p> </Row>
+                  </Column>
+                  <Column width={3} floated="centered"  verticalAlign="middle">
+                   <div style={{width:"200px", height: "3px",padding:"0",backgroundColor:"white",}}></div>
+                  </Column>
+                  <Column width={3} floated="centered">
+                    <Row>
+                      <div style={{ width: "180px", height: "30vh", border: "3px solid white" }}> </div>
+                    </Row>
+                    <Row centreed><p className="thai vic-job-headline"> Step 3</p> </Row>
+                  </Column>
                 </Row>
               </Grid>
 
