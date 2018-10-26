@@ -17,6 +17,7 @@ import section_1_img_2 from '../asset/section1_2.jpg'
 import VIC from '../asset/VIC.svg'
 import ToolIcon from '../asset/tools.svg'
 import ActivityIcon from '../asset/sprout.svg'
+import CalendarIcon from '../asset/calendar.svg'
 
 import ParticleConfig from '../asset/particle_config.json'
 import './style.css'
@@ -93,7 +94,7 @@ class HomePage extends Component {
                     <Grid>
                       <Row centered>
                         <Column width={10}>
-                          <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={section_1_img_1}/>
+                          <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={section_1_img_1} />
                         </Column>
                       </Row>
                     </Grid>
@@ -124,16 +125,16 @@ class HomePage extends Component {
                 </Row>
               </Grid>
               <Grid id="camp_infor" centered>
-                <Row style={{ margin: "10vh 0",  width: "500px"}} centered>
+                <Row style={{ margin: "10vh 0", width: "500px" }} centered>
                   <Column width={8} floated="left">
                     <div style={{ width: "500px", height: "70vh", border: "3px solid white" }} />{/* GOOGLE MAP API */}
                   </Column>
                   <Column verticalAlign='middle' width={8} floated="right">
-                    <Grid  style={{ height: "100%" }}>
+                    <Grid style={{ height: "100%" }}>
                       <Row centered height={50}>
                         <Grid>
                           <Row centered>
-                            <ToolIcon style={{ width: "150px", height: "150px", padding:5 }}/>
+                            <ToolIcon style={{ width: "150px", height: "150px", padding: 5 }} />
                           </Row>
                           <Row centered><p className="thai vic-job-headline">ปรับปรุงระบบชลประทาน</p></Row>
                         </Grid>
@@ -142,7 +143,7 @@ class HomePage extends Component {
                       <Row centered height={50}>
                         <Grid>
                           <Row centered>
-                            <ActivityIcon style={{ width: "150px", height: "150px", padding:5 }}/>
+                            <ActivityIcon style={{ width: "150px", height: "150px", padding: 5 }} />
                           </Row>
                           <Row centered><p className="thai vic-job-headline">กิจกรรมปฏิสัมพันธ์กับชุมชน</p></Row>
                         </Grid>
@@ -152,15 +153,15 @@ class HomePage extends Component {
                 </Row>
               </Grid>
               <Grid id="timline" centered >
-                <Row style={{ margin: "10vh 0",  width: "500px"}} centered verticalAlign="middle">
-                  <Column width={3} floated="centered">
+                <Row style={{ margin: "10vh 0", width: "500px", }} centered verticalAlign="middle">
+                  <Column id="step1" width={3} floated="centered">
                     <Row>
-                    <div style={{ width: "180px", height: "30vh", border: "3px solid white" }}> </div>
+                      <CalendarIcon style={{ width: "150px", height: "150px", padding: 5 }} />
                     </Row>
                     <Row centered><p className="thai vic-job-headline">Register</p> </Row>
                   </Column>
                   <Column width={3} floated="centered" verticalAlign="middle">
-                   <div style={{width:"200px", height: "3px",padding:"0",backgroundColor:"white",}}></div>
+                    <div style={{ width: "200px", height: "3px", padding: "0", backgroundColor: "white", }}></div>
                   </Column>
                   <Column width={3} floated="centered">
                     <Row>
@@ -168,8 +169,8 @@ class HomePage extends Component {
                     </Row>
                     <Row centered><p className="thai vic-job-headline">First Meet</p> </Row>
                   </Column>
-                  <Column width={3} floated="centered"  verticalAlign="middle">
-                   <div style={{width:"200px", height: "3px",padding:"0",backgroundColor:"white",}}></div>
+                  <Column width={3} floated="centered" verticalAlign="middle">
+                    <div style={{ width: "200px", height: "3px", padding: "0", backgroundColor: "white", }}></div>
                   </Column>
                   <Column width={3} floated="centered">
                     <Row>
@@ -235,7 +236,7 @@ class HomePage extends Component {
       }
       // <------------ History Animation --------------->
       {
-        const HistoryFadeInScene = new ScrollMagic.Scene({ triggerElement: "#intro_paragraph", duration: 0.5*H, offset: 0 }).setTween(
+        const HistoryFadeInScene = new ScrollMagic.Scene({ triggerElement: "#intro_paragraph", duration: 0.5 * H, offset: 0 }).setTween(
           TweenMax.staggerFromTo("#intro_paragraph", 0.2, { x: -50, opacity: 0 }, { x: 0, opacity: 1 }, 0.5),
         )
         const HistoryFadeOutScene = new ScrollMagic.Scene({ triggerElement: "#intro_paragraph", duration: 0.2 * H, offset: -0.3 * H }).setTween(
@@ -282,6 +283,33 @@ class HomePage extends Component {
 
         // Add scene to controller
         controller.addScene(FayJobScene)
+      }
+      // <------------ Timeline Animation --------------->
+      {
+        const TlScene = new ScrollMagic.Scene({ triggerElement: "#timeline", tweenChanges: true, reverse: false })
+        const TlSceneScheduler = new TimelineLite() // Animation time schedule
+
+
+        // Calendar icon animation
+        const tlSVG1 = document.querySelector(`path.cld1`)
+        tlSVG1.style.stroke = "#ffffff"
+        tlSVG1.style.strokeWidth = "1px"
+        tlSVG1.style.strokeDasharray = tlSVG1.getTotalLength()
+        tlSVG1.style.ease = Linear.easeNone
+        TlSceneScheduler.add(Tween.fromTo(`path.cld1`, 1.5, { strokeDashoffset: tlSVG1.getTotalLength() }, { strokeDashoffset: 0 }), 0)
+
+        const tlSVG2 = document.querySelector(`path.cld2`)
+        tlSVG2.style.stroke = "#ffffff"
+        tlSVG2.style.strokeWidth = "1px"
+        tlSVG2.style.strokeDasharray = tlSVG2.getTotalLength()
+        tlSVG2.style.ease = Linear.easeNone
+        TlSceneScheduler.add(Tween.fromTo(`path.cld2`, 1.5, { strokeDashoffset: tlSVG2.getTotalLength() }, { strokeDashoffset: 0 }), 1.5)
+
+        // Add schedule to scene
+        TlScene.setTween(TlSceneScheduler)
+
+        // Add scene to controller
+        controller.addScene(TlScene)
       }
     }
     this.forceUpdate()
