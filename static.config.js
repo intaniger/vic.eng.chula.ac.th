@@ -1,5 +1,7 @@
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+require('https').globalAgent.options.ca = require('ssl-root-cas/latest').create();
+const axios = require('axios')
 
 export default {
   webpack: (config, { defaultLoaders }) => {
@@ -55,6 +57,12 @@ export default {
     {
       path: '/register',
       component: 'src/containers/Registration',
+      getData: async () => {
+        const formID = "e89bd2e072932eb6ab1b21073b9fc0fd160dace96b8d0cc12346ae5c95e54a9e"
+        const { data: result } = await axios.get(`http://datanaliez.com/api/v1/form/info/${formID}`)
+        const formData = {...result.result}
+        return {formData, formID}
+      }
     },
     {
       is404: true,

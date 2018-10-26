@@ -36,6 +36,13 @@ body {
 .white{
   color: white;
 }
+.timeline-line-frame{
+  width: 100%;
+  height: 3px;
+  margin: 0 auto;
+  background-color: white;
+}
+/* style={{ width: "100%", height: "3px", padding: "0", backgroundColor: "white", }} */
 @media only screen and (max-width: 768px){
   .intro-head{
     font-size: 20px!important;
@@ -49,10 +56,18 @@ body {
   .intro-head::before{
     content: "“ค่ายวิศวพัฒน์”\A";
     white-space: pre;
-    font-size: 50px;
+    font-size: 28px;
     margin-left: 0px;
+  }
+  .vic-job-headline{
+    font-size: 28px!important;
   }
   .h1{
     font-size: 28px;
+  }
+  .timeline-line-frame{
+    width: 3px;
+    height: 150px;
+    background-color: white;
   }
 }

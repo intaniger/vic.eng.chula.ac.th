@@ -61,7 +61,7 @@ class HomePage extends Component {
       <div id="content" style={{ position: "relative", zIndex: 1000 }}>
         {/* Web Content Here */}
         <Grid columns={16} centered>
-          <Column width={14} centered >
+          <Column width={14}>
             <Grid>
               <Row id="head1">
                 <Column computer={8} mobile={16} floated="right">
@@ -82,14 +82,20 @@ class HomePage extends Component {
                 </Column>
               </Row>
             </Grid>
-            <div style={{ paddingBottom: 300 }}>
+            <div style={{ paddingBottom: 100 }}>
               <Grid id="intro" verticalAlign='middle' centered>
                 {/* <Row centered>
                   <h1 style={{ margin: "10vh", padding: 0, color: "#ffffff", textAlign: 'center', fontSize: 80 }} className="thai small">
                     ค่ายวิศวพัฒน์ คืออะไร?
                   </h1>
                 </Row> */}
-                <Row id="intro_paragraph">
+                <Grid stackable id="intro_paragraph" verticalAlign="middle">
+                  <Column floated="right" width={8}>
+                    <p className="thai small intro-head">
+                      ถือกำเนิดขึ้นจากการรวมกลุ่มกันของนิสิตทุนวิศวฯ จุฬาฯ เพื่อทำกิจกรรมตอบแทนมหาวิทยาลัย และสังคมภายนอก
+                      เนื่องด้วยความตระหนักและมีจิตสำนึกในฐานะการเป็นผู้รับ ที่ได้รับโอกาสทางการศึกษาจากจุฬาลงกรณ์มหาวิทยาลัย และต้องการส่งต่อ แบ่งปันโอกาสด้วยความรู้ความสามารถของตน
+                    </p>
+                  </Column>
                   <Column floated="left" width={8}>
                     <Grid>
                       <Row centered>
@@ -99,14 +105,8 @@ class HomePage extends Component {
                       </Row>
                     </Grid>
                   </Column>
-                  <Column floated="right" width={8}>
-                    <p className="thai small intro-head">
-                      ถือกำเนิดขึ้นจากการรวมกลุ่มกันของนิสิตทุนวิศวฯ จุฬาฯ เพื่อทำกิจกรรมตอบแทนมหาวิทยาลัย และสังคมภายนอก
-                      เนื่องด้วยความตระหนักและมีจิตสำนึกในฐานะการเป็นผู้รับ ที่ได้รับโอกาสทางการศึกษาจากจุฬาลงกรณ์มหาวิทยาลัย และต้องการส่งต่อ แบ่งปันโอกาสด้วยความรู้ความสามารถของตน
-                    </p>
-                  </Column>
-                </Row>
-                <Row id="intro_paragraph">
+                </Grid>
+                <Grid stackable id="intro_paragraph" verticalAlign="middle">
                   <Column floated="left" width={8}>
                     <Grid>
                       <Row centered>
@@ -122,68 +122,76 @@ class HomePage extends Component {
                       ไม่ว่าจะเป็นงานโยธา งานวิชาการ งานเทคโนโลยี หรืองานที่ต้องใช้องค์ความรู้ทางวิศวกรรมด้านต่างๆ โดยเน้นการมีส่วนร่วมกับชุมชน ด้วยหลักของการ <strong>“เข้าถึง เข้าใจ และพัฒนา”</strong> เพื่อช่วยเหลือ และพัฒนาได้ตรงสาเหตุที่แท้จริงของปัญหาเหล่านั้น นำไปสู่การสร้างชุมชนที่เข้มแข็ง
                     </p>
                   </Column>
-                </Row>
+                </Grid>
               </Grid>
-              <Grid id="camp_infor" centered>
-                <Row style={{ margin: "10vh 0", width: "500px" }} centered>
-                  <Column width={8} floated="left">
-                    <div style={{ width: "500px", height: "70vh", border: "3px solid white" }} />{/* GOOGLE MAP API */}
-                  </Column>
-                  <Column verticalAlign='middle' width={8} floated="right">
-                    <Grid style={{ height: "100%" }}>
-                      <Row centered height={50}>
-                        <Grid>
-                          <Row centered>
-                            <ToolIcon style={{ width: "150px", height: "150px", padding: 5 }} />
-                          </Row>
-                          <Row centered><p className="thai vic-job-headline">ปรับปรุงระบบชลประทาน</p></Row>
-                        </Grid>
-                      </Row>
-                      <div className="verticalLine" />
-                      <Row centered height={50}>
-                        <Grid>
-                          <Row centered>
-                            <ActivityIcon style={{ width: "150px", height: "150px", padding: 5 }} />
-                          </Row>
-                          <Row centered><p className="thai vic-job-headline">กิจกรรมปฏิสัมพันธ์กับชุมชน</p></Row>
-                        </Grid>
-                      </Row>
-                    </Grid>
-                  </Column>
-                </Row>
-              </Grid>
-              <Grid id="timline" centered >
-                <Row style={{ margin: "10vh 0", width: "500px", }} centered verticalAlign="middle">
-                  <Column id="step1" width={3} floated="centered">
+            </div>
+            <Grid id="camp_infor" stackable centered>
+              {/* <Row style={{ margin: "10vh 0", width: "500px" }} centered> */}
+                <Column verticalAlign='middle' width={8}>
+                  <Grid style={{ height: "100%" }}>
+                    <Row centered height={50}>
+                      <Grid>
+                        <Row centered>
+                          <ToolIcon style={{ width: "150px", height: "150px", padding: 5 }} />
+                        </Row>
+                        <Row centered><p className="thai vic-job-headline">ปรับปรุงระบบชลประทาน</p></Row>
+                      </Grid>
+                    </Row>
+                    <div className="verticalLine" />
+                    <Row centered height={50}>
+                      <Grid>
+                        <Row centered>
+                          <ActivityIcon style={{ width: "150px", height: "150px", padding: 5 }} />
+                        </Row>
+                        <Row centered><p className="thai vic-job-headline">กิจกรรมปฏิสัมพันธ์กับชุมชน</p></Row>
+                      </Grid>
+                    </Row>
+                  </Grid>
+                </Column>
+                <Column width={8}>
+                  <div style={{ width: "100%", height: "70vh", border: "3px solid white" }} />{/* GOOGLE MAP API */}
+                </Column>
+              {/* </Row> */}
+            </Grid>
+            <Grid id="timeline" centered verticalAlign = "middle">
+              <Row columns={16} style={{ margin: "10vh 0", }} centered>
+                <Column id="step1" computer={3} mobile={16}>
+                  <Grid centered>
                     <Row>
                       <CalendarIcon style={{ width: "150px", height: "150px", padding: 5 }} />
                     </Row>
-                    <Row centered><p className="thai vic-job-headline">Register</p> </Row>
-                  </Column>
-                  <Column width={3} floated="centered" verticalAlign="middle">
-                    <div style={{ width: "200px", height: "3px", padding: "0", backgroundColor: "white", }}></div>
-                  </Column>
-                  <Column width={3} floated="centered">
+                    <Row><p className="thai vic-job-headline">Registeration</p></Row>
+                    <Row><p className="thai vic-job-headline">1 - 8 Nov 2018</p></Row>
+                  </Grid>
+                </Column>
+                <Column computer={3} mobile={16}>
+                  <div className="timeline-line-frame"/>
+                </Column>
+                <Column id="step2" computer={3} mobile={16}>
+                  <Grid centered>
                     <Row>
-                      <div style={{ width: "180px", height: "30vh", border: "3px solid white" }}> </div>
+                      <div style={{ width: "180px", height: "30vh", border: "3px solid white" }} />
                     </Row>
                     <Row centered><p className="thai vic-job-headline">First Meet</p> </Row>
-                  </Column>
-                  <Column width={3} floated="centered" verticalAlign="middle">
-                    <div style={{ width: "200px", height: "3px", padding: "0", backgroundColor: "white", }}></div>
-                  </Column>
-                  <Column width={3} floated="centered">
+                    <Row><p className="thai vic-job-headline">9 Nov 2018</p></Row>
+                  </Grid>
+                </Column>
+                <Column computer={3} mobile={16}>
+                  <div className="timeline-line-frame"/>
+                </Column>
+                <Column id="step3" computer={3} mobile={16}>
+                  <Grid centered>
                     <Row>
-                      <div style={{ width: "180px", height: "30vh", border: "3px solid white" }}> </div>
+                      <div style={{ width: "180px", height: "30vh", border: "3px solid white" }} />
                     </Row>
                     <Row centered><p className="thai vic-job-headline">D-DAY</p> </Row>
-                  </Column>
-                </Row>
-              </Grid>
-
-            </div>
+                    <Row><p className="thai vic-job-headline">22 - 28 Dec 2018</p></Row>
+                  </Grid>
+                </Column>
+              </Row>
+            </Grid>
             {
-              [...Array(7).keys()].map(() => (
+              [...Array(3).keys()].map(() => (
                 <Row style={{ marginBottom: "10vh", padding: 0, }}>
                   <Column width={7} floated="right">
                     <img style={imageStyle} alt="Start pic" src={pic1} />

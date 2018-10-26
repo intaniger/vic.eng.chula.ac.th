@@ -25,7 +25,6 @@ const AnimatedRoutes = getContext({
   <Route
     path="*"
     render={props => {
-      document.title = "ค่ายวิศวพัฒน์ จุฬาลงกรณ์มหาวิทยาลัย"
       // Get the component for this path
       let Comp = getComponentForPath(cleanPath(props.location.pathname))
       if (!Comp) {
@@ -59,20 +58,20 @@ const AnimatedRoutes = getContext({
           start={() => ({
             opacity: [0],
             scale: 1,
-            translateX: [50],
+            translateX: [100],
           })}
           enter={() => ({
             opacity: [1],
             translateX: [0],
-            timing: { duration: 200, delay: 200, ease: easeQuadOut },
+            timing: { duration: 500, delay: 200, ease: easeQuadOut },
           })}
           update={() => ({
             opacity: [1],
           })}
           leave={() => ({
             opacity: [0],
-            translateX: [-50],
-            timing: { duration: 200, ease: easeQuadOut },
+            translateX: [-100],
+            timing: { duration: 500, ease: easeQuadOut },
           })}
         >
           {nodes => (
@@ -98,15 +97,13 @@ const AnimatedRoutes = getContext({
                       right: 0,
                       bottom: 0,
                       left: 0,
-                      transform: translateX === 0 ?undefined:`translateX(${translateX}px)`,
-                      opacity,
                     }}
                   >
                     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet" />
-                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous"/>
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossOrigin="anonymous"/>
                     <link href={VICLogo} rel="icon" />
                     {/* <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css"/> */}
-                    <data.Comp {...data.props} />
+                    <data.Comp animationState={{transform: translateX === 0 ?undefined:`translateX(${translateX}px)`, opacity}} {...data.props} />
                   </PreservedRouterContext>
                 )
               })}
