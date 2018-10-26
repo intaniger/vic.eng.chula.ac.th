@@ -157,7 +157,7 @@ class HomePage extends Component {
                     <Row>
                     <div style={{ width: "180px", height: "30vh", border: "3px solid white" }}> </div>
                     </Row>
-                    <Row centreed><p className="thai vic-job-headline"> Step 1</p> </Row>
+                    <Row centered><p className="thai vic-job-headline">Register</p> </Row>
                   </Column>
                   <Column width={3} floated="centered" verticalAlign="middle">
                    <div style={{width:"200px", height: "3px",padding:"0",backgroundColor:"white",}}></div>
@@ -166,7 +166,7 @@ class HomePage extends Component {
                     <Row>
                       <div style={{ width: "180px", height: "30vh", border: "3px solid white" }}> </div>
                     </Row>
-                    <Row centreed><p className="thai vic-job-headline"> Step 2</p> </Row>
+                    <Row centered><p className="thai vic-job-headline">First Meet</p> </Row>
                   </Column>
                   <Column width={3} floated="centered"  verticalAlign="middle">
                    <div style={{width:"200px", height: "3px",padding:"0",backgroundColor:"white",}}></div>
@@ -175,7 +175,7 @@ class HomePage extends Component {
                     <Row>
                       <div style={{ width: "180px", height: "30vh", border: "3px solid white" }}> </div>
                     </Row>
-                    <Row centreed><p className="thai vic-job-headline"> Step 3</p> </Row>
+                    <Row centered><p className="thai vic-job-headline">D-DAY</p> </Row>
                   </Column>
                 </Row>
               </Grid>
