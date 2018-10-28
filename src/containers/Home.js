@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import { Grid, Image } from 'semantic-ui-react'
+import { Link } from 'react-static';
+import { Grid, Image, Icon, Button } from 'semantic-ui-react'
 import { TweenLite as Tween, Linear, TimelineLite, Expo, TweenMax } from 'gsap';
 import "particles.js";
+import { isMobile } from 'react-device-detect';
 
 import ScrollMagic from "../lib/ScrollMagic";
-
+import GoogleMap from "./Map";
 import BackgroundAnimation from "../scenes/Background"
 
 import Mountain from '../asset/mountain.png'
@@ -13,11 +15,15 @@ import Moon from '../asset/moon.png'
 import pic1 from '../asset/pic1.jpg'
 import section_1_img_1 from '../asset/section1_1.jpg'
 import section_1_img_2 from '../asset/section1_2.jpg'
+import registrationImage from '../asset/register.png'
+import firstmeetImage from '../asset/group.png'
+import campDayImage from '../asset/donation.png'
+import announceImage from '../asset/announce.png'
+
 
 import VIC from '../asset/VIC.svg'
 import ToolIcon from '../asset/tools.svg'
 import ActivityIcon from '../asset/sprout.svg'
-import CalendarIcon from '../asset/calendar.svg'
 
 import ParticleConfig from '../asset/particle_config.json'
 import './style.css'
@@ -37,18 +43,14 @@ const factor = (H < W) ? 1.5 * Math.ceil(H / W) : 0.7
 const RotateRadius = (factor * H)
 const firstMoonHoffset = (factor * H) - (RotateRadius) * sin(acos(W / (2 * RotateRadius)));
 const rotatableAngle = Math.PI - (2 * (Math.acos((W / (2 * RotateRadius)))));
-const imageStyle = { width: "75%", height: "75%", display: "block", marginLeft: "auto", marginRight: "auto" };
 
 class HomePage extends Component {
   state = {
     currentSubheading1Length: 0,
-    LogoStyle: {
-      opacity: 0,
-      left: 0,
-      position: "relative"
-    },
     contentHeight: 0,
-    offsetAngle: 0
+    offsetAngle: 0,
+  }
+  componentWillMount = () => {
   }
   render = () => (
     <div>
@@ -58,16 +60,16 @@ class HomePage extends Component {
         </div>
         <img alt="Mountain background" id="mountain-background" style={{ width: "100%", filter: " grayscale(100%) contrast(60%) brightness(20%)", opacity: 1, zIndex: 4, position: "absolute", left: 0, bottom: 0 }} src={Mountain} />
       </div>
-      <div id="content" style={{ position: "relative", zIndex: 1000 }}>
+      <div id="content" style={{ position: "relative", zIndex: 100 }}>
         {/* Web Content Here */}
         <Grid columns={16} centered>
           <Column width={14}>
-            <Grid>
-              <Row id="head1">
+            <Grid id="cover">
+              <Row>
                 <Column computer={8} mobile={16} floated="right">
                   <Grid verticalAlign='middle' centered style={{ height: "100vh" }}>
                     <Row stretched>
-                      <Column style={{ ...this.state.LogoStyle }} width={4}>
+                      <Column id="VICLogo" width={4}>
                         <img alt="Vidvapath logo" src={VICLogo} />
                       </Column>
                       <Column width={12}>
@@ -82,130 +84,199 @@ class HomePage extends Component {
                 </Column>
               </Row>
             </Grid>
-            <div style={{ paddingBottom: 100 }}>
-              <Grid id="intro" verticalAlign='middle' centered>
-                {/* <Row centered>
+            <Grid id="intro" style={{ padding: "100px 0" }} verticalAlign='middle' centered>
+              {/* <Row centered>
                   <h1 style={{ margin: "10vh", padding: 0, color: "#ffffff", textAlign: 'center', fontSize: 80 }} className="thai small">
                     ค่ายวิศวพัฒน์ คืออะไร?
                   </h1>
                 </Row> */}
-                <Grid stackable id="intro_paragraph" verticalAlign="middle">
-                  <Column floated="right" width={8}>
-                    <p className="thai small intro-head">
-                      ถือกำเนิดขึ้นจากการรวมกลุ่มกันของนิสิตทุนวิศวฯ จุฬาฯ เพื่อทำกิจกรรมตอบแทนมหาวิทยาลัย และสังคมภายนอก
-                      เนื่องด้วยความตระหนักและมีจิตสำนึกในฐานะการเป็นผู้รับ ที่ได้รับโอกาสทางการศึกษาจากจุฬาลงกรณ์มหาวิทยาลัย และต้องการส่งต่อ แบ่งปันโอกาสด้วยความรู้ความสามารถของตน
+              <Grid stackable id="intro_paragraph" verticalAlign="middle">
+                <Column floated="right" width={8}>
+                  <p className="thai small intro-head">
+                    ถือกำเนิดขึ้นจากการรวมกลุ่มกันของนิสิตทุนวิศวฯ จุฬาฯ เพื่อทำกิจกรรมตอบแทนมหาวิทยาลัย และสังคมภายนอก
+                    เนื่องด้วยความตระหนักและมีจิตสำนึกในฐานะการเป็นผู้รับ ที่ได้รับโอกาสทางการศึกษาจากจุฬาลงกรณ์มหาวิทยาลัย และต้องการส่งต่อ แบ่งปันโอกาสด้วยความรู้ความสามารถของตน
                     </p>
-                  </Column>
-                  <Column floated="left" width={8}>
-                    <Grid>
-                      <Row centered>
-                        <Column width={10}>
-                          <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={section_1_img_1} />
-                        </Column>
-                      </Row>
-                    </Grid>
-                  </Column>
-                </Grid>
-                <Grid stackable id="intro_paragraph" verticalAlign="middle">
-                  <Column floated="left" width={8}>
-                    <Grid>
-                      <Row centered>
-                        <Column width={10}>
-                          <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={section_1_img_2} />
-                        </Column>
-                      </Row>
-                    </Grid>
-                  </Column>
-                  <Column floated="right" width={8}>
-                    <p className="thai small intro-sub">
-                      &nbsp;&nbsp;&nbsp;&nbsp;ค่ายวิศวพัฒน์จึงถือเป็นค่ายที่เปิดโอกาสให้นิสิตทุน และนิสิตวิศวฯจุฬาฯ ได้นำความสามารถที่มี ออกไปช่วยเหลือสังคมในหลากหลายมิติ และในบริบทต่างๆโดยไม่จำกัด และไม่ปิดกั้นความเฉพาะของงาน
+                </Column>
+                <Column floated="left" width={8}>
+                  <Grid>
+                    <Row centered>
+                      <Column width={10}>
+                        <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={section_1_img_1} />
+                      </Column>
+                    </Row>
+                  </Grid>
+                </Column>
+              </Grid>
+              <Grid stackable id="intro_paragraph" verticalAlign="middle">
+                <Column floated="left" width={8}>
+                  <Grid>
+                    <Row centered>
+                      <Column width={10}>
+                        <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={section_1_img_2} />
+                      </Column>
+                    </Row>
+                  </Grid>
+                </Column>
+                <Column floated="right" width={8}>
+                  <p className="thai small intro-sub">
+                    &nbsp;&nbsp;&nbsp;&nbsp;ค่ายวิศวพัฒน์จึงถือเป็นค่ายที่เปิดโอกาสให้นิสิตทุน และนิสิตวิศวฯจุฬาฯ ได้นำความสามารถที่มี ออกไปช่วยเหลือสังคมในหลากหลายมิติ และในบริบทต่างๆโดยไม่จำกัด และไม่ปิดกั้นความเฉพาะของงาน
                       ไม่ว่าจะเป็นงานโยธา งานวิชาการ งานเทคโนโลยี หรืองานที่ต้องใช้องค์ความรู้ทางวิศวกรรมด้านต่างๆ โดยเน้นการมีส่วนร่วมกับชุมชน ด้วยหลักของการ <strong>“เข้าถึง เข้าใจ และพัฒนา”</strong> เพื่อช่วยเหลือ และพัฒนาได้ตรงสาเหตุที่แท้จริงของปัญหาเหล่านั้น นำไปสู่การสร้างชุมชนที่เข้มแข็ง
                     </p>
-                  </Column>
-                </Grid>
+                </Column>
               </Grid>
-            </div>
+            </Grid>
             <Grid id="camp_infor" stackable centered>
-              {/* <Row style={{ margin: "10vh 0", width: "500px" }} centered> */}
-                <Column verticalAlign='middle' width={8}>
-                  <Grid style={{ height: "100%" }}>
-                    <Row centered height={50}>
-                      <Grid>
-                        <Row centered>
-                          <ToolIcon style={{ width: "150px", height: "150px", padding: 5 }} />
-                        </Row>
-                        <Row centered><p className="thai vic-job-headline">ปรับปรุงระบบชลประทาน</p></Row>
-                      </Grid>
-                    </Row>
-                    <div className="verticalLine" />
-                    <Row centered height={50}>
-                      <Grid>
-                        <Row centered>
-                          <ActivityIcon style={{ width: "150px", height: "150px", padding: 5 }} />
-                        </Row>
-                        <Row centered><p className="thai vic-job-headline">กิจกรรมปฏิสัมพันธ์กับชุมชน</p></Row>
-                      </Grid>
-                    </Row>
-                  </Grid>
-                </Column>
-                <Column width={8}>
-                  <div style={{ width: "100%", height: "70vh", border: "3px solid white" }} />{/* GOOGLE MAP API */}
-                </Column>
+              <Column verticalAlign='middle' width={8}>
+                <Grid style={{ height: "100%" }}>
+                  <Row centered height={50}>
+                    <Grid>
+                      <Row centered>
+                        <ToolIcon style={{ width: "150px", height: "150px", padding: 5 }} />
+                      </Row>
+                      <Row centered><p id="vic-job-headline" className="thai bullet">ปรับปรุงระบบชลประทาน</p></Row>
+                    </Grid>
+                  </Row>
+                  <div className="verticalLine" />
+                  <Row centered height={50}>
+                    <Grid>
+                      <Row centered>
+                        <ActivityIcon style={{ width: "150px", height: "150px", padding: 5 }} />
+                      </Row>
+                      <Row centered><p id="vic-job-headline" className="thai bullet">กิจกรรมปฏิสัมพันธ์กับชุมชน</p></Row>
+                    </Grid>
+                  </Row>
+                </Grid>
+              </Column>
+              <Column id="vic-job-headline" width={8}>
+                <GoogleMap isMobile={isMobile} />
+              </Column>
               {/* </Row> */}
             </Grid>
-            <Grid id="timeline" centered verticalAlign = "middle">
-              <Row columns={16} style={{ margin: "10vh 0", }} centered>
-                <Column id="step1" computer={3} mobile={16}>
+            <Grid id="timeline" centered verticalAlign="middle">
+              <Row columns={16} style={{ marginTop: "10vh", }} centered>
+                <Column id="timepoint" className="timepoint1" computer={2} mobile={16}>
                   <Grid centered>
-                    <Row>
-                      <CalendarIcon style={{ width: "150px", height: "150px", padding: 5 }} />
+                    <Row centered>
+                      <img style={{ marginLeft: 30 }} src={registrationImage} alt="Register" />
                     </Row>
-                    <Row><p className="thai vic-job-headline">Registeration</p></Row>
-                    <Row><p className="thai vic-job-headline">1 - 8 Nov 2018</p></Row>
+                    <Row><p className="thai bullet">Registration</p></Row>
+                    <Row><p className="thai bullet">9 - 13 <br /> Nov 2018</p></Row>
                   </Grid>
                 </Column>
-                <Column computer={3} mobile={16}>
-                  <div className="timeline-line-frame"/>
+                <Column computer={2} mobile={12}>
+                  <div className="timeline-line-frame">
+                    <div style={{ width: "0%", backgroundColor: "white", height: "3px" }} className="timelink1" id="timeline-link-draw" />
+                  </div>
                 </Column>
-                <Column id="step2" computer={3} mobile={16}>
+                <Column id="timepoint" className="timepoint2" computer={2} mobile={16}>
                   <Grid centered>
-                    <Row>
-                      <div style={{ width: "180px", height: "30vh", border: "3px solid white" }} />
+                    <Row centered>
+                      <img style={{ marginLeft: 30 }} src={announceImage} alt="Register" />
                     </Row>
-                    <Row centered><p className="thai vic-job-headline">First Meet</p> </Row>
-                    <Row><p className="thai vic-job-headline">9 Nov 2018</p></Row>
+                    <Row><p className="thai bullet">Announced</p></Row>
+                    <Row><p className="thai bullet">14 Nov 2018</p></Row>
                   </Grid>
                 </Column>
-                <Column computer={3} mobile={16}>
-                  <div className="timeline-line-frame"/>
+                <Column computer={3} mobile={12}>
+                  <div className="timeline-line-frame">
+                    <div style={{ width: "0%", backgroundColor: "white", height: "3px" }} className="timelink2" id="timeline-link-draw" />
+                  </div>
                 </Column>
-                <Column id="step3" computer={3} mobile={16}>
+                <Column id="timepoint" className="timepoint3" computer={2} mobile={16}>
+                  <Grid centered>
+                    <Row centered>
+                      <img src={firstmeetImage} alt="First meet" />
+                    </Row>
+                    <Row centered><p className="thai bullet">First Meet</p> </Row>
+                    <Row><p className="thai bullet">16 Nov 2018</p></Row>
+                  </Grid>
+                </Column>
+                <Column computer={3} mobile={12}>
+                  <div className="timeline-line-frame">
+                    <div style={{ width: "0%", backgroundColor: "white", height: "3px" }} className="timelink3" id="timeline-link-draw" />
+                  </div>
+                </Column>
+                <Column id="timepoint" className="timepoint4" computer={2} mobile={16}>
                   <Grid centered>
                     <Row>
-                      <div style={{ width: "180px", height: "30vh", border: "3px solid white" }} />
+                      <img src={campDayImage} alt="D-DAY" />
                     </Row>
-                    <Row centered><p className="thai vic-job-headline">D-DAY</p> </Row>
-                    <Row><p className="thai vic-job-headline">22 - 28 Dec 2018</p></Row>
+                    <Row centered><p className="thai bullet">Camp date</p> </Row>
+                    <Row><p className="thai bullet">22 - 28 <br /> Dec 2018</p></Row>
                   </Grid>
                 </Column>
               </Row>
+              <Row columns={16}>
+                <Column floated="left" width={16}>
+                  <h1 id="timeline-notice" className="thai intro-sub">*หมายเหตุ : ในช่วงเวลาก่อนวันค่ายจริง อาจจะมีการประชุมเพิ่มเติมกับผู้เข้าร่วมค่าย เพื่อทำความเข้าใจ และวางแผนการปฏิบัติงาน</h1>
+                </Column>
+              </Row>
             </Grid>
-            {
-              [...Array(3).keys()].map(() => (
-                <Row style={{ marginBottom: "10vh", padding: 0, }}>
-                  <Column width={7} floated="right">
-                    <img style={imageStyle} alt="Start pic" src={pic1} />
-                  </Column>
-                  <Column width={7} floated="left">
-                    <h1 style={{ color: "#ffffff", textAlign: 'center', fontSize: 20 }} className="thai small">
-                      {"จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์จุดเริ่มต้นของค่ายวิศวพัฒน์"}
-                    </h1>
-                  </Column>
-                </Row>))
-            }
-
+            <Grid id="interview" style={{ margin: "10vh 0", height: "80vh" }}>
+              <div style={{ border: "3px solid white", width: "100%", height: "100%" }}>
+                <h1>Reserved for interview section</h1>
+              </div>
+            </Grid>
+            <Grid id="FAQ" style={{ height: "70vh", margin: "5vh 0" }}>
+              <div style={{ border: "3px solid white", width: "100%", height: "100%" }}>
+                <h1>Reserved for FAQ section</h1>
+              </div>
+            </Grid>
+            <Grid id="contact_us" centered>
+              <Row centered>
+                <h1 className="h1">Contact us</h1>
+              </Row>
+              <Column width={14} centered>
+                <Grid centered>
+                  <Row columns={16}>
+                    <Column computer={10} mobile={16}>
+                      <h1 className="thai">ค่ายวิศวกรรมอาสาพัฒนาชนบท วิศวพัฒน์</h1>
+                      <p>จุฬาลงกรณ์มหาวิทยาลัย 254 ถนนพญาไท แขวงวังใหม่ เขตปทุมวัน กรุงเทพมหานคร 10330</p>
+                      <h3 className="thai"><Icon name="facebook" /> <a href="https://fb.com/VoluntaryIntaniaCamp" target="_blank" style={{ color: "black" }}><u>ค่ายวิศวพัฒน์</u></a></h3>
+                      <h3><Icon name="mail" /> vidvapath.cu@gmail.com</h3>
+                      <h3 className="thai"><Icon name="desktop" /> <a href="http://vic.eng.chula.ac.th" target="_blank" style={{ color: "black" }}><u>http://vic.eng.chula.ac.th</u></a></h3>
+                      <h3 className="thai"><Icon name="group" /> <Link href="/about" to="/about"><u style={{ color: "black" }} className="thai">ทีมบริหารค่าย</u></Link></h3>
+                    </Column>
+                    <Column computer={6} mobile={16}>
+                      <Grid verticalAlign="middle" centered>
+                        <div id="fb-root" />
+                        <div style={{ width: "100%" }} className="fb-page" data-href="https://www.facebook.com/VoluntaryIntaniaCamp/"
+                          data-tabs="" data-width={isMobile ? "350" : "500"}
+                          data-small-header="false" data-adapt-container-width="true"
+                          data-hide-cover="false" data-show-facepile="true">
+                          <blockquote cite="https://www.facebook.com/VoluntaryIntaniaCamp/" className="fb-xfbml-parse-ignore">
+                            <a href="https://www.facebook.com/VoluntaryIntaniaCamp/">ค่ายวิศวพัฒน์</a>
+                          </blockquote>
+                        </div>
+                      </Grid>
+                    </Column>
+                  </Row>
+                </Grid>
+              </Column>
+            </Grid>
           </Column>
         </Grid>
+      </div>
+      <div id="floating-button" style={{ position: "fixed", zIndex: 150,
+        bottom: "0", right: "0", opacity:0,
+        padding:"4vh 6vw 4vh 4vw", marginBottom:"8vh",
+        backgroundColor: "#fff68f60", borderRadius:"30px 0px 0px 30px" }}
+      >
+        <Button size="huge" animated="fade" color="twitter" onClick={()=>this.props.history.push("/register")} >
+          <Button.Content visible>
+            Register
+            <Icon name='right arrow' />
+          </Button.Content>
+          <Button.Content hidden>
+            <Grid verticalAlign='middle'>
+              <Grid.Row>
+                <Grid.Column>
+                  <Icon name='signup' />
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </Button.Content>
+        </Button>
       </div>
     </div>
   )
@@ -226,16 +297,16 @@ class HomePage extends Component {
           charSVG.style.stroke = "#fff68f"
           charSVG.style.strokeDasharray = charSVG.getTotalLength()
           charSVG.style.ease = Linear.easeNone
-          scheduler1.add(Tween.fromTo(`path.char_${charIndex}`, 0.2, { strokeDashoffset: charSVG.getTotalLength() }, { strokeDashoffset: 0 }), 0.2 * (charIndex - 1))
+          scheduler1.add(Tween.fromTo(`path.char_${charIndex}`, 0.1, { strokeDashoffset: charSVG.getTotalLength() }, { strokeDashoffset: 0 }), 0.1 * (charIndex - 1))
         }
         // Fill "วิศวพัฒน์" text with #fff68f (bright yellow) color
-        scheduler1.add(Tween.fromTo(`path[class^="char"]`, 2.6, { fill: "#fff68f00", ease: Expo.easeIn }, { fill: "#fff68f", ease: Expo.easeIn }), 0)
+        scheduler1.add(Tween.fromTo(`path[class^="char"]`, 1.5, { fill: "#fff68f00", ease: Expo.easeIn }, { fill: "#fff68f", ease: Expo.easeIn }), 0)
 
         // Printing "นิสิตทุนคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย" text
-        scheduler1.add(Tween.to(this.state, 1, { currentSubheading1Length: 47, onUpdate: () => this.forceUpdate(), ease: Linear.easeInOut }), 2.6)
+        scheduler1.add(Tween.to(this.state, 0.8, { currentSubheading1Length: 47, onUpdate: () => this.forceUpdate(), ease: Linear.easeInOut }), 1.4)
 
         // Displaying VIC logo image
-        scheduler1.add(Tween.to(this.state.LogoStyle, 3, { opacity: 1, onUpdate: () => this.forceUpdate() }), 0)
+        scheduler1.add(Tween.fromTo("#VICLogo", 1.5, { opacity: 0 }, { opacity: 1 }), 0)
         // Add schedule to scene
         scene1.setTween(scheduler1)
 
@@ -244,14 +315,20 @@ class HomePage extends Component {
       }
       // <------------ History Animation --------------->
       {
-        const HistoryFadeInScene = new ScrollMagic.Scene({ triggerElement: "#intro_paragraph", duration: 0.5 * H, offset: 0 }).setTween(
-          TweenMax.staggerFromTo("#intro_paragraph", 0.2, { x: -50, opacity: 0 }, { x: 0, opacity: 1 }, 0.5),
-        )
+        if (!isMobile) {
+          const HistoryFadeInScene = new ScrollMagic.Scene({ triggerElement: "#intro_paragraph", duration: 0.5 * H, offset: 0 }).setTween(
+            TweenMax.staggerFromTo("#intro_paragraph", 0.2, { x: -50, opacity: 0 }, { x: 0, opacity: 1 }, 0.5),
+          )
+          controller.addScene(HistoryFadeInScene)
+        }
         const HistoryFadeOutScene = new ScrollMagic.Scene({ triggerElement: "#intro_paragraph", duration: 0.2 * H, offset: -0.3 * H }).setTween(
-          "#head1", { opacity: 0 }
+          "#cover", { opacity: 0 }
         )
-        controller.addScene(HistoryFadeInScene)
+        const RegisterButtonFadeInScene = new ScrollMagic.Scene({ triggerElement: "#intro_paragraph", duration: 0.5 * H}).setTween(
+          "#floating-button", { opacity: 1 }
+        )
         controller.addScene(HistoryFadeOutScene)
+        controller.addScene(RegisterButtonFadeInScene)
       }
       // <------------ Job Intro Animation --------------->
       {
@@ -283,7 +360,7 @@ class HomePage extends Component {
         FaySceneScheduler.add(Tween.fromTo(`path.sprout_2`, 1.5, { strokeDashoffset: sproutSVG2.getTotalLength() }, { strokeDashoffset: 0 }), 0)
 
 
-        FaySceneScheduler.add(Tween.fromTo(`.vic-job-headline`, 3, { opacity: 0 }, { opacity: 1 }), 0)
+        FaySceneScheduler.add(Tween.fromTo(`#vic-job-headline`, 3, { opacity: 0 }, { opacity: 1 }), 0)
         FaySceneScheduler.add(Tween.fromTo(`.verticalLine`, 1.5, { width: "0%", ease: Expo.easeOut }, { width: "100%", ease: Expo.easeOut }), 0)
 
         // Add schedule to scene
@@ -293,26 +370,27 @@ class HomePage extends Component {
         controller.addScene(FayJobScene)
       }
       // <------------ Timeline Animation --------------->
-      {
+      if (isMobile) {
+        for (let TimepointIndex = 1; TimepointIndex <= 3; TimepointIndex++) {
+          const TPScene = new ScrollMagic.Scene({ triggerElement: `.timepoint${TimepointIndex}`, tweenChanges: true, reverse: false, offset: -0.4 * H })
+          const TLScene = new ScrollMagic.Scene({ triggerElement: `.timelink${TimepointIndex}`, tweenChanges: true, reverse: false, offset: -0.3 * H })
+
+          // Add timepoint opacity increasing animation to scene
+          TPScene.setTween(Tween.fromTo(`.timepoint${TimepointIndex}`, 0.5, { opacity: 0 }, { opacity: 1 }))
+
+          // Add timelink drawing animation to scene
+          TLScene.setTween(Tween.fromTo(`.timelink${TimepointIndex}`, 0.5, { width: "0%" }, { width: "100%" }))
+
+          // Add scene to controller
+          controller.addScene(TPScene)
+          controller.addScene(TLScene)
+        }
+      } else {
         const TlScene = new ScrollMagic.Scene({ triggerElement: "#timeline", tweenChanges: true, reverse: false })
         const TlSceneScheduler = new TimelineLite() // Animation time schedule
-
-
-        // Calendar icon animation
-        const tlSVG1 = document.querySelector(`path.cld1`)
-        tlSVG1.style.stroke = "#ffffff"
-        tlSVG1.style.strokeWidth = "1px"
-        tlSVG1.style.strokeDasharray = tlSVG1.getTotalLength()
-        tlSVG1.style.ease = Linear.easeNone
-        TlSceneScheduler.add(Tween.fromTo(`path.cld1`, 1.5, { strokeDashoffset: tlSVG1.getTotalLength() }, { strokeDashoffset: 0 }), 0)
-
-        const tlSVG2 = document.querySelector(`path.cld2`)
-        tlSVG2.style.stroke = "#ffffff"
-        tlSVG2.style.strokeWidth = "1px"
-        tlSVG2.style.strokeDasharray = tlSVG2.getTotalLength()
-        tlSVG2.style.ease = Linear.easeNone
-        TlSceneScheduler.add(Tween.fromTo(`path.cld2`, 1.5, { strokeDashoffset: tlSVG2.getTotalLength() }, { strokeDashoffset: 0 }), 1.5)
-
+        TlSceneScheduler.add(TweenMax.staggerFromTo("#timepoint", 0.25, { opacity: 0 }, { opacity: 1 }, 0.5), 0)
+        TlSceneScheduler.add(TweenMax.staggerFromTo("#timeline-link-draw", 0.25, { width: "0%" }, { width: "100%" }, 0.5), 0.25)
+        TlSceneScheduler.add(Tween.fromTo(`#timeline-notice`, 0.25, { opacity: 0 }, { opacity: 1 }), 1.5)
         // Add schedule to scene
         TlScene.setTween(TlSceneScheduler)
 
@@ -320,6 +398,13 @@ class HomePage extends Component {
         controller.addScene(TlScene)
       }
     }
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v3.2&appId=249307139270167&autoLogAppEvents=1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
     this.forceUpdate()
   }
 }

@@ -101,8 +101,7 @@ const AnimatedRoutes = getContext({
                   >
                     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet" />
                     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossOrigin="anonymous"/>
-                    <link href={VICLogo} rel="icon" />
-                    {/* <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css"/> */}
+                    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css"/>
                     <data.Comp animationState={{transform: translateX === 0 ?undefined:`translateX(${translateX}px)`, opacity}} {...data.props} />
                   </PreservedRouterContext>
                 )

@@ -9,7 +9,6 @@ import Form from './Form'
 import './style.css'
 
 import ParticleConfig from '../asset/particle_config.json'
-import "../lib/illuminated.js";
 import Axios from 'axios';
 /* import { white } from '../../node_modules/ansi-colors'; */
 
@@ -149,7 +148,6 @@ class Register extends Component {
   )
   componentDidMount = () => {
     window.particlesJS("background", ParticleConfig)
-
   }
 }
 
