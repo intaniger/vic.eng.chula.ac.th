@@ -24,6 +24,10 @@ import announceImage from '../asset/announce.png'
 import VIC from '../asset/VIC.svg'
 import ToolIcon from '../asset/tools.svg'
 import ActivityIcon from '../asset/sprout.svg'
+import AnnouncedIcon from '../asset/announced.svg'
+import CampdateIcon from '../asset/campdate.svg'
+import FirstmeetIcon from '../asset/firstmeet.svg'
+import RegisterIcon from '../asset/registeration.svg'
 
 import ParticleConfig from '../asset/particle_config.json'
 import './style.css'
@@ -157,7 +161,7 @@ class HomePage extends Component {
                 <Column id="timepoint" className="timepoint1" computer={2} mobile={16}>
                   <Grid centered>
                     <Row centered>
-                      <img style={{ marginLeft: 30 }} src={registrationImage} alt="Register" />
+                      <RegisterIcon style={{ width: "150px", height: "150px", padding: 5 }} />
                     </Row>
                     <Row><p className="thai bullet">Registration</p></Row>
                     <Row><p className="thai bullet">9 - 13 <br /> Nov 2018</p></Row>
@@ -171,7 +175,7 @@ class HomePage extends Component {
                 <Column id="timepoint" className="timepoint2" computer={2} mobile={16}>
                   <Grid centered>
                     <Row centered>
-                      <img style={{ marginLeft: 30 }} src={announceImage} alt="Register" />
+                      <AnnouncedIcon style={{ width: "170px", height: "170px", padding: 5 }} />
                     </Row>
                     <Row><p className="thai bullet">Announced</p></Row>
                     <Row><p className="thai bullet">14 Nov 2018</p></Row>
@@ -185,7 +189,7 @@ class HomePage extends Component {
                 <Column id="timepoint" className="timepoint3" computer={2} mobile={16}>
                   <Grid centered>
                     <Row centered>
-                      <img src={firstmeetImage} alt="First meet" />
+                      <FirstmeetIcon style={{ width: "150px", height: "150px", padding: 5 }} />
                     </Row>
                     <Row centered><p className="thai bullet">First Meet</p> </Row>
                     <Row><p className="thai bullet">16 Nov 2018</p></Row>
@@ -199,7 +203,7 @@ class HomePage extends Component {
                 <Column id="timepoint" className="timepoint4" computer={2} mobile={16}>
                   <Grid centered>
                     <Row>
-                      <img src={campDayImage} alt="D-DAY" />
+                      <CampdateIcon style={{ width: "150px", height: "150px", padding: 5 }} />
                     </Row>
                     <Row centered><p className="thai bullet">Camp date</p> </Row>
                     <Row><p className="thai bullet">22 - 28 <br /> Dec 2018</p></Row>
@@ -220,6 +224,12 @@ class HomePage extends Component {
             <Grid id="FAQ" style={{ height: "70vh", margin: "5vh 0" }}>
               <div style={{ border: "3px solid white", width: "100%", height: "100%" }}>
                 <h1>Reserved for FAQ section</h1>
+                <p className="thai"> Q: คณะอื่นไปได้หรือไม่ 
+                    Q: มีค่าใช้จ่ายหรือไม่
+                    Q: ตารางกิจกรรมในแต่ละวันมีอะไรบ้าง
+                    Q: ไปค่ายต้องเตรียมอะไรไปบ้าง
+                    Q: ที่พัก/อาหารการกินเป็นอย่างไร
+                    Q: ถ้าไม่มีประสบการณ์การทำค่ายอาสามาก่อนต้องเตรียมตัวอย่างไร</p>
               </div>
             </Grid>
             <Grid id="contact_us" centered>
@@ -257,12 +267,14 @@ class HomePage extends Component {
           </Column>
         </Grid>
       </div>
-      <div id="floating-button" style={{ position: "fixed", zIndex: 150,
-        bottom: "0", right: "0", opacity:0,
-        padding:"4vh 6vw 4vh 4vw", marginBottom:"8vh",
-        backgroundColor: "#fff68f60", borderRadius:"30px 0px 0px 30px" }}
+      <div id="floating-button" style={{
+        position: "fixed", zIndex: 150,
+        bottom: "0", right: "0", opacity: 0,
+        padding: "4vh 6vw 4vh 4vw", marginBottom: "8vh",
+        backgroundColor: "#fff68f60", borderRadius: "30px 0px 0px 30px"
+      }}
       >
-        <Button size="huge" animated="fade" color="twitter" onClick={()=>this.props.history.push("/register")} >
+        <Button size="huge" animated="fade" color="twitter" onClick={() => this.props.history.push("/register")} >
           <Button.Content visible>
             Register
             <Icon name='right arrow' />
@@ -324,7 +336,7 @@ class HomePage extends Component {
         const HistoryFadeOutScene = new ScrollMagic.Scene({ triggerElement: "#intro_paragraph", duration: 0.2 * H, offset: -0.3 * H }).setTween(
           "#cover", { opacity: 0 }
         )
-        const RegisterButtonFadeInScene = new ScrollMagic.Scene({ triggerElement: "#intro_paragraph", duration: 0.5 * H}).setTween(
+        const RegisterButtonFadeInScene = new ScrollMagic.Scene({ triggerElement: "#intro_paragraph", duration: 0.5 * H }).setTween(
           "#floating-button", { opacity: 1 }
         )
         controller.addScene(HistoryFadeOutScene)
@@ -388,9 +400,9 @@ class HomePage extends Component {
       } else {
         const TlScene = new ScrollMagic.Scene({ triggerElement: "#timeline", tweenChanges: true, reverse: false })
         const TlSceneScheduler = new TimelineLite() // Animation time schedule
-        TlSceneScheduler.add(TweenMax.staggerFromTo("#timepoint", 0.25, { opacity: 0 }, { opacity: 1 }, 0.5), 0)
-        TlSceneScheduler.add(TweenMax.staggerFromTo("#timeline-link-draw", 0.25, { width: "0%" }, { width: "100%" }, 0.5), 0.25)
-        TlSceneScheduler.add(Tween.fromTo(`#timeline-notice`, 0.25, { opacity: 0 }, { opacity: 1 }), 1.5)
+        TlSceneScheduler.add(TweenMax.staggerFromTo("#timepoint", 0.75, { opacity: 0 }, { opacity: 1 }, 0.5), 0.75)
+        TlSceneScheduler.add(TweenMax.staggerFromTo("#timeline-link-draw", 0.75, { width: "0%" }, { width: "100%" }, 0.5), 0.75)
+        TlSceneScheduler.add(Tween.fromTo(`#timeline-notice`, 0.5, { opacity: 0 }, { opacity: 1 }), 2.5)
         // Add schedule to scene
         TlScene.setTween(TlSceneScheduler)
 
