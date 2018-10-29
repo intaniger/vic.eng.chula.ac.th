@@ -5,7 +5,7 @@ import mapStyle from "../asset/mapStyle.json";
 const GoogleMapComponent =  withScriptjs(withGoogleMap((props) =>(
     <GoogleMap
       defaultZoom={props.isMobile ? 5.8:6.3}
-      center={{ lat: 16.5, lng: 101.5 }}
+      center={{ lat: 18.314380, lng: 100.600323 }}
       options={{styles:mapStyle}}
       onDragEnd={()=>{
         console.log(props)
