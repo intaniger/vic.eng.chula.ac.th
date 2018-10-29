@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-static';
-import { Grid, Image, Icon, Button } from 'semantic-ui-react'
+import { Grid, Image, Icon, Button, Reveal } from 'semantic-ui-react'
 import { TweenLite as Tween, Linear, TimelineLite, Expo, TweenMax } from 'gsap';
 import "particles.js";
 import { isMobile } from 'react-device-detect';
@@ -30,7 +30,7 @@ import './style.css'
 
 import "../lib/illuminated.js";
 import Loading from './Loading';
-/* import { white } from '../../node_modules/ansi-colors'; */
+import QA from './Q&A';
 
 const { Column, Row } = Grid
 
@@ -44,6 +44,29 @@ const factor = (H < W) ? 1.5 * Math.ceil(H / W) : 0.7
 const RotateRadius = (factor * H)
 const firstMoonHoffset = (factor * H) - (RotateRadius) * sin(acos(W / (2 * RotateRadius)));
 const rotatableAngle = Math.PI - (2 * (Math.acos((W / (2 * RotateRadius)))));
+const QAList = [
+  {
+    q:"อยู่คณะอื่น เข้าร่วมค่ายได้หรือไม่",
+    a:<p className="thai">สามารถเข้าร่วมกิจกรรมค่ายได้<br/>
+     แล้วพบกันในวันเฟิร์สมีทค่ายวิศวพัฒน์ครับ 😃</p>
+  },
+  {
+    q:"ค่ายนี้ต้องเสียค่าใช้จ่ายใดๆหรือไม่",
+    a:<p style={{fontSize:"2vh"}} className="thai">ไม่ต้องเสียค่าใช้จ่ายใดๆ<br/>ทั้งในการสมัครค่ายและการขึ้นค่ายครับ</p>
+  },
+  {
+    q:"ตารางกิจกรรมในแต่ละวันมีอะไรบ้าง",
+    a:<p style={{fontSize:"2vh"}} className="thai">ข้อมูลส่วนนี้จะมีการชี้แจงรายละเอียด<br/>ในวันเฟิร์สมีท ค่ายวิศวพัฒน์ครับ</p>
+  },
+  {
+    q:"ต้องเตรียมของใช้อะไรขึ้นค่ายบ้าง",
+    a:<p style={{fontSize:"1.5vh"}} className="thai">เตรียมเฉพาะของใช้ส่วนตัว และอุปกรณ์การนอน<br/>โดยทางค่ายจะมีอุปกรณ์<br/>ที่เกี่ยวข้องกับการทำงานเพิ่มเติมให้</p>
+  },
+  {
+    q:"ลักษณะที่พักเป็นอย่างไร",
+    a:<p style={{fontSize:"2vh"}} className="thai">ข้อมูลส่วนนี้ต้องขออุบไว้ก่อนนะครับ <br/> แต่รับรองว่าไม่นอนกลางป่าแน่นอน</p>
+  }
+]
 
 class HomePage extends Component {
   state = {
@@ -117,7 +140,7 @@ class HomePage extends Component {
                     </Column>
                     <Column floated="right" width={8}>
                       <p className="thai small intro-sub">
-                        &nbsp;&nbsp;&nbsp;&nbsp;ค่ายวิศวพัฒน์จึงถือเป็นค่ายที่เปิดโอกาสให้นิสิตทุน และนิสิตวิศวฯจุฬาฯ ได้นำความสามารถที่มี ออกไปช่วยเหลือสังคมในหลากหลายมิติ และในบริบทต่างๆโดยไม่จำกัด และไม่ปิดกั้นความเฉพาะของงาน
+                        &nbsp;&nbsp;&nbsp;&nbsp;ค่ายวิศวพัฒน์จึงถือเป็นค่ายที่เปิดโอกาสให้นิสิตทุน และนิสิตวิศวะ จุฬาฯ ได้นำความสามารถที่มี ออกไปช่วยเหลือสังคมในหลากหลายมิติ และในบริบทต่างๆโดยไม่จำกัด และไม่ปิดกั้นความเฉพาะของงาน
                         ไม่ว่าจะเป็นงานโยธา งานวิชาการ งานเทคโนโลยี หรืองานที่ต้องใช้องค์ความรู้ทางวิศวกรรมด้านต่างๆ โดยเน้นการมีส่วนร่วมกับชุมชน ด้วยหลักของการ <strong>“เข้าถึง เข้าใจ และพัฒนา”</strong> เพื่อช่วยเหลือ และพัฒนาได้ตรงสาเหตุที่แท้จริงของปัญหาเหล่านั้น นำไปสู่การสร้างชุมชนที่เข้มแข็ง
                       </p>
                     </Column>
@@ -151,143 +174,148 @@ class HomePage extends Component {
                     }
                   </Column>
                 </Grid>
-              {/* </Row> */}
-            <Grid id="timeline" centered verticalAlign="middle">
-              <Row columns={16} style={{ marginTop: "10vh" }} centered>
-                <Column id="timepoint" className="timepoint1" computer={2} mobile={16}>
-                  <Grid centered>
-                    <Row centered>
-                      <RegisterIcon style={{ width: "150px", height: "150px", padding: 5 }} />
-                    </Row>
-                    <Row><p className="thai bullet">Registration</p></Row>
-                    <Row><p className="thai bullet">9 - 13 <br /> Nov 2018</p></Row>
-                  </Grid>
-                </Column>
-                <Column computer={2} mobile={12}>
-                  <div className="timeline-line-frame">
-                    <div style={{ width: "0%", backgroundColor: "white", height: "3px" }} className="timelink1" id="timeline-link-draw" />
-                  </div>
-                </Column>
-                <Column id="timepoint" className="timepoint2" computer={2} mobile={16}>
-                  <Grid centered>
-                    <Row centered>
-                      <AnnouncedIcon style={{ width: "170px", height: "170px", padding: 5 }} />
-                    </Row>
-                    <Row><p className="thai bullet">Announced</p></Row>
-                    <Row><p className="thai bullet">14 Nov 2018</p></Row>
-                  </Grid>
-                </Column>
-                <Column computer={3} mobile={12}>
-                  <div className="timeline-line-frame">
-                    <div style={{ width: "0%", backgroundColor: "white", height: "3px" }} className="timelink2" id="timeline-link-draw" />
-                  </div>
-                </Column>
-                <Column id="timepoint" className="timepoint3" computer={2} mobile={16}>
-                  <Grid centered>
-                    <Row centered>
-                      <FirstmeetIcon style={{ width: "150px", height: "150px", padding: 5 }} />
-                    </Row>
-                    <Row centered><p className="thai bullet">First Meet</p> </Row>
-                    <Row><p className="thai bullet">16 Nov 2018</p></Row>
-                  </Grid>
-                </Column>
-                <Column computer={3} mobile={12}>
-                  <div className="timeline-line-frame">
-                    <div style={{ width: "0%", backgroundColor: "white", height: "3px" }} className="timelink3" id="timeline-link-draw" />
-                  </div>
-                </Column>
-                <Column id="timepoint" className="timepoint4" computer={2} mobile={16}>
-                  <Grid centered>
-                    <Row>
-                      <CampdateIcon style={{ width: "150px", height: "150px", padding: 5 }} />
-                    </Row>
-                    <Row centered><p className="thai bullet">Camp date</p> </Row>
-                    <Row><p className="thai bullet">22 - 28 <br /> Dec 2018</p></Row>
-                  </Grid>
-                </Column>
-              </Row>
-              <Row columns={16}>
-                <Column floated="left" width={16}>
-                  <h1 id="timeline-notice" className="thai intro-sub">*หมายเหตุ : ในช่วงเวลาก่อนวันค่ายจริง อาจจะมีการประชุมเพิ่มเติมกับผู้เข้าร่วมค่าย เพื่อทำความเข้าใจ และวางแผนการปฏิบัติงาน</h1>
-                </Column>
-              </Row>
-            </Grid>
-            <Grid id="interview" style={{ margin: "10vh 0", height: "80vh" }}>
-              <div style={{ border: "3px solid white", width: "100%", height: "100%" }}>
-                <h1>Reserved for interview section</h1>
-              </div>
-            </Grid>
-            <Grid id="FAQ" style={{ height: "70vh", margin: "5vh 0" }}>
-              <div style={{ border: "3px solid white", width: "100%", height: "100%" }}>
-                <h1>Reserved for FAQ section</h1>
-                <p className="thai"> Q: คณะอื่นไปได้หรือไม่
-                    Q: มีค่าใช้จ่ายหรือไม่
-                    Q: ตารางกิจกรรมในแต่ละวันมีอะไรบ้าง
-                    Q: ไปค่ายต้องเตรียมอะไรไปบ้าง
-                    Q: ที่พัก/อาหารการกินเป็นอย่างไร
-                    Q: ถ้าไม่มีประสบการณ์การทำค่ายอาสามาก่อนต้องเตรียมตัวอย่างไร</p>
-              </div>
-            </Grid>
-            <Grid id="contact_us" centered>
-              <Row centered>
-                <h1 className="h1">Contact us</h1>
-              </Row>
-              <Column width={14} centered>
-                <Grid centered>
-                  <Row columns={16}>
-                    <Column computer={10} mobile={16}>
-                      <h1 className="thai">ค่ายวิศวพัฒน์ โครงการวิศวกรรมอาสาพัฒนา</h1>
-                      <p>จุฬาลงกรณ์มหาวิทยาลัย 254 ถนนพญาไท แขวงวังใหม่ เขตปทุมวัน กรุงเทพมหานคร 10330</p>
-                      <h3 className="thai"><Icon name="facebook" /> <a href="https://fb.com/VoluntaryIntaniaCamp" target="_blank" style={{ color: "black" }}><u>ค่ายวิศวพัฒน์</u></a></h3>
-                      <h3><Icon name="mail" /> vidvapath.cu@gmail.com</h3>
-                      <h3 className="thai"><Icon name="desktop" /> <a href="http://vic.eng.chula.ac.th" target="_blank" style={{ color: "black" }}><u>http://vic.eng.chula.ac.th</u></a></h3>
-                      <h3 className="thai"><Icon name="group" /> <Link href="/about" to="/about"><u style={{ color: "black" }} className="thai">ทีมบริหารค่าย</u></Link></h3>
+                {/* </Row> */}
+                <Grid id="timeline" centered verticalAlign="middle">
+                  <Row columns={16} style={{ marginTop: "10vh" }} centered>
+                    <Column id="timepoint" className="timepoint1" computer={2} mobile={16}>
+                      <Grid centered>
+                        <Row centered>
+                          <RegisterIcon style={{ width: "150px", height: "150px", padding: 5, marginLeft:30 }} />
+                        </Row>
+                        <Row><p className="thai bullet">Registration</p></Row>
+                        <Row><p className="thai bullet">9 - 13 <Column only="computer"/> Nov 2018</p></Row>
+                      </Grid>
                     </Column>
-                    <Column computer={6} mobile={16}>
-                      <Grid verticalAlign="middle" centered>
-                        <div id="fb-root" />
-                        <div style={{ width: "100%" }} className="fb-page" data-href="https://www.facebook.com/VoluntaryIntaniaCamp/"
-                          data-tabs="" data-width={isMobile ? "350" : "500"}
-                          data-small-header="false" data-adapt-container-width="true"
-                          data-hide-cover="false" data-show-facepile="true">
-                          <blockquote cite="https://www.facebook.com/VoluntaryIntaniaCamp/" className="fb-xfbml-parse-ignore">
-                            <a href="https://www.facebook.com/VoluntaryIntaniaCamp/">ค่ายวิศวพัฒน์</a>
-                          </blockquote>
-                        </div>
+                    <Column computer={2} mobile={12}>
+                      <div className="timeline-line-frame">
+                        <div style={{ width: "0%", backgroundColor: "white", height: "3px" }} className="timelink1" id="timeline-link-draw" />
+                      </div>
+                    </Column>
+                    <Column id="timepoint" className="timepoint2" computer={2} mobile={16}>
+                      <Grid centered>
+                        <Row centered>
+                          <AnnouncedIcon style={{ width: "170px", height: "170px", padding: 5, marginLeft:30 }} />
+                        </Row>
+                        <Row><p className="thai bullet">Announced</p></Row>
+                        <Row><p className="thai bullet">14 Nov 2018</p></Row>
+                      </Grid>
+                    </Column>
+                    <Column computer={3} mobile={12}>
+                      <div className="timeline-line-frame">
+                        <div style={{ width: "0%", backgroundColor: "white", height: "3px" }} className="timelink2" id="timeline-link-draw" />
+                      </div>
+                    </Column>
+                    <Column id="timepoint" className="timepoint3" computer={2} mobile={16}>
+                      <Grid centered>
+                        <Row centered>
+                          <FirstmeetIcon style={{ width: "150px", height: "150px", padding: 5 }} />
+                        </Row>
+                        <Row centered><p className="thai bullet">First Meet</p> </Row>
+                        <Row><p className="thai bullet">16 Nov 2018</p></Row>
+                      </Grid>
+                    </Column>
+                    <Column computer={3} mobile={12}>
+                      <div className="timeline-line-frame">
+                        <div style={{ width: "0%", backgroundColor: "white", height: "3px" }} className="timelink3" id="timeline-link-draw" />
+                      </div>
+                    </Column>
+                    <Column id="timepoint" className="timepoint4" computer={2} mobile={16}>
+                      <Grid centered>
+                        <Row>
+                          <CampdateIcon style={{ width: "150px", height: "150px", padding: 5 }} />
+                        </Row>
+                        <Row centered><p className="thai bullet">Camp date</p> </Row>
+                        <Row><p className="thai bullet">22 - 28 <Column only="computer"/> Dec 2018</p></Row>
                       </Grid>
                     </Column>
                   </Row>
+                  <Row columns={16}>
+                    <Column floated="left" width={16}>
+                      <h1 id="timeline-notice" className="thai intro-sub">*หมายเหตุ : ในช่วงเวลาก่อนวันค่ายจริง อาจจะมีการประชุมเพิ่มเติมกับผู้เข้าร่วมค่าย เพื่อทำความเข้าใจ และวางแผนการปฏิบัติงาน</h1>
+                    </Column>
+                  </Row>
+                </Grid>
+                <Grid id="interview" style={{ margin: "10vh 0", height: "80vh" }}>
+                  <div style={{ border: "3px solid white", width: "100%", height: "100%" }}>
+                    <h1>Reserved for interview section</h1>
+                  </div>
+                </Grid>
+                <Grid id="FAQ" style={{ margin: "5vh 0" }} stackable>
+                  {/* <h1>Reserved for FAQ section</h1>
+                <p className="thai"> Q: คณะอื่นไปได้หรือไม่<br/>
+                    Q: มีค่าใช้จ่ายหรือไม่<br/>
+                    Q: ตารางกิจกรรมในแต่ละวันมีอะไรบ้าง<br/>
+                    Q: ไปค่ายต้องเตรียมอะไรไปบ้าง<br/>
+                    Q: ที่พัก/อาหารการกินเป็นอย่างไร<br/>
+                    Q: ถ้าไม่มีประสบการณ์การทำค่ายอาสามาก่อนต้องเตรียมตัวอย่างไร</p> */}
+                  {
+                    QAList.map((Q)=>(
+                      <Column width={5}>
+                        <QA Question={Q.q} Answer={Q.a} />
+                      </Column>
+                    ))
+                  }
+                </Grid>
+                <Grid id="contact_us" centered>
+                  <Row centered>
+                    <h1 className="h1">Contact us</h1>
+                  </Row>
+                  <Column width={14} centered>
+                    <Grid centered>
+                      <Row columns={16}>
+                        <Column computer={10} mobile={16}>
+                          <h1 className="thai">ค่ายวิศวพัฒน์ โครงการวิศวกรรมอาสาพัฒนา</h1>
+                          <p>จุฬาลงกรณ์มหาวิทยาลัย 254 ถนนพญาไท แขวงวังใหม่ เขตปทุมวัน กรุงเทพมหานคร 10330</p>
+                          <h3 className="thai"><Icon name="facebook" /> <a href="https://fb.com/VoluntaryIntaniaCamp" target="_blank" style={{ color: "black" }}><u>ค่ายวิศวพัฒน์</u></a></h3>
+                          <h3><Icon name="mail" /> vidvapath.cu@gmail.com</h3>
+                          <h3 className="thai"><Icon name="desktop" /> <a href="http://vic.eng.chula.ac.th" target="_blank" style={{ color: "black" }}><u>http://vic.eng.chula.ac.th</u></a></h3>
+                          <h3 className="thai"><Icon name="group" /> <Link href="/about" to="/about" style={{ color: "black", textDecoration:"underline" }}>ทีมบริหารค่าย</Link></h3>
+                        </Column>
+                        <Column computer={6} mobile={16}>
+                          <Grid verticalAlign="middle" centered style={isMobile?{marginTop:50}:{}}>
+                            <div id="fb-root" />
+                            <div style={{ width: "100%" }} className="fb-page" data-href="https://www.facebook.com/VoluntaryIntaniaCamp/"
+                              data-tabs="" data-width={isMobile ? "350" : "500"}
+                              data-small-header="false" data-adapt-container-width="true"
+                              data-hide-cover="false" data-show-facepile="true">
+                              <blockquote cite="https://www.facebook.com/VoluntaryIntaniaCamp/" className="fb-xfbml-parse-ignore">
+                                <a href="https://www.facebook.com/VoluntaryIntaniaCamp/">ค่ายวิศวพัฒน์</a>
+                              </blockquote>
+                            </div>
+                          </Grid>
+                        </Column>
+                      </Row>
+                    </Grid>
+                  </Column>
                 </Grid>
               </Column>
             </Grid>
-            //   </Column>
-            // </Grid>
-      : <Loading open />
-      }
+            : <Loading open />
+        }
       </div>
-    <div id="floating-button" style={{
-      position: "fixed", zIndex: 150,
-      bottom: "0", right: "0", opacity: 0,
-      padding: "4vh 6vw 4vh 4vw", marginBottom: "8vh",
-      backgroundColor: "#fff68f60", borderRadius: "30px 0px 0px 30px"
-    }}
-    >
-      <Button size="huge" animated="fade" color="twitter" onClick={() => this.props.history.push("/register")} >
-        <Button.Content visible>
-          Register
-            <Icon name='right arrow' />
-        </Button.Content>
-        <Button.Content hidden>
-          <Grid verticalAlign='middle'>
-            <Grid.Row>
-              <Grid.Column>
-                <Icon name='signup' />
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Button.Content>
-      </Button>
-    </div>
+      <div id="floating-button" style={{
+        position: "fixed", zIndex: 150,
+        top: 0, right: 0, opacity: 0,
+        marginTop: "10vh",
+        backgroundColor: "#bababa60"
+      }}
+      >
+        <Button size="huge" animated="fade" color="twitter" onClick={() => this.props.history.push("/register")} >
+          <Button.Content visible>
+            Register
+            <Icon name='angle double right' />
+          </Button.Content>
+          <Button.Content hidden>
+            <Grid verticalAlign='middle'>
+              <Grid.Row>
+                <Grid.Column>
+                  <Icon name='signup' />
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </Button.Content>
+        </Button>
+      </div>
     </div>
   )
   InitAnimation = async () => {
@@ -306,15 +334,17 @@ class HomePage extends Component {
         }
         const scene1 = new ScrollMagic.Scene({ offset: 0, tweenChanges: true })
         const scheduler1 = new TimelineLite() // Animation time schedule
-
-        // SVG Sections --> "วิศวพัฒน์" text drawing
-        for (let charIndex = 1; charIndex < 14; charIndex++) {
-          const charSVG = document.querySelector(`path.char_${charIndex}`)
-          charSVG.style.stroke = "#fff68f"
-          charSVG.style.strokeDasharray = charSVG.getTotalLength()
-          charSVG.style.ease = Linear.easeNone
-          scheduler1.add(Tween.fromTo(`path.char_${charIndex}`, 0.15, { strokeDashoffset: charSVG.getTotalLength() }, { strokeDashoffset: 0 }), 0.15 * (charIndex - 1))
+        if(!isMobile){
+          // SVG Sections --> "วิศวพัฒน์" text drawing
+          for (let charIndex = 1; charIndex < 14; charIndex++) {
+            const charSVG = document.querySelector(`path.char_${charIndex}`)
+            charSVG.style.stroke = "#fff68f"
+            charSVG.style.strokeDasharray = charSVG.getTotalLength()
+            charSVG.style.ease = Linear.easeNone
+            scheduler1.add(Tween.fromTo(`path.char_${charIndex}`, 0.15, { strokeDashoffset: charSVG.getTotalLength() }, { strokeDashoffset: 0 }), 0.15 * (charIndex - 1))
+          }
         }
+
         // Fill "วิศวพัฒน์" text with #fff68f (bright yellow) color
         scheduler1.add(Tween.fromTo(`path[class^="char"]`, 2, { fill: "#fff68f00", ease: Expo.easeIn }, { fill: "#fff68f", ease: Expo.easeIn }), 0)
 
@@ -322,7 +352,7 @@ class HomePage extends Component {
         scheduler1.add(Tween.to(fakeState, 1, { currentSubheading1Length: 47, onUpdate: () => window.IndexComponent.setState({ ...fakeState }), ease: Linear.easeInOut }), 2)
 
         // Displaying VIC logo image
-        scheduler1.add(Tween.fromTo("#VICLogo", 1.5, { opacity: 0 }, { opacity: 1 }), 0)
+        scheduler1.add(Tween.fromTo("#VICLogo", 2, { opacity: 0 }, { opacity: 1 }), 0)
         // Add schedule to scene
         scene1.setTween(scheduler1)
 
@@ -343,8 +373,12 @@ class HomePage extends Component {
         const RegisterButtonFadeInScene = new ScrollMagic.Scene({ triggerElement: "#intro_paragraph", duration: 0.5 * H }).setTween(
           "#floating-button", { opacity: 1 }
         )
+        const RegisterButtonFadeOutScene = new ScrollMagic.Scene({ triggerElement: "#contact_us", duration: 0.3 * H }).setTween(
+          "#floating-button", { opacity: 0 }
+        )
         controller.addScene(HistoryFadeOutScene)
         controller.addScene(RegisterButtonFadeInScene)
+        controller.addScene(RegisterButtonFadeOutScene)
       }
       // <------------ Job Intro Animation --------------->
       {

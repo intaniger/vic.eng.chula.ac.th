@@ -10,6 +10,7 @@ import './style.css'
 
 import ParticleConfig from '../asset/particle_config.json'
 import Axios from 'axios';
+import Loading from './Loading';
 /* import { white } from '../../node_modules/ansi-colors'; */
 
 const { Column, Row } = Grid
@@ -111,11 +112,13 @@ class Register extends Component {
     return errors
   }
   formSubmission = (data) => {
+    this.setState({formBody:<Loading open/>, oldFormBody: this.state.formBody})
     Axios.post(`http://datanaliez.com/api/v1/form/submit/${this.props.formID}`,data).then(()=>{
       alert("การส่งใบสมัครเสร็จสมบูรณ์")
       this.props.history.push("/")
     }).catch((error)=>{
       alert(`การส่งใบสมัครล้มเหลว กรุณาลองใหม่อีกครั้ง ${error}`)
+      this.setState({formBody:this.state.oldFormBody})
     })
   }
   render = () => (

@@ -86,8 +86,8 @@ class About extends Component {
                       <Contact name="ไทเกอร์ #2 วิศวฯ" position="ประธานค่าย" avatar={PresidentImage} line="intaniger" tel="098-941-7565" />
                     </Column>
                   </Row>
-                  <Row style={{marginTop:"20vh"}}>
-                    <h1 className="thai" style={{color:"white"}}>เหรัญญิก และ เลขานุการ</h1>
+                  <Row style={{ marginTop: "20vh" }}>
+                    <h1 className="thai" style={{ color: "white" }}>เหรัญญิก และ เลขานุการ</h1>
                   </Row>
                   <Row>
                     <Column style={{ overflowY: "scroll", margin: "0 auto" }}>
@@ -97,8 +97,8 @@ class About extends Component {
                       </Card.Group>
                     </Column>
                   </Row>
-                  <Row style={{marginTop:"20vh"}}>
-                    <h1 className="thai" style={{color:"white"}}>รองประธานฝ่ายต่างๆ</h1>
+                  <Row style={{ marginTop: "20vh" }}>
+                    <h1 className="thai" style={{ color: "white" }}>รองประธานฝ่ายต่างๆ</h1>
                   </Row>
                   <Row>
                     <Column style={{ overflowY: "scroll", margin: "0 auto" }}>
@@ -108,6 +108,77 @@ class About extends Component {
                         <Contact name="โอ๊ค #2 วิศวฯ" position="รองประธานฝ่ายประเมินผล" avatar={EvaluatorImage} />
                         <Contact name="อู๋ #2 วิศวฯ" position="รองประธานฝ่ายสวัสดิการ" avatar={WelfareImage} />
                       </Card.Group>
+                    </Column>
+                  </Row>
+                </Grid>
+              </Column>
+            </Grid>
+            <Grid centered style={{marginTop:"20vh", marginBottom:"8vh"}}>
+              <Row centered>
+                <h1 className="thai h1" style={{ color: "white" }}>ทีมพัฒนาเว็บไซต์</h1>
+              </Row>
+              <Column computer={10} mobile={16}>
+                <Grid>
+                  <Row columns={2}>
+                    <Column>
+                      <h2 className="thai" style={{ color: "white" }}>EDITOR-IN-CHIEF</h2>
+                    </Column>
+                    <Column>
+                      <h4 className="thai" style={{ color: "white", textAlign: "right" }}>TANAKORN PISNUPOOMI</h4>
+                      <h4 className="thai" style={{ color: "white", textAlign: "right" }}>TUANTHUM JITPUKDEE</h4>
+                    </Column>
+                  </Row>
+                </Grid>
+                <Grid>
+                  <Row columns={2}>
+                    <Column>
+                      <h2 className="thai" style={{ color: "white" }}>CONTENT WRITER</h2>
+                    </Column>
+                    <Column>
+                      <h4 className="thai" style={{ color: "white", textAlign: "right" }}>TANAKORN PISNUPOOMI</h4>
+                    </Column>
+                  </Row>
+                </Grid>
+                <Grid>
+                  <Row columns={2}>
+                    <Column>
+                      <h2 className="thai" style={{ color: "white" }}>CONTENT REVIEWER</h2>
+                    </Column>
+                    <Column>
+                      <h4 className="thai" style={{ color: "white", textAlign: "right" }}>JEDSADA TANGMONGKHONSUK</h4>
+                    </Column>
+                  </Row>
+                </Grid>
+                <Grid>
+                  <Row columns={2}>
+                    <Column>
+                      <h2 className="thai" style={{ color: "white" }}>DESIGNER</h2>
+                    </Column>
+                    <Column>
+                      <h4 className="thai" style={{ color: "white", textAlign: "right" }}>KANJANA PEDNOK</h4>
+                    </Column>
+                  </Row>
+                </Grid>
+                <Grid>
+                  <Row columns={2}>
+                    <Column>
+                      <h2 className="thai" style={{ color: "white" }}>MEDIA & GRAPHIC</h2>
+                    </Column>
+                    <Column>
+                      <h4 className="thai" style={{ color: "white", textAlign: "right" }}>SUCHADA NOONPUKDEE</h4>
+                      <h4 className="thai" style={{ color: "white", textAlign: "right" }}>JIRAPHON EAKASIN</h4>
+                    </Column>
+                  </Row>
+                </Grid>
+                <Grid>
+                  <Row columns={2}>
+                    <Column>
+                      <h2 className="thai" style={{ color: "white" }}>DEVELOPER</h2>
+                    </Column>
+                    <Column>
+                      <h4 className="thai" style={{ color: "white", textAlign: "right" }}>TANAKORN PISNUPOOMI</h4>
+                      <h4 className="thai" style={{ color: "white", textAlign: "right" }}>TUANTHUM JITPUKDEE</h4>
+                      <h4 className="thai" style={{ color: "white", textAlign: "right" }}>BOONYAWEE KIATSILP</h4>
                     </Column>
                   </Row>
                 </Grid>
