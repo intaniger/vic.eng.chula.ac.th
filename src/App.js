@@ -42,6 +42,33 @@ const AnimatedRoutes = getContext({
       }
 
       // Use React-Move to animate the different components coming in and out
+      if (props.location.pathname === "/"){
+        const PreservedRouterContext = withContext(
+          {
+            router: PropTypes.object,
+          },
+          () => ({
+            router,
+          }),
+        )(props => <div {...props} />)
+
+        return (
+          <PreservedRouterContext
+            style={{
+              position: 'absolute',
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
+            }}
+          >
+            <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet" />
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossOrigin="anonymous"/>
+            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css"/>
+            <Comp {...props} />
+          </PreservedRouterContext>
+        )
+      }
       return (
         <NodeGroup
           // React-move will handle the entry and exit of any items we pass in `data`
