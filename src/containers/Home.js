@@ -12,7 +12,6 @@ import BackgroundAnimation from "../scenes/Background"
 import Mountain from '../asset/mountain.png'
 import VICLogo from '../asset/VICLogo.png'
 import Moon from '../asset/moon.png'
-import pic1 from '../asset/pic1.jpg'
 import section_1_img_1 from '../asset/section1_1.jpg'
 import section_1_img_2 from '../asset/section1_2.jpg'
 import registrationImage from '../asset/register.png'
@@ -85,11 +84,6 @@ class HomePage extends Component {
               </Row>
             </Grid>
             <Grid id="intro" style={{ padding: "100px 0" }} verticalAlign='middle' centered>
-              {/* <Row centered>
-                  <h1 style={{ margin: "10vh", padding: 0, color: "#ffffff", textAlign: 'center', fontSize: 80 }} className="thai small">
-                    ค่ายวิศวพัฒน์ คืออะไร?
-                  </h1>
-                </Row> */}
               <Grid stackable id="intro_paragraph" verticalAlign="middle">
                 <Column floated="right" width={8}>
                   <p className="thai small intro-head">
@@ -153,7 +147,7 @@ class HomePage extends Component {
               {/* </Row> */}
             </Grid>
             <Grid id="timeline" centered verticalAlign="middle">
-              <Row columns={16} style={{ marginTop: "10vh", }} centered>
+              <Row columns={16} style={{ marginTop: "10vh"}} centered>
                 <Column id="timepoint" className="timepoint1" computer={2} mobile={16}>
                   <Grid centered>
                     <Row centered>
@@ -230,7 +224,7 @@ class HomePage extends Component {
                 <Grid centered>
                   <Row columns={16}>
                     <Column computer={10} mobile={16}>
-                      <h1 className="thai">ค่ายวิศวกรรมอาสาพัฒนาชนบท วิศวพัฒน์</h1>
+                      <h1 className="thai">ค่ายวิศวพัฒน์ โครงการวิศวกรรมอาสาพัฒนา</h1>
                       <p>จุฬาลงกรณ์มหาวิทยาลัย 254 ถนนพญาไท แขวงวังใหม่ เขตปทุมวัน กรุงเทพมหานคร 10330</p>
                       <h3 className="thai"><Icon name="facebook" /> <a href="https://fb.com/VoluntaryIntaniaCamp" target="_blank" style={{ color: "black" }}><u>ค่ายวิศวพัฒน์</u></a></h3>
                       <h3><Icon name="mail" /> vidvapath.cu@gmail.com</h3>
@@ -297,13 +291,13 @@ class HomePage extends Component {
           charSVG.style.stroke = "#fff68f"
           charSVG.style.strokeDasharray = charSVG.getTotalLength()
           charSVG.style.ease = Linear.easeNone
-          scheduler1.add(Tween.fromTo(`path.char_${charIndex}`, 0.1, { strokeDashoffset: charSVG.getTotalLength() }, { strokeDashoffset: 0 }), 0.1 * (charIndex - 1))
+          scheduler1.add(Tween.fromTo(`path.char_${charIndex}`, 0.2, { strokeDashoffset: charSVG.getTotalLength() }, { strokeDashoffset: 0 }), 0.2 * (charIndex - 1))
         }
         // Fill "วิศวพัฒน์" text with #fff68f (bright yellow) color
-        scheduler1.add(Tween.fromTo(`path[class^="char"]`, 1.5, { fill: "#fff68f00", ease: Expo.easeIn }, { fill: "#fff68f", ease: Expo.easeIn }), 0)
+        scheduler1.add(Tween.fromTo(`path[class^="char"]`, 3, { fill: "#fff68f00", ease: Expo.easeIn }, { fill: "#fff68f", ease: Expo.easeIn }), 0)
 
         // Printing "นิสิตทุนคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย" text
-        scheduler1.add(Tween.to(this.state, 0.8, { currentSubheading1Length: 47, onUpdate: () => this.forceUpdate(), ease: Linear.easeInOut }), 1.4)
+        scheduler1.add(Tween.to(this.state, 1.5, { currentSubheading1Length: 47, onUpdate: () => this.forceUpdate(), ease: Linear.easeInOut }), 2.8)
 
         // Displaying VIC logo image
         scheduler1.add(Tween.fromTo("#VICLogo", 1.5, { opacity: 0 }, { opacity: 1 }), 0)
@@ -341,7 +335,7 @@ class HomePage extends Component {
         toolSVG.style.strokeWidth = "5px"
         toolSVG.style.strokeDasharray = toolSVG.getTotalLength()
         toolSVG.style.ease = Linear.easeNone
-        FaySceneScheduler.add(Tween.fromTo(`path.tools_1`, 3, { strokeDashoffset: toolSVG.getTotalLength() }, { strokeDashoffset: 0 }), 0)
+        FaySceneScheduler.add(Tween.fromTo(`path.tools_1`, 3, { strokeDashoffset: toolSVG.getTotalLength() }, { strokeDashoffset: 0 }), 3)
 
         // Sprout icon animation
 
