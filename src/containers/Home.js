@@ -4,6 +4,7 @@ import { Grid, Image, Icon, Button, Reveal } from 'semantic-ui-react'
 import { TweenLite as Tween, Linear, TimelineLite, Expo, TweenMax } from 'gsap';
 import "particles.js";
 import { isMobile } from 'react-device-detect';
+import Slider from "react-slick";
 
 import ScrollMagic from "../lib/ScrollMagic";
 import { FBLoadAPI, GMapLoadAPI } from "../lib/APILoader";
@@ -47,25 +48,25 @@ const firstMoonHoffset = (factor * H) - (RotateRadius) * sin(acos(W / (2 * Rotat
 const rotatableAngle = Math.PI - (2 * (Math.acos((W / (2 * RotateRadius)))));
 const QAList = [
   {
-    q:"อยู่คณะอื่น เข้าร่วมค่ายได้หรือไม่",
-    a:<p className="thai">สามารถเข้าร่วมกิจกรรมค่ายได้<br/>
-     แล้วพบกันในวันเฟิร์สมีทค่ายวิศวพัฒน์ครับ 😃</p>
+    q: "อยู่คณะอื่น เข้าร่วมค่ายได้หรือไม่",
+    a: <p className="thai">สามารถเข้าร่วมกิจกรรมค่ายได้<br />
+      แล้วพบกันในวันเฟิร์สมีทค่ายวิศวพัฒน์ครับ 😃</p>
   },
   {
-    q:"ค่ายนี้ต้องเสียค่าใช้จ่ายใดๆหรือไม่",
-    a:<p style={{fontSize:"2vh"}} className="thai">ไม่ต้องเสียค่าใช้จ่ายใดๆ<br/>ทั้งในการสมัครค่ายและการขึ้นค่ายครับ</p>
+    q: "ค่ายนี้ต้องเสียค่าใช้จ่ายใดๆหรือไม่",
+    a: <p style={{ fontSize: "2vh" }} className="thai">ไม่ต้องเสียค่าใช้จ่ายใดๆ<br />ทั้งในการสมัครค่ายและการขึ้นค่ายครับ</p>
   },
   {
-    q:"ตารางกิจกรรมในแต่ละวันมีอะไรบ้าง",
-    a:<p style={{fontSize:"2vh"}} className="thai">ข้อมูลส่วนนี้จะมีการชี้แจงรายละเอียด<br/>ในวันเฟิร์สมีท ค่ายวิศวพัฒน์ครับ</p>
+    q: "ตารางกิจกรรมในแต่ละวันมีอะไรบ้าง",
+    a: <p style={{ fontSize: "2vh" }} className="thai">ข้อมูลส่วนนี้จะมีการชี้แจงรายละเอียด<br />ในวันเฟิร์สมีท ค่ายวิศวพัฒน์ครับ</p>
   },
   {
-    q:"ต้องเตรียมของใช้อะไรขึ้นค่ายบ้าง",
-    a:<p style={{fontSize:"1.5vh"}} className="thai">เตรียมเฉพาะของใช้ส่วนตัว และอุปกรณ์การนอน<br/>โดยทางค่ายจะมีอุปกรณ์<br/>ที่เกี่ยวข้องกับการทำงานเพิ่มเติมให้</p>
+    q: "ต้องเตรียมของใช้อะไรขึ้นค่ายบ้าง",
+    a: <p style={{ fontSize: "1.5vh" }} className="thai">เตรียมเฉพาะของใช้ส่วนตัว และอุปกรณ์การนอน<br />โดยทางค่ายจะมีอุปกรณ์<br />ที่เกี่ยวข้องกับการทำงานเพิ่มเติมให้</p>
   },
   {
-    q:"ลักษณะที่พักเป็นอย่างไร",
-    a:<p style={{fontSize:"2vh"}} className="thai">ข้อมูลส่วนนี้ต้องขออุบไว้ก่อนนะครับ <br/> แต่รับรองว่าไม่นอนกลางป่าแน่นอน</p>
+    q: "ลักษณะที่พักเป็นอย่างไร",
+    a: <p style={{ fontSize: "2vh" }} className="thai">ข้อมูลส่วนนี้ต้องขออุบไว้ก่อนนะครับ <br /> แต่รับรองว่าไม่นอนกลางป่าแน่นอน</p>
   }
 ]
 
@@ -79,6 +80,8 @@ class HomePage extends Component {
   }
   render = () => (
     <div>
+      <link rel="stylesheet" type="text/css" charSet="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
       <div style={{ position: "fixed", zIndex: 2, width: "100%", height: "100%", top: 0, left: 0 }} id="background">
         <div style={{ position: "fixed", width: window.innerWidth, height: RotateRadius, transform: `rotate(0deg) translate(-${0.5 * MoonFactor * R}px, ${firstMoonHoffset}px)`, transformOrigin: "50% 100%" }} id="sun-moon-background">
           <img alt="Moon" src={Moon} style={{ width: `${MoonFactor * R}px` }} />
@@ -149,16 +152,16 @@ class HomePage extends Component {
                 </Grid>
 
                 <Grid id="camphistory" columns={16} centered verticalAlign="middle">
-                  <Grid classname="history1" id="history" width={16} centered>
+                  <Grid className="history1" id="history" width={16} centered>
                     <Row centered className="historycontent1" id="historycontent">
                       <Column width={6}>
                         <h1 className="thai bullet">ค่ายวิศวพัฒน์ ครั้งที่1</h1>
-                        <ul style="list-style-type:none" className="thai white intro-sub">
+                        <ul style={{ listStyleType: "none" }} className="thai white intro-sub">
                           <li>สถานที่ : </li>
                           <li>กิจกรรมที่ทำ : </li>
                           <li>ปัญหา : </li>
                           <li>ระยะเวลา : </li>
-                        </ul> 
+                        </ul>
                       </Column>
                       <Column width={6} height={50} >
                         <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={tempimage} />
@@ -168,35 +171,35 @@ class HomePage extends Component {
                       <div style={{ width: "3px", backgroundColor: "white", height: "300px" }} id="hisline" className="hisline1" />
                     </Row>
                   </Grid>
-                  <Grid classname="history2" id="history" width={16} centered>
+                  <Grid className="history2" id="history" width={16} centered>
                     <Row centered className="historycontent2" id="historycontent">
                       <Column width={6} height={50} >
                         <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={tempimage} />
                       </Column>
                       <Column width={6}>
                         <h1 className="thai bullet">ค่ายวิศวพลัส</h1>
-                        <ul style="list-style-type:none" className="thai white intro-sub">
+                        <ul style={{ listStyleType: "none" }} className="thai white intro-sub">
                           <li>สถานที่ : </li>
                           <li>กิจกรรมที่ทำ : </li>
                           <li>ปัญหา : </li>
                           <li>ระยะเวลา : </li>
-                        </ul> 
+                        </ul>
                       </Column>
                     </Row>
                     <Row centered>
-                    <div style={{ width: "3px", backgroundColor: "white", height: "300px" }} id="hisline" className="hisline2" />
+                      <div style={{ width: "3px", backgroundColor: "white", height: "300px" }} id="hisline" className="hisline2" />
                     </Row>
                   </Grid>
-                  <Grid classname="history3" id="history" width={16} centered>
-                    <Row centered id="historycontent3">
-                    <Column width={6}>
+                  <Grid className="history3" id="history" width={16} centered>
+                    <Row centered className="historycontent3" id="historycontent">
+                      <Column width={6}>
                         <h1 className="thai bullet">ค่ายวิศวพัฒน์ ครั้งที่2</h1>
-                        <ul style="list-style-type:none" className="thai white intro-sub">
+                        <ul style={{ listStyleType: "none" }} className="thai white intro-sub">
                           <li>สถานที่ : </li>
                           <li>กิจกรรมที่ทำ : </li>
                           <li>ปัญหา : </li>
                           <li>ระยะเวลา : </li>
-                        </ul> 
+                        </ul>
                       </Column>
                       <Column width={6} height={50} >
                         <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={tempimage} />
@@ -239,10 +242,10 @@ class HomePage extends Component {
                     <Column id="timepoint" className="timepoint1" computer={2} mobile={16}>
                       <Grid centered>
                         <Row centered>
-                          <RegisterIcon style={{ width: "150px", height: "150px", padding: 5, marginLeft:30 }} />
+                          <RegisterIcon style={{ width: "150px", height: "150px", padding: 5, marginLeft: 30 }} />
                         </Row>
                         <Row><p className="thai bullet">Registration</p></Row>
-                        <Row><p className="thai bullet">9 - 13 <Column only="computer"/> Nov 2018</p></Row>
+                        <Row><p className="thai bullet">9 - 13 <Column only="computer" /> Nov 2018</p></Row>
                       </Grid>
                     </Column>
                     <Column computer={2} mobile={12}>
@@ -253,7 +256,7 @@ class HomePage extends Component {
                     <Column id="timepoint" className="timepoint2" computer={2} mobile={16}>
                       <Grid centered>
                         <Row centered>
-                          <AnnouncedIcon style={{ width: "170px", height: "170px", padding: 5, marginLeft:30 }} />
+                          <AnnouncedIcon style={{ width: "170px", height: "170px", padding: 5, marginLeft: 30 }} />
                         </Row>
                         <Row><p className="thai bullet">Announced</p></Row>
                         <Row><p className="thai bullet">14 Nov 2018</p></Row>
@@ -284,7 +287,7 @@ class HomePage extends Component {
                           <CampdateIcon style={{ width: "150px", height: "150px", padding: 5 }} />
                         </Row>
                         <Row centered><p className="thai bullet">Camp date</p> </Row>
-                        <Row><p className="thai bullet">22 - 28 <Column only="computer"/> Dec 2018</p></Row>
+                        <Row><p className="thai bullet">22 - 28 <Column only="computer" /> Dec 2018</p></Row>
                       </Grid>
                     </Column>
                   </Row>
@@ -294,11 +297,26 @@ class HomePage extends Component {
                     </Column>
                   </Row>
                 </Grid>
-                <Grid id="interview" style={{ margin: "10vh 0", height: "80vh" }}>
-                  <div style={{ border: "3px solid white", width: "100%", height: "100%" }}>
-                    <h1>Reserved for interview section</h1>
+                <Slider {...{ dots: true, infinite: true, speed: 500, slidesToShow: 1, slidesToScroll: 1 }}>
+                  <div>
+                    <h3>Vajiralongkorn</h3>
                   </div>
-                </Grid>
+                  <div>
+                    <h3>2</h3>
+                  </div>
+                  <div>
+                    <h3>3</h3>
+                  </div>
+                  <div>
+                    <h3>4</h3>
+                  </div>
+                  <div>
+                    <h3>5</h3>
+                  </div>
+                  <div>
+                    <h3>6</h3>
+                  </div>
+                </Slider>
                 <Grid id="FAQ" style={{ margin: "5vh 0" }} stackable>
                   {/* <h1>Reserved for FAQ section</h1>
                 <p className="thai"> Q: คณะอื่นไปได้หรือไม่<br/>
@@ -308,7 +326,7 @@ class HomePage extends Component {
                     Q: ที่พัก/อาหารการกินเป็นอย่างไร<br/>
                     Q: ถ้าไม่มีประสบการณ์การทำค่ายอาสามาก่อนต้องเตรียมตัวอย่างไร</p> */}
                   {
-                    QAList.map((Q)=>(
+                    QAList.map((Q) => (
                       <Column width={5}>
                         <QA Question={Q.q} Answer={Q.a} />
                       </Column>
@@ -328,10 +346,10 @@ class HomePage extends Component {
                           <h3 className="thai"><Icon name="facebook" /> <a href="https://fb.com/VoluntaryIntaniaCamp" target="_blank" style={{ color: "black" }}><u>ค่ายวิศวพัฒน์</u></a></h3>
                           <h3><Icon name="mail" /> vidvapath.cu@gmail.com</h3>
                           <h3 className="thai"><Icon name="desktop" /> <a href="http://vic.eng.chula.ac.th" target="_blank" style={{ color: "black" }}><u>http://vic.eng.chula.ac.th</u></a></h3>
-                          <h3 className="thai"><Icon name="group" /> <Link href="/about" to="/about" style={{ color: "black", textDecoration:"underline" }}>ทีมบริหารค่าย</Link></h3>
+                          <h3 className="thai"><Icon name="group" /> <Link href="/about" to="/about" style={{ color: "black", textDecoration: "underline" }}>ทีมบริหารค่าย</Link></h3>
                         </Column>
                         <Column computer={6} mobile={16}>
-                          <Grid verticalAlign="middle" centered style={isMobile?{marginTop:50}:{}}>
+                          <Grid verticalAlign="middle" centered style={isMobile ? { marginTop: 50 } : {}}>
                             <div id="fb-root" />
                             <div style={{ width: "100%" }} className="fb-page" data-href="https://www.facebook.com/VoluntaryIntaniaCamp/"
                               data-tabs="" data-width={isMobile ? "350" : "500"}
@@ -393,7 +411,7 @@ class HomePage extends Component {
         }
         const scene1 = new ScrollMagic.Scene({ offset: 0, tweenChanges: true })
         const scheduler1 = new TimelineLite() // Animation time schedule
-        if(!isMobile){
+        if (!isMobile) {
           // SVG Sections --> "วิศวพัฒน์" text drawing
           for (let charIndex = 1; charIndex < 14; charIndex++) {
             const charSVG = document.querySelector(`path.char_${charIndex}`)
@@ -507,24 +525,23 @@ class HomePage extends Component {
         // Add scene to controller
         controller.addScene(TlScene)
       }
-            //<------------ Camp History Animation --------------->
-            // for (let hisIndex = 1; hisIndex <= 3; hisIndex++) {
-            //   const HisConScene = new ScrollMagic.Scene({ triggerElement: `.historycontent${hisIndex}`, tweenChanges: true, reverse: false})
-      
-            //   HisConScene.setTween(Tween.fromTo(`.historycontent${hisIndex}`,  0.5, { opacity: 0 }, { opacity: 1 },1))
-      
-            //   controller.addScene(HisHeadScene)
-            //   controller.addScene(HisConScene)
+      //<------------ Camp History Animation --------------->
+      for (let hisIndex = 1; hisIndex <= 3; hisIndex++) {
+        const HisConScene = new ScrollMagic.Scene({ triggerElement: `.historycontent${hisIndex}`, tweenChanges: true, reverse: false })
 
-            //   if(hisIndex <3) {
-            //     const HisLineScene = new ScrollMagic.Scene({ triggerElement: `.hisline${hisIndex}`, tweenChanges: true, reverse: false})
-      
-            //     HisLineScene.setTween(Tween.fromTo(`.hisline${hisIndex}`,1.5, { height: "0px" }, { height: "300px" },1))
-        
-            //     controller.addScene(HisLineScene)
-            //   }
-            // }
-      
+        HisConScene.setTween(Tween.fromTo(`.historycontent${hisIndex}`, 0.5, { opacity: 0 }, { opacity: 1 }, 1))
+
+        controller.addScene(HisConScene)
+
+        if (hisIndex < 3) {
+          const HisLineScene = new ScrollMagic.Scene({ triggerElement: `.hisline${hisIndex}`, tweenChanges: true, reverse: false })
+
+          HisLineScene.setTween(Tween.fromTo(`.hisline${hisIndex}`, 1.5, { height: "0px" }, { height: "300px" }, 1))
+
+          controller.addScene(HisLineScene)
+        }
+      }
+
 
       window.CurrentConroller = controller
     }

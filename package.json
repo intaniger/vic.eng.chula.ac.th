@@ -21,11 +21,13 @@
     "react-google-maps": "^9.4.5",
     "react-move": "^2.6.0",
     "react-router": "^4.2.0",
+    "react-slick": "^0.23.2",
     "react-static": "^5.9.12",
     "recompose": "^0.26.0",
     "scrollmagic": "^2.0.5",
     "semantic-ui-css": "^2.3.3",
     "semantic-ui-react": "^0.82.3",
+    "slick-carousel": "^1.8.1",
     "ssl-root-cas": "^1.2.5",
     "styled-components": "^3"
   },
