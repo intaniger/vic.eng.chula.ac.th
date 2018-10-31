@@ -15,6 +15,7 @@ import VICLogo from '../asset/VICLogo.png'
 import Moon from '../asset/moon.png'
 import section_1_img_1 from '../asset/section1_1.jpg'
 import section_1_img_2 from '../asset/section1_2.jpg'
+import tempimage from '../asset/pic1.jpg'
 
 
 import VIC from '../asset/VIC.svg'
@@ -146,6 +147,64 @@ class HomePage extends Component {
                     </Column>
                   </Grid>
                 </Grid>
+
+                <Grid id="camphistory" columns={16} centered verticalAlign="middle">
+                  <Grid classname="history1" id="history" width={16} centered>
+                    <Row centered className="historycontent1" id="historycontent">
+                      <Column width={6}>
+                        <h1 className="thai bullet">ค่ายวิศวพัฒน์ ครั้งที่1</h1>
+                        <ul style="list-style-type:none" className="thai white intro-sub">
+                          <li>สถานที่ : </li>
+                          <li>กิจกรรมที่ทำ : </li>
+                          <li>ปัญหา : </li>
+                          <li>ระยะเวลา : </li>
+                        </ul> 
+                      </Column>
+                      <Column width={6} height={50} >
+                        <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={tempimage} />
+                      </Column>
+                    </Row>
+                    <Row centered >
+                      <div style={{ width: "3px", backgroundColor: "white", height: "300px" }} id="hisline" className="hisline1" />
+                    </Row>
+                  </Grid>
+                  <Grid classname="history2" id="history" width={16} centered>
+                    <Row centered className="historycontent2" id="historycontent">
+                      <Column width={6} height={50} >
+                        <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={tempimage} />
+                      </Column>
+                      <Column width={6}>
+                        <h1 className="thai bullet">ค่ายวิศวพลัส</h1>
+                        <ul style="list-style-type:none" className="thai white intro-sub">
+                          <li>สถานที่ : </li>
+                          <li>กิจกรรมที่ทำ : </li>
+                          <li>ปัญหา : </li>
+                          <li>ระยะเวลา : </li>
+                        </ul> 
+                      </Column>
+                    </Row>
+                    <Row centered>
+                    <div style={{ width: "3px", backgroundColor: "white", height: "300px" }} id="hisline" className="hisline2" />
+                    </Row>
+                  </Grid>
+                  <Grid classname="history3" id="history" width={16} centered>
+                    <Row centered id="historycontent3">
+                    <Column width={6}>
+                        <h1 className="thai bullet">ค่ายวิศวพัฒน์ ครั้งที่2</h1>
+                        <ul style="list-style-type:none" className="thai white intro-sub">
+                          <li>สถานที่ : </li>
+                          <li>กิจกรรมที่ทำ : </li>
+                          <li>ปัญหา : </li>
+                          <li>ระยะเวลา : </li>
+                        </ul> 
+                      </Column>
+                      <Column width={6} height={50} >
+                        <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={tempimage} />
+                      </Column>
+                    </Row>
+                  </Grid>
+                </Grid>
+
                 <Grid id="camp_infor" stackable centered>
                   <Column verticalAlign='middle' width={8}>
                     <Grid style={{ height: "100%" }}>
@@ -380,6 +439,7 @@ class HomePage extends Component {
         controller.addScene(RegisterButtonFadeInScene)
         controller.addScene(RegisterButtonFadeOutScene)
       }
+
       // <------------ Job Intro Animation --------------->
       {
         const FayJobScene = new ScrollMagic.Scene({ triggerElement: "#camp_infor", tweenChanges: true, reverse: false })
@@ -447,6 +507,25 @@ class HomePage extends Component {
         // Add scene to controller
         controller.addScene(TlScene)
       }
+            //<------------ Camp History Animation --------------->
+            // for (let hisIndex = 1; hisIndex <= 3; hisIndex++) {
+            //   const HisConScene = new ScrollMagic.Scene({ triggerElement: `.historycontent${hisIndex}`, tweenChanges: true, reverse: false})
+      
+            //   HisConScene.setTween(Tween.fromTo(`.historycontent${hisIndex}`,  0.5, { opacity: 0 }, { opacity: 1 },1))
+      
+            //   controller.addScene(HisHeadScene)
+            //   controller.addScene(HisConScene)
+
+            //   if(hisIndex <3) {
+            //     const HisLineScene = new ScrollMagic.Scene({ triggerElement: `.hisline${hisIndex}`, tweenChanges: true, reverse: false})
+      
+            //     HisLineScene.setTween(Tween.fromTo(`.hisline${hisIndex}`,1.5, { height: "0px" }, { height: "300px" },1))
+        
+            //     controller.addScene(HisLineScene)
+            //   }
+            // }
+      
+
       window.CurrentConroller = controller
     }
   }
