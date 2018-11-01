@@ -3,7 +3,7 @@ import { Link } from 'react-static';
 import { Grid, Image, Icon, Button, Reveal } from 'semantic-ui-react'
 import { TweenLite as Tween, Linear, TimelineLite, Expo, TweenMax } from 'gsap';
 import "particles.js";
-import { isMobile } from 'react-device-detect';
+import { isMobile, isTablet } from 'react-device-detect';
 import Slider from "react-slick";
 
 import ScrollMagic from "../lib/ScrollMagic";
@@ -252,8 +252,8 @@ class HomePage extends Component {
                         <Row><p className="thai bullet">9 - 13 <Column only="computer" /> Nov 2018</p></Row>
                       </Grid>
                     </Column>
-                    <Column computer={2} mobile={12}>
-                      <div className="timeline-line-frame">
+                    <Column computer={2} mobile={12} tablet={7}>
+                      <div style={{display:"block"}} className="timeline-line-frame">
                         <div style={{ width: "0%", backgroundColor: "white", height: "3px" }} className="timelink1" id="timeline-link-draw" />
                       </div>
                     </Column>
@@ -266,8 +266,8 @@ class HomePage extends Component {
                         <Row><p className="thai bullet">14 Nov 2018</p></Row>
                       </Grid>
                     </Column>
-                    <Column computer={3} mobile={12}>
-                      <div className="timeline-line-frame">
+                    <Column computer={3} mobile={12} tablet={7}>
+                      <div  className="timeline-line-frame">
                         <div style={{ width: "0%", backgroundColor: "white", height: "3px" }} className="timelink2" id="timeline-link-draw" />
                       </div>
                     </Column>
@@ -280,8 +280,8 @@ class HomePage extends Component {
                         <Row><p className="thai bullet">16 Nov 2018</p></Row>
                       </Grid>
                     </Column>
-                    <Column computer={3} mobile={12}>
-                      <div className="timeline-line-frame">
+                    <Column computer={3} mobile={12} tablet={7}>
+                      <div style={{display:"block"}}  className="timeline-line-frame">
                         <div style={{ width: "0%", backgroundColor: "white", height: "3px" }} className="timelink3" id="timeline-link-draw" />
                       </div>
                     </Column>
@@ -531,7 +531,7 @@ class HomePage extends Component {
         controller.addScene(FayJobScene)
       }
       // <------------ Timeline Animation --------------->
-      if (isMobile) {
+      if (isMobile || isTablet) {
         for (let TimepointIndex = 1; TimepointIndex <= 3; TimepointIndex++) {
           const TPScene = new ScrollMagic.Scene({ triggerElement: `.timepoint${TimepointIndex}`, tweenChanges: true, reverse: false, offset: -0.4 * H })
           const TLScene = new ScrollMagic.Scene({ triggerElement: `.timelink${TimepointIndex}`, tweenChanges: true, reverse: false, offset: -0.3 * H })

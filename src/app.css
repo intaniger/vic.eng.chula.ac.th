@@ -126,12 +126,13 @@ body {
   .timeline-line-frame{
     width: 100%;
     margin: 150px 0%;
-    height: 3px;
     transform: rotate(90deg);
     transform-origin: 50% 0%;
+    height: 3px;
   }
   .fb-page{
     margin: 50px 0;
     width: "80vw"
   }
+  
 }
