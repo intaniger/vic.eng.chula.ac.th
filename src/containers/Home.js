@@ -37,6 +37,7 @@ import './style.css'
 import "../lib/illuminated.js";
 import Loading from './Loading';
 import QA from './Q&A';
+import VIC2017 from './VIC_2017';
 
 const { Column, Row } = Grid
 
@@ -156,9 +157,8 @@ class HomePage extends Component {
                 </Grid>
 
                 <Grid id="camphistory" columns={16} centered verticalAlign="middle">
-                  <Grid className="history1" id="history" width={16} centered>
-                    <Row centered className="historycontent1" id="historycontent">
-                      {/* <Column width={6}>
+                  <Row centered className="historycontent1" id="historycontent">
+                    {/* <Column width={6}>
                         <h1 className="thai bullet">ค่ายวิศวพัฒน์ ครั้งที่1</h1>
                         <ul style={{ listStyleType: "none" }} className="thai white intro-sub">
                           <li>สถานที่ : </li>
@@ -167,49 +167,31 @@ class HomePage extends Component {
                           <li>ระยะเวลา : </li>
                         </ul>
                       </Column> */}
-                      <Column width={6} >
-                        <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={vic1_round1} />
-                      </Column>
-                    </Row>
-                    <Row centered >
-                      <div style={{ width: "3px", backgroundColor: "white", height: "300px" }} id="hisline" className="hisline1" />
-                    </Row>
-                  </Grid>
-                  <Grid className="history2" id="history" width={16} centered>
-                    <Row centered className="historycontent2" id="historycontent">
-                      <Column width={6} height={50} >
-                        <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={tempimage} />
-                      </Column>
-                      <Column width={6}>
-                        <h1 className="thai bullet">ค่ายวิศวพลัส</h1>
-                        <ul style={{ listStyleType: "none" }} className="thai white intro-sub">
-                          <li>สถานที่ : </li>
-                          <li>กิจกรรมที่ทำ : </li>
-                          <li>ปัญหา : </li>
-                          <li>ระยะเวลา : </li>
-                        </ul>
-                      </Column>
-                    </Row>
-                    <Row centered>
-                      <div style={{ width: "3px", backgroundColor: "white", height: "300px" }} id="hisline" className="hisline2" />
-                    </Row>
-                  </Grid>
-                  <Grid className="history3" id="history" width={16} centered>
-                    <Row centered className="historycontent3" id="historycontent">
-                      <Column width={6}>
-                        <h1 className="thai bullet">ค่ายวิศวพัฒน์ ครั้งที่2</h1>
-                        <ul style={{ listStyleType: "none" }} className="thai white intro-sub">
-                          <li>สถานที่ : </li>
-                          <li>กิจกรรมที่ทำ : </li>
-                          <li>ปัญหา : </li>
-                          <li>ระยะเวลา : </li>
-                        </ul>
-                      </Column>
-                      <Column width={6} height={50} >
-                        <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={tempimage} />
-                      </Column>
-                    </Row>
-                  </Grid>
+                    <Column computer={10} mobile={16} >
+                      <iframe title="ค่ายวิศวพัฒน์ครั้งที่ 1" src="/VIC2017" style={{ width: "100%", height:"60vh" }} />
+                      {/* <VIC2017 /> */}
+                    </Column>
+                  </Row>
+                  <Row centered >
+                    <div style={{ width: "3px", backgroundColor: "white", height: "300px" }} id="hisline" className="hisline1" />
+                  </Row>
+                  <Row centered className="historycontent2" id="historycontent">
+                    <Column width={6} height={50} >
+                      <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={tempimage} />
+                    </Column>
+                    <Column width={6}>
+                      <h1 className="thai bullet">ค่ายวิศวพลัส</h1>
+                      <ul style={{ listStyleType: "none" }} className="thai white intro-sub">
+                        <li>สถานที่ : </li>
+                        <li>กิจกรรมที่ทำ : </li>
+                        <li>ปัญหา : </li>
+                        <li>ระยะเวลา : </li>
+                      </ul>
+                    </Column>
+                  </Row>
+                  <Row centered>
+                    <div style={{ width: "3px", backgroundColor: "white", height: "300px" }} id="hisline" className="hisline2" />
+                  </Row>
                 </Grid>
 
                 <Grid id="camp_infor" stackable centered>
@@ -241,7 +223,7 @@ class HomePage extends Component {
                   </Column>
                 </Grid>
                 {/* </Row> */}
-                <Grid id="timeline" centered verticalAlign="middle" style={{margin:"5vh 0"}}>
+                <Grid id="timeline" centered verticalAlign="middle" style={{ margin: "5vh 0" }}>
                   <Row columns={16} style={{ marginTop: "10vh" }} centered>
                     <Column id="timepoint" className="timepoint1" computer={2} mobile={16}>
                       <Grid centered>
@@ -301,56 +283,56 @@ class HomePage extends Component {
                     </Column>
                   </Row>
                 </Grid>
-                <Slider style={{opacity:0}} slidesToShow={1} slidesToScroll={1} speed={500} dots infinite>
+                <Slider style={{ opacity: 0 }} slidesToShow={1} slidesToScroll={1} speed={500} dots infinite>
                   <div>
-                    <Grid className="interview-frame" style={{backgroundImage:`url('${interview_1}')`, backgroundSize:"cover"}}>
+                    <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_1}')`, backgroundSize: "cover" }}>
                       <Row>
                         <Column computer={9} mobile={11} floated="right">
-                          <div className="interview-container" style={{backgroundColor:"#ffffff70"}}>
-                            <p className="thai interview-personal" style={{textAlign: "left"}}>
-                              “ตอนแรกคิดว่าเรายังไม่มีประสบการณ์ เลยกลัวว่าจะช่วยเขาไม่ได้มาก <br/>
+                          <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
+                            <p className="thai interview-personal" style={{ textAlign: "left" }}>
+                              “ตอนแรกคิดว่าเรายังไม่มีประสบการณ์ เลยกลัวว่าจะช่วยเขาไม่ได้มาก <br />
                               แต่พอถึงวันงานก็มีรุ่นพี่ปีสาม ปีสี่ มาสอนงานให้ สุดท้ายก็ทำเป็น แล้วก็ได้ช่วยงานจริงๆ...”
                             </p>
                             <h1 className="thai interview-overall">
-                              ”...ค่ายทุกค่าย ล้วนเป็นค่ายที่ดีและมีประโยชน์ในแบบของมัน <br/>
+                              ”...ค่ายทุกค่าย ล้วนเป็นค่ายที่ดีและมีประโยชน์ในแบบของมัน <br />
                               และค่ายนี้ก็เป็นอีกค่ายหนึ่งที่เราคิดว่ามันดีมากๆ...”
                             </h1>
-                            <h2 className="thai interviewer">มิ้นท์ วิศวะ #2 ทีมติดตั้งระบบเซนเซอร์ <br/>ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
+                            <h2 className="thai interviewer">มิ้นท์ วิศวะ #2 ทีมติดตั้งระบบเซนเซอร์ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
                           </div>
                         </Column>
                       </Row>
                     </Grid>
                   </div>
                   <div>
-                    <Grid className="interview-frame" style={{backgroundImage:`url('${interview_2}')`, backgroundSize:"cover"}}>
+                    <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_2}')`, backgroundSize: "cover" }}>
                       <Row>
                         <Column computer={9} mobile={11} floated="right">
-                          <div className="interview-container" style={{marginRight: "5vh", marginTop:"10vh", padding:15, backgroundColor:"#ffffff70"}}>
-                            <p className="thai interview-personal" style={{textAlign: "left",fontSize:16}}>
-                              “ได้มีโอกาสเข้ามาช่วยงานเว็บค่ายในปีนี้ ตอนแรกคิดว่างานคงไม่เดือดมาก <br/>
-                              แต่พอได้ทำงานจริงๆเท่านั้นแหละ เดือดเป็น<label className="thai" style={{fontSize:30}}>เหี้ย</label>เลยอีดอกกกก...”
+                          <div className="interview-container" style={{ marginRight: "5vh", marginTop: "10vh", padding: 15, backgroundColor: "#ffffff70" }}>
+                            <p className="thai interview-personal" style={{ textAlign: "left", fontSize: 16 }}>
+                              “ได้มีโอกาสเข้ามาช่วยงานเว็บค่ายในปีนี้ ตอนแรกคิดว่างานคงไม่เดือดมาก <br />
+                              แต่พอได้ทำงานจริงๆเท่านั้นแหละ เดือดเป็น<label className="thai" style={{ fontSize: 30 }}>เหี้ย</label>เลยอีดอกกกก...”
                             </p>
                             <h1 className="thai interview-overall">
                               มึงจะส่งโครงวันไหนจ๊ะ?
                             </h1>
-                            <h2 className="thai interviewer">นะโม รองประธานฝ่ายทะเบียน ไม่ได้กล่าวไว้ <br/>ประธานค่ายแค่พูดสิ่งที่เขาคงอยากจะบอกแค่นั้นแหละ</h2>
+                            <h2 className="thai interviewer">นะโม รองประธานฝ่ายทะเบียน ไม่ได้กล่าวไว้ <br />ประธานค่ายแค่พูดสิ่งที่เขาคงอยากจะบอกแค่นั้นแหละ</h2>
                           </div>
                         </Column>
                       </Row>
                     </Grid>
                   </div>
                   <div>
-                    <Grid className="interview-frame" style={{backgroundImage:`url('${interview_3}')`, backgroundSize:"cover"}}>
+                    <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_3}')`, backgroundSize: "cover" }}>
                       <Row>
                         <Column computer={9} mobile={11} floated="right">
-                          <div className="interview-container" style={{marginRight: "5vh", marginTop:"10vh", padding:15, backgroundColor:"#ffffff70"}}>
-                            <p className="thai interview-personal" style={{textAlign: "left",fontSize:16}}>
+                          <div className="interview-container" style={{ marginRight: "5vh", marginTop: "10vh", padding: 15, backgroundColor: "#ffffff70" }}>
+                            <p className="thai interview-personal" style={{ textAlign: "left", fontSize: 16 }}>
                               “ได้เห็นหนังหน้าประธานค่ายปีนี้แล้ว พูดเลยว่า”
                             </p>
                             <h1 className="thai interview-overall">
                               งานดีมากกกกกก
                             </h1>
-                            <h2 className="thai interviewer">เฟรนด์ วิศวะ #2 ทีมติดตั้งระบบเซนเซอร์ ไม่ได้กล่าวไว้อีกเช่นกัน <br/>ประธานค่ายแค่เอารูปมาแปะ แล้วชมตัวเองแบบเนียนๆแค่นั้นแหละ</h2>
+                            <h2 className="thai interviewer">เฟรนด์ วิศวะ #2 ทีมติดตั้งระบบเซนเซอร์ ไม่ได้กล่าวไว้อีกเช่นกัน <br />ประธานค่ายแค่เอารูปมาแปะ แล้วชมตัวเองแบบเนียนๆแค่นั้นแหละ</h2>
                           </div>
                         </Column>
                       </Row>
@@ -522,7 +504,7 @@ class HomePage extends Component {
 
 
         FaySceneScheduler.add(Tween.fromTo(`#vic-job-headline`, 3, { opacity: 0 }, { opacity: 1 }), 0)
-        FaySceneScheduler.add(Tween.fromTo(`.verticalLine`, 1.5, { width: "0%", ease: Expo.easeOut }, { width: isMobile?"100%":"70%", ease: Expo.easeOut }), 0)
+        FaySceneScheduler.add(Tween.fromTo(`.verticalLine`, 1.5, { width: "0%", ease: Expo.easeOut }, { width: isMobile ? "100%" : "70%", ease: Expo.easeOut }), 0)
 
         // Add schedule to scene
         FayJobScene.setTween(FaySceneScheduler)
