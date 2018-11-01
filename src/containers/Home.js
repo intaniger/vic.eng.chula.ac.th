@@ -158,17 +158,12 @@ class HomePage extends Component {
 
                 <Grid id="camphistory" columns={16} centered verticalAlign="middle">
                   <Row centered className="historycontent1" id="historycontent">
-                    {/* <Column width={6}>
-                        <h1 className="thai bullet">ค่ายวิศวพัฒน์ ครั้งที่1</h1>
-                        <ul style={{ listStyleType: "none" }} className="thai white intro-sub">
-                          <li>สถานที่ : </li>
-                          <li>กิจกรรมที่ทำ : </li>
-                          <li>ปัญหา : </li>
-                          <li>ระยะเวลา : </li>
-                        </ul>
-                      </Column> */}
-                    <Column computer={10} mobile={16} >
+                    <Column only="computer" computer={10} >
                       <iframe title="ค่ายวิศวพัฒน์ครั้งที่ 1" src="/VIC2017" style={{ width: "100%", height:"60vh" }} />
+                      {/* <VIC2017 /> */}
+                    </Column>
+                    <Column only="mobile" mobile={16} >
+                      <iframe title="ค่ายวิศวพัฒน์ครั้งที่ 1" src="/VIC2017" style={{ width: "100%", height:"30vh" }} />
                       {/* <VIC2017 /> */}
                     </Column>
                   </Row>

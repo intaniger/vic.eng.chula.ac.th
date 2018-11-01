@@ -136,3 +136,12 @@ body {
   }
   
 }
+@media only screen and (min-width: 769px) and (max-width: 1007px) {
+  .timeline-line-frame{
+    width: 100%;
+    margin: 150px 0%;
+    transform: rotate(90deg);
+    transform-origin: 50% 0%;
+    height: 3px;
+  }
+}

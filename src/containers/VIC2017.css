@@ -9,3 +9,25 @@
   width: 100%;
   position: absolute;
 }
+@media only screen and (max-width: 768px){
+h1.resize{
+  font-size: 10px;
+}
+h2.resize{
+  font-size: 9px;
+}
+h3.resize{
+  font-size: 6px;
+}
+}
+@media only screen and (min-width: 769px)and (max-width: 1007px){
+  h1.resize{
+    font-size: 12px;
+  }
+  h2.resize{
+    font-size: 9px;
+  }
+  h3.resize{
+    font-size: 6px;
+  }
+  }
