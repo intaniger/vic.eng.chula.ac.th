@@ -43,7 +43,7 @@ class VIC2017 extends Component {
                 </Row>
                 <Row centered verticalAlign='bottom'>
                   <Column width={14}>
-                    <p style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "left"}} className="thai resize">เพื่อเก็บข้อมูลชุมชน ประกอบการทำระบบ GIS <br /> แล้วนำส่งให้ผู้นำชุมชนเพื่อใช้เป็นข้อมูล <br /> ในการแก้ไขปัญหาภายในชุมชนต่อไป </p>
+                    <h3 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "left"}} className="thai resize">เพื่อเก็บข้อมูลชุมชน ประกอบการทำระบบ GIS <br /> แล้วนำส่งให้ผู้นำชุมชนเพื่อใช้เป็นข้อมูล <br /> ในการแก้ไขปัญหาภายในชุมชนต่อไป </h3>
                   </Column>
                 </Row>
               </Grid>

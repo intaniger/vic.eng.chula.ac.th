@@ -21,7 +21,7 @@ import vic1_round1 from '../asset/vic-1-1.jpg'
 import interview_1 from "../asset/interview1.jpg";
 import interview_2 from "../asset/interview2.jpg";
 import interview_3 from "../asset/interview3.jpg";
-
+import interview_4 from "../asset/interview4.jpg";
 
 import VIC from '../asset/VIC.svg'
 import ToolIcon from '../asset/tools.svg'
@@ -285,8 +285,9 @@ class HomePage extends Component {
                         <Column computer={9} mobile={11} floated="right">
                           <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
                             <p className="thai interview-personal" style={{ textAlign: "left" }}>
-                              “ตอนแรกคิดว่าเรายังไม่มีประสบการณ์ เลยกลัวว่าจะช่วยเขาไม่ได้มาก <br />
+                            “ตอนแรกคิดว่าเรายังไม่มีประสบการณ์ เลยกลัวว่าจะช่วยเขาไม่ได้มาก <br />
                               แต่พอถึงวันงานก็มีรุ่นพี่ปีสาม ปีสี่ มาสอนงานให้ สุดท้ายก็ทำเป็น แล้วก็ได้ช่วยงานจริงๆ...”
+                              
                             </p>
                             <h1 className="thai interview-overall">
                               ”...ค่ายทุกค่าย ล้วนเป็นค่ายที่ดีและมีประโยชน์ในแบบของมัน <br />
@@ -302,15 +303,17 @@ class HomePage extends Component {
                     <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_2}')`, backgroundSize: "cover" }}>
                       <Row>
                         <Column computer={9} mobile={11} floated="right">
-                          <div className="interview-container" style={{ marginRight: "5vh", marginTop: "10vh", padding: 15, backgroundColor: "#ffffff70" }}>
-                            <p className="thai interview-personal" style={{ textAlign: "left", fontSize: 16 }}>
-                              “ได้มีโอกาสเข้ามาช่วยงานเว็บค่ายในปีนี้ ตอนแรกคิดว่างานคงไม่เดือดมาก <br />
-                              แต่พอได้ทำงานจริงๆเท่านั้นแหละ เดือดเป็น<label className="thai" style={{ fontSize: 30 }}>เหี้ย</label>เลยอีดอกกกก...”
+                          <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
+                            <p className="thai interview-personal" style={{ textAlign: "left" }}>
+                            “ผมได้ลองทำอะไรใหม่ๆ เช่น ไปสอนน้องๆที่โรงเรียน <br />
+                              ได้นั่งรถสองแถวที่หนาวยิ่งกว่าเปิดแอร์ นอกจากนี้ยังได้รู้จักเพื่อนใหม่อีกด้วย...”
                             </p>
                             <h1 className="thai interview-overall">
-                              มึงจะส่งโครงวันไหนจ๊ะ?
+                              ”...หากมีโอกาสผมอยากเข้าร่วมค่ายวิศวพัฒน์อีกครั้ง<br />
+                               เพราะผมคิดว่าตลอดช่วงเวลาในค่าย<br />
+                               คือช่วงเวลาที่มีค่าที่สุดในปิดเทอมนั้น...”
                             </h1>
-                            <h2 className="thai interviewer">นะโม รองประธานฝ่ายทะเบียน ไม่ได้กล่าวไว้ <br />ประธานค่ายแค่พูดสิ่งที่เขาคงอยากจะบอกแค่นั้นแหละ</h2>
+                            <h2 className="thai interviewer">อู๋ วิศวะ #2 ทีมเสริมสร้างทักษะการเรียนรู้ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
                           </div>
                         </Column>
                       </Row>
@@ -320,14 +323,36 @@ class HomePage extends Component {
                     <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_3}')`, backgroundSize: "cover" }}>
                       <Row>
                         <Column computer={9} mobile={11} floated="right">
-                          <div className="interview-container" style={{ marginRight: "5vh", marginTop: "10vh", padding: 15, backgroundColor: "#ffffff70" }}>
-                            <p className="thai interview-personal" style={{ textAlign: "left", fontSize: 16 }}>
-                              “ได้เห็นหนังหน้าประธานค่ายปีนี้แล้ว พูดเลยว่า”
+                          <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
+                            <p className="thai interview-personal" style={{ textAlign: "left" }}>
+                              “ได้ไปสอนหนังสือเด็ก ๆ สอนน้อง ๆ ทำการทดลอง มีทั้งเด็กที่ตั้งใจเรียน<br />
+                            และที่ไม่อยากเรียน ก็ต้องรับมือให้ได้ ยังดีที่มีเพื่อนๆช่วยกันคุม...”
                             </p>
                             <h1 className="thai interview-overall">
-                              งานดีมากกกกกก
+                              ”...จากที่ได้ทำค่ายทำให้รู้สึกภูมิใจที่ได้ช่วยเหลือโรงเรียน <br />
+                              แม้จะเป็นช่วงเวลาที่ไม่นาน<br />
+                              แต่ก็เป็นประสบการณ์ที่สนุกมากค่ะ...”
                             </h1>
-                            <h2 className="thai interviewer">เฟรนด์ วิศวะ #2 ทีมติดตั้งระบบเซนเซอร์ ไม่ได้กล่าวไว้อีกเช่นกัน <br />ประธานค่ายแค่เอารูปมาแปะ แล้วชมตัวเองแบบเนียนๆแค่นั้นแหละ</h2>
+                            <h2 className="thai interviewer">ปิ่น วิศวะ #2 ทีมเสริมสร้างทักษะการเรียนรู้ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
+                          </div>
+                        </Column>
+                      </Row>
+                    </Grid>
+                  </div>
+                  <div>
+                    <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_4}')`, backgroundSize: "cover" }}>
+                      <Row>
+                        <Column computer={9} mobile={11} floated="right">
+                          <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
+                            <p className="thai interview-personal" style={{ textAlign: "left" }}>
+                              “ในตอนแรกเหมือนน้องไม่ค่อยอยากที่จะเรียนเท่าไร แต่พอค่ายจบ  <br />
+                              เราได้รับความประทับใจที่น้องๆเขียนส่งมา ว่าอยากให้ไปสอนอีก เราก็รู้สึกดีใจมาก...”
+                            </p>
+                            <h1 className="thai interview-overall">
+                              ”...การที่เรามาทำค่ายนี้เราไม่ได้เป็นเพียงผู้ให้ <br />
+                              แต่เรายังได้รับประสบการณ์และความรู้ที่หาไม่ได้ในห้องเรียนอีกด้วย...”
+                            </h1>
+                            <h2 className="thai interviewer">บุ้ค วิศวะ #2 ทีมติดตั้งระบบเซนเซอร์ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
                           </div>
                         </Column>
                       </Row>

@@ -77,7 +77,7 @@ body {
   font-size: 26px;
 }
 /* style={{ width: "100%", height: "3px", padding: "0", backgroundColor: "white", }} */
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 767px){
   .interview-personal{
     display: none;
   }
@@ -136,12 +136,26 @@ body {
   }
   
 }
-@media only screen and (min-width: 769px) and (max-width: 1007px) {
+@media only screen and (min-width: 768px) and (max-width: 1007px) {
   .timeline-line-frame{
     width: 100%;
     margin: 150px 0%;
     transform: rotate(90deg);
     transform-origin: 50% 0%;
     height: 3px;
+  }
+  .interview-personal{
+    display: none;
+  }
+  .interview-overall{
+    font-size: 2vh;
+    margin: 10px;
+  }
+  .interviewer{
+    font-size: 1.5vh;
+    margin: 5px;
+  }
+  .interview-frame{
+    height: 40vh;
   }
 }
