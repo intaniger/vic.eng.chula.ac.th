@@ -13,6 +13,9 @@ body {
   font-size: 50px;
   margin-left: 70px;
 }
+.interview-frame{
+  height: 80vh;
+}
 #intro_paragraph{
   color: #ffffff;
   text-align: left;
@@ -59,8 +62,40 @@ body {
 #floating-button{
   padding: 1vh 10vw 1vh 2vw;
 }
+.interview-container{
+  margin-right: 5vw !important;
+  margin-top: 5vh !important;
+  padding: 15px;
+}
+.interview-personal{
+  font-size: 16px;
+}
+.interview-overall{
+  font-size: 30px;
+}
+.interviewer{
+  font-size: 26px;
+}
 /* style={{ width: "100%", height: "3px", padding: "0", backgroundColor: "white", }} */
 @media only screen and (max-width: 768px){
+  .interview-personal{
+    display: none;
+  }
+  .interview-overall{
+    font-size: 2vh;
+    margin: 10px;
+  }
+  .interviewer{
+    font-size: 1.5vh;
+    margin: 5px;
+  }
+  .interview-frame{
+    height: 30vh;
+  }
+  .interview-container{
+    margin-top: 2vh !important;
+    padding: 5px;
+  }
   #floating-button{
     padding: 1vh 20vw 1vh 2vw;
   }

@@ -1,0 +1,25 @@
+#pinContainer {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.panel {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+}
+.blue{
+  background-color: blue;
+}
+
+.turqoise{
+  background-color: red;
+}
+
+.green{
+  background-color: green;
+}
+
+.bordeaux{
+  background-color: yellow;
+}

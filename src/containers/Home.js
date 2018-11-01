@@ -17,6 +17,10 @@ import Moon from '../asset/moon.png'
 import section_1_img_1 from '../asset/section1_1.jpg'
 import section_1_img_2 from '../asset/section1_2.jpg'
 import tempimage from '../asset/pic1.jpg'
+import vic1_round1 from '../asset/vic-1-1.jpg'
+import interview_1 from "../asset/interview1.jpg";
+import interview_2 from "../asset/interview2.jpg";
+import interview_3 from "../asset/interview3.jpg";
 
 
 import VIC from '../asset/VIC.svg'
@@ -154,7 +158,7 @@ class HomePage extends Component {
                 <Grid id="camphistory" columns={16} centered verticalAlign="middle">
                   <Grid className="history1" id="history" width={16} centered>
                     <Row centered className="historycontent1" id="historycontent">
-                      <Column width={6}>
+                      {/* <Column width={6}>
                         <h1 className="thai bullet">ค่ายวิศวพัฒน์ ครั้งที่1</h1>
                         <ul style={{ listStyleType: "none" }} className="thai white intro-sub">
                           <li>สถานที่ : </li>
@@ -162,9 +166,9 @@ class HomePage extends Component {
                           <li>ปัญหา : </li>
                           <li>ระยะเวลา : </li>
                         </ul>
-                      </Column>
-                      <Column width={6} height={50} >
-                        <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={tempimage} />
+                      </Column> */}
+                      <Column width={6} >
+                        <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={vic1_round1} />
                       </Column>
                     </Row>
                     <Row centered >
@@ -237,7 +241,7 @@ class HomePage extends Component {
                   </Column>
                 </Grid>
                 {/* </Row> */}
-                <Grid id="timeline" centered verticalAlign="middle">
+                <Grid id="timeline" centered verticalAlign="middle" style={{margin:"5vh 0"}}>
                   <Row columns={16} style={{ marginTop: "10vh" }} centered>
                     <Column id="timepoint" className="timepoint1" computer={2} mobile={16}>
                       <Grid centered>
@@ -297,34 +301,63 @@ class HomePage extends Component {
                     </Column>
                   </Row>
                 </Grid>
-                <Slider {...{ dots: true, infinite: true, speed: 500, slidesToShow: 1, slidesToScroll: 1 }}>
+                <Slider style={{opacity:0}} slidesToShow={1} slidesToScroll={1} speed={500} dots infinite>
                   <div>
-                    <h3>Vajiralongkorn</h3>
+                    <Grid className="interview-frame" style={{backgroundImage:`url('${interview_1}')`, backgroundSize:"cover"}}>
+                      <Row>
+                        <Column computer={9} mobile={11} floated="right">
+                          <div className="interview-container" style={{backgroundColor:"#ffffff70"}}>
+                            <p className="thai interview-personal" style={{textAlign: "left"}}>
+                              “ตอนแรกคิดว่าเรายังไม่มีประสบการณ์ เลยกลัวว่าจะช่วยเขาไม่ได้มาก <br/>
+                              แต่พอถึงวันงานก็มีรุ่นพี่ปีสาม ปีสี่ มาสอนงานให้ สุดท้ายก็ทำเป็น แล้วก็ได้ช่วยงานจริงๆ...”
+                            </p>
+                            <h1 className="thai interview-overall">
+                              ”...ค่ายทุกค่าย ล้วนเป็นค่ายที่ดีและมีประโยชน์ในแบบของมัน <br/>
+                              และค่ายนี้ก็เป็นอีกค่ายหนึ่งที่เราคิดว่ามันดีมากๆ...”
+                            </h1>
+                            <h2 className="thai interviewer">มิ้นท์ วิศวะ #2 ทีมติดตั้งระบบเซนเซอร์ <br/>ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
+                          </div>
+                        </Column>
+                      </Row>
+                    </Grid>
                   </div>
                   <div>
-                    <h3>2</h3>
+                    <Grid className="interview-frame" style={{backgroundImage:`url('${interview_2}')`, backgroundSize:"cover"}}>
+                      <Row>
+                        <Column computer={9} mobile={11} floated="right">
+                          <div className="interview-container" style={{marginRight: "5vh", marginTop:"10vh", padding:15, backgroundColor:"#ffffff70"}}>
+                            <p className="thai interview-personal" style={{textAlign: "left",fontSize:16}}>
+                              “ได้มีโอกาสเข้ามาช่วยงานเว็บค่ายในปีนี้ ตอนแรกคิดว่างานคงไม่เดือดมาก <br/>
+                              แต่พอได้ทำงานจริงๆเท่านั้นแหละ เดือดเป็น<label className="thai" style={{fontSize:30}}>เหี้ย</label>เลยอีดอกกกก...”
+                            </p>
+                            <h1 className="thai interview-overall">
+                              มึงจะส่งโครงวันไหนจ๊ะ?
+                            </h1>
+                            <h2 className="thai interviewer">นะโม รองประธานฝ่ายทะเบียน ไม่ได้กล่าวไว้ <br/>ประธานค่ายแค่พูดสิ่งที่เขาคงอยากจะบอกแค่นั้นแหละ</h2>
+                          </div>
+                        </Column>
+                      </Row>
+                    </Grid>
                   </div>
                   <div>
-                    <h3>3</h3>
-                  </div>
-                  <div>
-                    <h3>4</h3>
-                  </div>
-                  <div>
-                    <h3>5</h3>
-                  </div>
-                  <div>
-                    <h3>6</h3>
+                    <Grid className="interview-frame" style={{backgroundImage:`url('${interview_3}')`, backgroundSize:"cover"}}>
+                      <Row>
+                        <Column computer={9} mobile={11} floated="right">
+                          <div className="interview-container" style={{marginRight: "5vh", marginTop:"10vh", padding:15, backgroundColor:"#ffffff70"}}>
+                            <p className="thai interview-personal" style={{textAlign: "left",fontSize:16}}>
+                              “ได้เห็นหนังหน้าประธานค่ายปีนี้แล้ว พูดเลยว่า”
+                            </p>
+                            <h1 className="thai interview-overall">
+                              งานดีมากกกกกก
+                            </h1>
+                            <h2 className="thai interviewer">เฟรนด์ วิศวะ #2 ทีมติดตั้งระบบเซนเซอร์ ไม่ได้กล่าวไว้อีกเช่นกัน <br/>ประธานค่ายแค่เอารูปมาแปะ แล้วชมตัวเองแบบเนียนๆแค่นั้นแหละ</h2>
+                          </div>
+                        </Column>
+                      </Row>
+                    </Grid>
                   </div>
                 </Slider>
                 <Grid id="FAQ" style={{ margin: "5vh 0" }} stackable>
-                  {/* <h1>Reserved for FAQ section</h1>
-                <p className="thai"> Q: คณะอื่นไปได้หรือไม่<br/>
-                    Q: มีค่าใช้จ่ายหรือไม่<br/>
-                    Q: ตารางกิจกรรมในแต่ละวันมีอะไรบ้าง<br/>
-                    Q: ไปค่ายต้องเตรียมอะไรไปบ้าง<br/>
-                    Q: ที่พัก/อาหารการกินเป็นอย่างไร<br/>
-                    Q: ถ้าไม่มีประสบการณ์การทำค่ายอาสามาก่อนต้องเตรียมตัวอย่างไร</p> */}
                   {
                     QAList.map((Q) => (
                       <Column width={5}>
@@ -372,8 +405,8 @@ class HomePage extends Component {
       </div>
       <div id="floating-button" style={{
         position: "fixed", zIndex: 150,
-        top: 0, right: 0, opacity: 0,
-        marginTop: "10vh",
+        bottom: 0, right: 0, opacity: 0,
+        marginBottom: "10vh",
         backgroundColor: "#bababa60"
       }}
       >
@@ -489,7 +522,7 @@ class HomePage extends Component {
 
 
         FaySceneScheduler.add(Tween.fromTo(`#vic-job-headline`, 3, { opacity: 0 }, { opacity: 1 }), 0)
-        FaySceneScheduler.add(Tween.fromTo(`.verticalLine`, 1.5, { width: "0%", ease: Expo.easeOut }, { width: "100%", ease: Expo.easeOut }), 0)
+        FaySceneScheduler.add(Tween.fromTo(`.verticalLine`, 1.5, { width: "0%", ease: Expo.easeOut }, { width: isMobile?"100%":"70%", ease: Expo.easeOut }), 0)
 
         // Add schedule to scene
         FayJobScene.setTween(FaySceneScheduler)
