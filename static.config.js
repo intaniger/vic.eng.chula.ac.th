@@ -55,6 +55,10 @@ export default {
       component: 'src/containers/VIC_2017',
     },
     {
+      path: '/VIC2018',
+      component: 'src/containers/VIC_2018',
+    },
+    {
       path: '/about',
       component: 'src/containers/About',
     },

@@ -16,12 +16,11 @@ import VICLogo from '../asset/VICLogo.png'
 import Moon from '../asset/moon.png'
 import section_1_img_1 from '../asset/section1_1.jpg'
 import section_1_img_2 from '../asset/section1_2.jpg'
-import tempimage from '../asset/pic1.jpg'
-import vic1_round1 from '../asset/vic-1-1.jpg'
 import interview_1 from "../asset/interview1.jpg";
 import interview_2 from "../asset/interview2.jpg";
 import interview_3 from "../asset/interview3.jpg";
 import interview_4 from "../asset/interview4.jpg";
+import background from "../asset/background.jpg";
 
 import VIC from '../asset/VIC.svg'
 import ToolIcon from '../asset/tools.svg'
@@ -37,8 +36,6 @@ import './style.css'
 import "../lib/illuminated.js";
 import Loading from './Loading';
 import QA from './Q&A';
-import VIC2017 from './VIC_2017';
-
 const { Column, Row } = Grid
 
 const R = 300
@@ -161,35 +158,45 @@ class HomePage extends Component {
             <Grid id="camphistory" columns={16} centered verticalAlign="middle">
               <Row centered className="historycontent1" id="historycontent">
                 <Column width={16} style={{ marginBottom: "10px" }} >
-                  <div style={{ width: isMobile?"60%":"30%", backgroundColor: "#03243c7d", margin: "0 auto", borderRadius: "50%" }}>
+                  <div style={{ width: isMobile ? "60%" : "30%", backgroundColor: "#03243c7d", margin: "0 auto", borderRadius: "50%" }}>
                     <h1 style={{ textAlign: "center", color: "white", padding: 30 }} className="thai" >ธันวาคม 2017</h1>
                   </div>
                 </Column>
-                <Column computer={10} mobile={16} >
-                  <iframe onLoad={()=>window.ExternalAPILoaded("iframe1")} title="ค่ายวิศวพัฒน์ครั้งที่ 1" src="/VIC2017" style={{ width: "100%", height: isMobile ? "30vh" : "60vh" }} />
+                <Column only="computer" computer={10} >
+                  <iframe onLoad={() => window.ExternalAPILoaded("iframe1")} title="ค่ายวิศวพัฒน์ครั้งที่ 1" src="/VIC2017" style={{ width: "100%", height: "60vh" }} />
+                  {/* <VIC2017 /> */}
+                </Column>
+                <Column only="mobile" mobile={16} >
+                  <iframe onLoad={() => window.ExternalAPILoaded("iframe1")} title="ค่ายวิศวพัฒน์ครั้งที่ 1" src="/VIC2017" style={{ width: "100%", height: "30vh" }} />
+                  {/* <VIC2017 /> */}
+                </Column>
+                <Column only="tablet" tablet={16} >
+                  <iframe onLoad={() => window.ExternalAPILoaded("iframe1")} title="ค่ายวิศวพัฒน์ครั้งที่ 1" src="/VIC2017" style={{ width: "100%", height: "40vh" }} />
                   {/* <VIC2017 /> */}
                 </Column>
               </Row>
               <Row centered >
-                {/* <div style={{ width: "3px", backgroundColor: "white", height: "300px" }} id="hisline" className="hisline1" /> */}
                 <div style={{ display: "block", width: "3px", height: "300px" }}>
                   <div style={{ width: "3px", backgroundColor: "white", height: "0%" }} id="hisline" className="hisline1" />
                 </div>
               </Row>
               <Row centered className="historycontent2" id="historycontent">
-                <Column width={16} >
-                  <div style={{ width: isMobile?"60%":"30%", backgroundColor: "#03243c7d", margin: "0 auto", borderRadius: "50%" }}>
+                <Column width={16} style={{ marginBottom: "10px" }} >
+                  <div style={{ width: isMobile ? "60%" : "30%", backgroundColor: "#03243c7d", margin: "0 auto", borderRadius: "50%" }}>
                     <h1 style={{ textAlign: "center", color: "white", padding: 30 }} className="thai" >พฤษภาคม 2018</h1>
                   </div>
                 </Column>
-                <Column width={6}>
-                  <h1 className="thai bullet">ค่ายวิศวพลัส</h1>
-                  <ul style={{ listStyleType: "none" }} className="thai white intro-sub">
-                    <li>สถานที่ : </li>
-                    <li>กิจกรรมที่ทำ : </li>
-                    <li>ปัญหา : </li>
-                    <li>ระยะเวลา : </li>
-                  </ul>
+                <Column only="computer" computer={10} >
+                  <iframe onLoad={() => window.ExternalAPILoaded("iframe1")} title="ค่ายวิศวพลัสครั้งที่ 1" src="/VIC2018" style={{ width: "100%", height: "60vh" }} />
+                  {/* <VIC2017 /> */}
+                </Column>
+                <Column only="mobile" mobile={16} >
+                  <iframe onLoad={() => window.ExternalAPILoaded("iframe1")} title="ค่ายวิศวพลัสครั้งที่ 1" src="/VIC2018" style={{ width: "100%", height: "30vh" }} />
+                  {/* <VIC2017 /> */}
+                </Column>
+                <Column only="tablet" tablet={16} >
+                  <iframe onLoad={() => window.ExternalAPILoaded("iframe1")} title="ค่ายวิศวพลัสครั้งที่ 1" src="/VIC2018" style={{ width: "100%", height: "40vh" }} />
+                  {/* <VIC2017 /> */}
                 </Column>
               </Row>
               <Row centered>
@@ -201,7 +208,7 @@ class HomePage extends Component {
 
             <Grid id="camp_infor" stackable centered>
               <Column width={16}>
-                <div style={{ width: isMobile?"60%":"30%", backgroundColor: "#03243c7d", margin: "0 auto", borderRadius: "50%" }}>
+                <div style={{ width: isMobile ? "60%" : "30%", backgroundColor: "#03243c7d", margin: "0 auto", borderRadius: "50%" }}>
                   <h1 style={{ textAlign: "center", color: "white", padding: 30 }} className="thai" >ปัจจุบัน</h1>
                 </div>
               </Column>
@@ -268,7 +275,7 @@ class HomePage extends Component {
                       <RegisterIcon style={{ width: "150px", height: "150px", padding: 5, marginLeft: 30 }} />
                     </Row>
                     <Row><p className="thai bullet">Registration</p></Row>
-                    <Row><p className="thai bullet">9 - 13 <Column only="computer" /> Nov 2018</p></Row>
+                    <Row><p className="thai bullet">Coming soon</p></Row>
                   </Grid>
                 </Column>
                 <Column computer={2} mobile={12} tablet={7}>
@@ -321,8 +328,27 @@ class HomePage extends Component {
               </Row>
             </Grid>
             <Slider autoplaySpeed={5000} autoplay style={{ opacity: 0 }} slidesToShow={1} slidesToScroll={1} speed={500} dots infinite>
-              <div>
+            <div>
                 <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_1}')`, backgroundSize: "cover" }}>
+                  <Row>
+                    <Column computer={9} mobile={11} floated="right">
+                      <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
+                        <p className="thai interview-personal" style={{ textAlign: "left" }}>
+                          “ในตอนแรกเหมือนน้องไม่ค่อยอยากที่จะเรียนเท่าไร แต่พอถึงวันสุดท้ายที่น้องๆเขียนความรู้สึกในใจให้เรา<br />
+                          น้องแทบทุกคนเขียนมาว่าอยากให้ไปสอนอีก เราก็รู้สึกดีใจมากจริงๆ...”
+                            </p>
+                        <h1 className="thai interview-overall">
+                          ”...การที่เรามาทำค่ายนี้เราไม่ได้เป็นเพียงผู้ให้ <br />
+                          แต่เรายังได้รับประสบการณ์และความรู้ที่หาไม่ได้ในห้องเรียนอีกด้วย...”
+                            </h1>
+                        <h2 className="thai interviewer">บุ้ค ทีมเสริมสร้างทักษะการเรียนรู้ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
+                      </div>
+                    </Column>
+                  </Row>
+                </Grid>
+              </div>
+              <div>
+                <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_2}')`, backgroundSize: "cover" }}>
                   <Row>
                     <Column computer={9} mobile={11} floated="right">
                       <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
@@ -342,7 +368,7 @@ class HomePage extends Component {
                 </Grid>
               </div>
               <div>
-                <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_2}')`, backgroundSize: "cover" }}>
+                <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_3}')`, backgroundSize: "cover" }}>
                   <Row>
                     <Column computer={9} mobile={11} floated="right">
                       <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
@@ -362,7 +388,7 @@ class HomePage extends Component {
                 </Grid>
               </div>
               <div>
-                <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_3}')`, backgroundSize: "cover" }}>
+                <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_4}')`, backgroundSize: "cover" }}>
                   <Row>
                     <Column computer={9} mobile={11} floated="right">
                       <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
@@ -381,25 +407,7 @@ class HomePage extends Component {
                   </Row>
                 </Grid>
               </div>
-              <div>
-                <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_4}')`, backgroundSize: "cover" }}>
-                  <Row>
-                    <Column computer={9} mobile={11} floated="right">
-                      <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
-                        <p className="thai interview-personal" style={{ textAlign: "left" }}>
-                          “ในตอนแรกเหมือนน้องไม่ค่อยอยากที่จะเรียนเท่าไร แต่พอถึงวันสุดท้ายที่น้องๆเขียนความรู้สึกในใจให้เรา<br />
-                          น้องแทบทุกคนเขียนมาว่าอยากให้ไปสอนอีก เราก็รู้สึกดีใจมากจริงๆ...”
-                            </p>
-                        <h1 className="thai interview-overall">
-                          ”...การที่เรามาทำค่ายนี้เราไม่ได้เป็นเพียงผู้ให้ <br />
-                          แต่เรายังได้รับประสบการณ์และความรู้ที่หาไม่ได้ในห้องเรียนอีกด้วย...”
-                            </h1>
-                        <h2 className="thai interviewer">บุ้ค ทีมเสริมสร้างทักษะการเรียนรู้ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
-                      </div>
-                    </Column>
-                  </Row>
-                </Grid>
-              </div>
+              
             </Slider>
             <Grid id="FAQ" style={{ margin: "5vh 0" }} stackable>
               {
@@ -410,6 +418,24 @@ class HomePage extends Component {
                 ))
               }
             </Grid>
+            <Grid id="Raise funds" style={{backgroundImage: `url('${background}')`, backgroundSize: "cover" }}>
+                  <Row>
+                    <Column width={16}  floated="left">
+                      <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
+                        <p className="thai interview-personal" style={{ textAlign: "left" }}>
+                          “ได้ทำอะไรหลายอย่างมาก เช่นสอนหนังสือน้อง ๆ ทำการทดลอง มีทั้งเด็กที่ตั้งใจเรียน<br />
+                          และที่ไม่อยากเรียน ก็ต้องเรียนรู้วิธีการรับมือกับปัญหาที่เกิดขึ้นให้ได้ ทำให้เราได้เข้าใจเด็กมากขึ้น...”
+                            </p>
+                        <h1 className="thai interview-overall">
+                          ”...จากที่ได้ทำค่ายทำให้รู้สึกภูมิใจที่ได้ช่วยเหลือโรงเรียน <br />
+                          แม้ระยะเวลาที่ช่วยจะไม่นานนัก<br />
+                          แต่ก็ถือเป็นประสบการณ์ที่สนุกมากค่ะ...”
+                            </h1>
+                        <h2 className="thai interviewer">ปิ่น ทีมเสริมสร้างทักษะการเรียนรู้ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
+                      </div>
+                    </Column>
+                  </Row>
+                </Grid>
             <Grid id="contact_us" centered>
               <Row centered>
                 <h1 className="h1">Contact us</h1>
