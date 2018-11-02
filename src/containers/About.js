@@ -52,29 +52,29 @@ class About extends Component {
                 <Grid centered>
                   <Row columns={1}>
                     <Column>
-                      <Contact name="ไทเกอร์ #2 วิศวฯ" position="ประธานค่าย" avatar={PresidentImage} line="intaniger" tel="098-941-7565" />
+                      <Contact name="ไทเกอร์ วิศวฯ" position="ประธานค่าย" avatar={PresidentImage} line="intaniger" tel="098-941-7565" />
                     </Column>
                   </Row>
                   <Row columns={2}>
                     <Column>
-                      <Contact name="กอล์ฟ #2 วิศวฯ" position="เหรัญญิก" avatar={FinanceImage} />
+                      <Contact name="กอล์ฟ วิศวฯ" position="เหรัญญิก" avatar={FinanceImage} />
                     </Column>
                     <Column>
-                      <Contact name="เน #2 วิศวฯ" position="เลขานุการ" avatar={SecretaryImage} line="Ne7404" tel="099-762-6458" />
+                      <Contact name="เน วิศวฯ" position="เลขานุการ" avatar={SecretaryImage} line="Ne7404" tel="099-762-6458" />
                     </Column>
                   </Row>
                   <Row columns={4}>
                     <Column>
-                      <Contact name="มิว #2 วิศวฯ" position="รองประธานฝ่ายสถานที่" avatar={PlaceImage} />
+                      <Contact name="มิว วิศวฯ" position="รองประธานฝ่ายสถานที่" avatar={PlaceImage} />
                     </Column>
                     <Column>
-                      <Contact name="นะโม #2 วิศวฯ" position="รองประธานฝ่ายทะเบียน" avatar={RegistrarImage} line="namomiok" tel="087-559-4817" />
+                      <Contact name="นะโม วิศวฯ" position="รองประธานฝ่ายทะเบียน" avatar={RegistrarImage} line="namomiok" tel="087-559-4817" />
                     </Column>
                     <Column>
-                      <Contact name="โอ๊ค #2 วิศวฯ" position="รองประธานฝ่ายประเมินผล" avatar={EvaluatorImage} />
+                      <Contact name="โอ๊ค วิศวฯ" position="รองประธานฝ่ายประเมินผล" avatar={EvaluatorImage} />
                     </Column>
                     <Column>
-                      <Contact name="อู๋ #2 วิศวฯ" position="รองประธานฝ่ายสวัสดิการ" avatar={WelfareImage} />
+                      <Contact name="อู๋ วิศวฯ" position="รองประธานฝ่ายสวัสดิการ" avatar={WelfareImage} />
                     </Column>
                   </Row>
                 </Grid>
@@ -83,7 +83,7 @@ class About extends Component {
                 <Grid centered>
                   <Row>
                     <Column style={{ overflowY: "scroll", margin: "0 auto" }}>
-                      <Contact name="ไทเกอร์ #2 วิศวฯ" position="ประธานค่าย" avatar={PresidentImage} line="intaniger" tel="098-941-7565" />
+                      <Contact name="ไทเกอร์ วิศวฯ" position="ประธานค่าย" avatar={PresidentImage} line="intaniger" tel="098-941-7565" />
                     </Column>
                   </Row>
                   <Row style={{ marginTop: "20vh" }}>
@@ -92,8 +92,8 @@ class About extends Component {
                   <Row>
                     <Column style={{ overflowY: "scroll", margin: "0 auto" }}>
                       <Card.Group style={{ height: 600 }} itemsPerRow={2} stackable={false}>
-                        <Contact name="กอล์ฟ #2 วิศวฯ" position="เหรัญญิก" avatar={FinanceImage} />
-                        <Contact name="เน #2 วิศวฯ" position="เลขานุการ" avatar={SecretaryImage} line="Ne7404" tel="099-762-6458" />
+                        <Contact name="กอล์ฟ วิศวฯ" position="เหรัญญิก" avatar={FinanceImage} />
+                        <Contact name="เน วิศวฯ" position="เลขานุการ" avatar={SecretaryImage} line="Ne7404" tel="099-762-6458" />
                       </Card.Group>
                     </Column>
                   </Row>
@@ -103,10 +103,10 @@ class About extends Component {
                   <Row>
                     <Column style={{ overflowY: "scroll", margin: "0 auto" }}>
                       <Card.Group style={{ height: 600 }} itemsPerRow={4} stackable={false}>
-                        <Contact name="มิว #2 วิศวฯ" position="รองประธานฝ่ายสถานที่" avatar={PlaceImage} />
-                        <Contact name="นะโม #2 วิศวฯ" position="รองประธานฝ่ายทะเบียน" avatar={RegistrarImage} line="namomiok" tel="087-559-4817" />
-                        <Contact name="โอ๊ค #2 วิศวฯ" position="รองประธานฝ่ายประเมินผล" avatar={EvaluatorImage} />
-                        <Contact name="อู๋ #2 วิศวฯ" position="รองประธานฝ่ายสวัสดิการ" avatar={WelfareImage} />
+                        <Contact name="มิว วิศวฯ" position="รองประธานฝ่ายสถานที่" avatar={PlaceImage} />
+                        <Contact name="นะโม วิศวฯ" position="รองประธานฝ่ายทะเบียน" avatar={RegistrarImage} line="namomiok" tel="087-559-4817" />
+                        <Contact name="โอ๊ค วิศวฯ" position="รองประธานฝ่ายประเมินผล" avatar={EvaluatorImage} />
+                        <Contact name="อู๋ วิศวฯ" position="รองประธานฝ่ายสวัสดิการ" avatar={WelfareImage} />
                       </Card.Group>
                     </Column>
                   </Row>

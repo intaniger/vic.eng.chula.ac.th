@@ -16,6 +16,10 @@ body {
 .interview-frame{
   height: 80vh;
 }
+.detail{
+  font-size: 2vh!important;
+  color: white;
+}
 #intro_paragraph{
   color: #ffffff;
   text-align: left;
@@ -31,7 +35,7 @@ body {
 }
 .bullet{
   color: #ffffff;
-  font-size: 32px!important;
+  font-size: 28px!important;
 }
 .h1{
   font-size: 40px;
@@ -76,6 +80,7 @@ body {
 .interviewer{
   font-size: 26px;
 }
+
 /* style={{ width: "100%", height: "3px", padding: "0", backgroundColor: "white", }} */
 @media only screen and (max-width: 767px){
   .interview-personal{
@@ -118,7 +123,7 @@ body {
     margin-left: 0px;
   }
   .bullet{
-    font-size: 28px!important;
+    font-size: 24px!important;
   }
   .h1{
     font-size: 28px;
@@ -134,9 +139,12 @@ body {
     margin: 50px 0;
     width: "80vw"
   }
-  
+
 }
 @media only screen and (min-width: 768px) and (max-width: 1007px) {
+  .bullet{
+    font-size: 22px!important;
+  }
   .timeline-line-frame{
     width: 100%;
     margin: 150px 0%;

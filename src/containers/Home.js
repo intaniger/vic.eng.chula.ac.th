@@ -95,14 +95,14 @@ class HomePage extends Component {
       </div>
       <div id="content" style={{ position: "relative", zIndex: 100 }}>
         {/* Web Content Here */}
-        {
-          this.state.allAPILoaded ?
-            <Grid columns={16} centered>
-              <Column width={14}>
-                <Grid id="cover">
-                  <Row>
-                    <Column computer={8} mobile={16} floated="right">
-                      <Grid verticalAlign='middle' centered style={{ height: "100vh" }}>
+        <Grid columns={16} centered>
+          <Column width={14}>
+            <Grid id="cover">
+              <Row>
+                <Column computer={8} mobile={16} floated="right">
+                  <Grid verticalAlign='middle' centered style={{ height: "100vh" }}>
+                    {
+                      this.state.allAPILoaded ?
                         <Row stretched>
                           <Column id="VICLogo" width={4}>
                             <img alt="Vidvapath logo" src={VICLogo} />
@@ -114,296 +114,336 @@ class HomePage extends Component {
                               {"นิสิตทุนคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย".substr(0, Math.floor(this.state.currentSubheading1Length))}
                             </h1>
                           </Column>
-                        </Row>
-                      </Grid>
-                    </Column>
-                  </Row>
-                </Grid>
-                <Grid id="intro" style={{ padding: "100px 0" }} verticalAlign='middle' centered>
-                  <Grid stackable id="intro_paragraph" verticalAlign="middle">
-                    <Column floated="right" width={8}>
-                      <p className="thai small intro-head">
-                        ถือกำเนิดขึ้นจากการรวมกลุ่มกันของนิสิตทุนวิศวฯ จุฬาฯ เพื่อทำกิจกรรมตอบแทนมหาวิทยาลัย และสังคมภายนอก
-                        เนื่องด้วยความตระหนักและมีจิตสำนึกในฐานะการเป็นผู้รับ ที่ได้รับโอกาสทางการศึกษาจากจุฬาลงกรณ์มหาวิทยาลัย และต้องการส่งต่อ แบ่งปันโอกาสด้วยความรู้ความสามารถของตน
-                      </p>
-                    </Column>
-                    <Column floated="left" width={8}>
-                      <Grid>
-                        <Row centered>
-                          <Column width={10}>
-                            <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={section_1_img_1} />
-                          </Column>
-                        </Row>
-                      </Grid>
-                    </Column>
+                        </Row> :
+                        <Loading open />
+                    }
                   </Grid>
-                  <Grid stackable id="intro_paragraph" verticalAlign="middle">
-                    <Column floated="left" width={8}>
-                      <Grid>
-                        <Row centered>
-                          <Column width={10}>
-                            <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={section_1_img_2} />
-                          </Column>
-                        </Row>
-                      </Grid>
-                    </Column>
-                    <Column floated="right" width={8}>
-                      <p className="thai small intro-sub">
-                        &nbsp;&nbsp;&nbsp;&nbsp;ค่ายวิศวพัฒน์จึงถือเป็นค่ายที่เปิดโอกาสให้นิสิตทุน และนิสิตวิศวะ จุฬาฯ ได้นำความสามารถที่มี ออกไปช่วยเหลือสังคมในหลากหลายมิติ และในบริบทต่างๆโดยไม่จำกัด และไม่ปิดกั้นความเฉพาะของงาน
+                </Column>
+              </Row>
+            </Grid>
+            <Grid id="intro" style={{ padding: "100px 0" }} verticalAlign='middle' centered>
+              <Grid stackable id="intro_paragraph" verticalAlign="middle">
+                <Column floated="right" width={8}>
+                  <p className="thai small intro-head">
+                    ถือกำเนิดขึ้นจากการรวมกลุ่มกันของนิสิตทุนวิศวฯ จุฬาฯ เพื่อทำกิจกรรมตอบแทนมหาวิทยาลัย และสังคมภายนอก
+                    เนื่องด้วยความตระหนักและมีจิตสำนึกในฐานะการเป็นผู้รับ ที่ได้รับโอกาสทางการศึกษาจากจุฬาลงกรณ์มหาวิทยาลัย และต้องการส่งต่อ แบ่งปันโอกาสด้วยความรู้ความสามารถของตน
+                      </p>
+                </Column>
+                <Column floated="left" width={8}>
+                  <Grid>
+                    <Row centered>
+                      <Column width={10}>
+                        <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={section_1_img_1} />
+                      </Column>
+                    </Row>
+                  </Grid>
+                </Column>
+              </Grid>
+              <Grid stackable id="intro_paragraph" verticalAlign="middle">
+                <Column floated="left" width={8}>
+                  <Grid>
+                    <Row centered>
+                      <Column width={10}>
+                        <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={section_1_img_2} />
+                      </Column>
+                    </Row>
+                  </Grid>
+                </Column>
+                <Column floated="right" width={8}>
+                  <p className="thai small intro-sub">
+                    &nbsp;&nbsp;&nbsp;&nbsp;ค่ายวิศวพัฒน์จึงถือเป็นค่ายที่เปิดโอกาสให้นิสิตทุน และนิสิตวิศวะ จุฬาฯ ได้นำความสามารถที่มี ออกไปช่วยเหลือสังคมในหลากหลายมิติ และในบริบทต่างๆโดยไม่จำกัด และไม่ปิดกั้นความเฉพาะของงาน
                         ไม่ว่าจะเป็นงานโยธา งานวิชาการ งานเทคโนโลยี หรืองานที่ต้องใช้องค์ความรู้ทางวิศวกรรมด้านต่างๆ โดยเน้นการมีส่วนร่วมกับชุมชน ด้วยหลักของการ <strong>“เข้าถึง เข้าใจ และพัฒนา”</strong> เพื่อช่วยเหลือ และพัฒนาได้ตรงสาเหตุที่แท้จริงของปัญหาเหล่านั้น นำไปสู่การสร้างชุมชนที่เข้มแข็ง
                       </p>
-                    </Column>
-                  </Grid>
-                </Grid>
+                </Column>
+              </Grid>
+            </Grid>
 
-                <Grid id="camphistory" columns={16} centered verticalAlign="middle">
-                  <Row centered className="historycontent1" id="historycontent">
-                    <Column only="computer" computer={10} >
-                      <iframe title="ค่ายวิศวพัฒน์ครั้งที่ 1" src="/VIC2017" style={{ width: "100%", height:"60vh" }} />
-                      {/* <VIC2017 /> */}
-                    </Column>
-                    <Column only="mobile" mobile={16} >
-                      <iframe title="ค่ายวิศวพัฒน์ครั้งที่ 1" src="/VIC2017" style={{ width: "100%", height:"30vh" }} />
-                      {/* <VIC2017 /> */}
-                    </Column>
-                  </Row>
-                  <Row centered >
-                    <div style={{ width: "3px", backgroundColor: "white", height: "300px" }} id="hisline" className="hisline1" />
-                  </Row>
-                  <Row centered className="historycontent2" id="historycontent">
-                    <Column width={6} height={50} >
-                      <Image style={{ justifyContent: 'center', alignItems: 'center' }} src={tempimage} />
-                    </Column>
+            <Grid id="camphistory" columns={16} centered verticalAlign="middle">
+              <Row centered className="historycontent1" id="historycontent">
+                <Column width={16} style={{ marginBottom: "10px" }} >
+                  <div style={{ width: isMobile?"60%":"30%", backgroundColor: "#03243c7d", margin: "0 auto", borderRadius: "50%" }}>
+                    <h1 style={{ textAlign: "center", color: "white", padding: 30 }} className="thai" >ธันวาคม 2017</h1>
+                  </div>
+                </Column>
+                <Column computer={10} mobile={16} >
+                  <iframe onLoad={()=>window.ExternalAPILoaded("iframe1")} title="ค่ายวิศวพัฒน์ครั้งที่ 1" src="/VIC2017" style={{ width: "100%", height: isMobile ? "30vh" : "60vh" }} />
+                  {/* <VIC2017 /> */}
+                </Column>
+              </Row>
+              <Row centered >
+                {/* <div style={{ width: "3px", backgroundColor: "white", height: "300px" }} id="hisline" className="hisline1" /> */}
+                <div style={{ display: "block", width: "3px", height: "300px" }}>
+                  <div style={{ width: "3px", backgroundColor: "white", height: "0%" }} id="hisline" className="hisline1" />
+                </div>
+              </Row>
+              <Row centered className="historycontent2" id="historycontent">
+                <Column width={16} >
+                  <div style={{ width: isMobile?"60%":"30%", backgroundColor: "#03243c7d", margin: "0 auto", borderRadius: "50%" }}>
+                    <h1 style={{ textAlign: "center", color: "white", padding: 30 }} className="thai" >พฤษภาคม 2018</h1>
+                  </div>
+                </Column>
+                <Column width={6}>
+                  <h1 className="thai bullet">ค่ายวิศวพลัส</h1>
+                  <ul style={{ listStyleType: "none" }} className="thai white intro-sub">
+                    <li>สถานที่ : </li>
+                    <li>กิจกรรมที่ทำ : </li>
+                    <li>ปัญหา : </li>
+                    <li>ระยะเวลา : </li>
+                  </ul>
+                </Column>
+              </Row>
+              <Row centered>
+                <div style={{ display: "block", width: "3px", height: "300px" }}>
+                  <div style={{ width: "3px", backgroundColor: "white", height: "0%" }} id="hisline" className="hisline2" />
+                </div>
+              </Row>
+            </Grid>
+
+            <Grid id="camp_infor" stackable centered>
+              <Column width={16}>
+                <div style={{ width: isMobile?"60%":"30%", backgroundColor: "#03243c7d", margin: "0 auto", borderRadius: "50%" }}>
+                  <h1 style={{ textAlign: "center", color: "white", padding: 30 }} className="thai" >ปัจจุบัน</h1>
+                </div>
+              </Column>
+              <Column verticalAlign='middle' width={8}>
+                <Grid style={{ height: "100%" }}>
+                  <Row height={50}>
                     <Column width={6}>
-                      <h1 className="thai bullet">ค่ายวิศวพลัส</h1>
-                      <ul style={{ listStyleType: "none" }} className="thai white intro-sub">
-                        <li>สถานที่ : </li>
-                        <li>กิจกรรมที่ทำ : </li>
-                        <li>ปัญหา : </li>
-                        <li>ระยะเวลา : </li>
-                      </ul>
+                      <Grid>
+                        <Row centered>
+                          <ToolIcon style={{ height: "100px", padding: 5 }} />
+                        </Row>
+                        <Row centered><p id="vic-job-headline" className="thai bullet">ปรับปรุงระบบชลประทาน</p></Row>
+                      </Grid>
+                    </Column>
+                    <Column width={9}>
+                      <Grid style={{ height: "100%" }} verticalAlign="middle">
+                        <Row stretched>
+                          <Column>
+                            <p id="vic-job-detail" style={{ textAlign: "left" }} className="thai detail">เพื่อแก้ไขปัญหาปริมาณน้ำที่ไม่เพียงพอต่อการใช้งานของชุมชนในช่วงหน้าแล้ง</p>
+                          </Column>
+                        </Row>
+                      </Grid>
                     </Column>
                   </Row>
-                  <Row centered>
-                    <div style={{ width: "3px", backgroundColor: "white", height: "300px" }} id="hisline" className="hisline2" />
+                  <div className="verticalLine" />
+                  <Row height={50}>
+                    <Column width={6}>
+                      <Grid>
+                        <Row centered>
+                          <ActivityIcon style={{ height: "100px", padding: 5 }} />
+                        </Row>
+                        <Row centered><p id="vic-job-headline" className="thai bullet">กิจกรรมปฏิสัมพันธ์กับเยาวชน</p></Row>
+                      </Grid>
+                    </Column>
+                    <Column width={9}>
+                      <Grid style={{ height: "100%" }} verticalAlign="middle">
+                        <Row stretched>
+                          <Column>
+                            <p id="vic-job-detail" style={{ textAlign: "left" }} className="thai detail">เพื่อสร้างเสริมทักษะการเรียนรู้ และแรงบันดาลใจของเยาวชนในพื้นที่</p>
+                          </Column>
+                        </Row>
+                      </Grid>
+                    </Column>
                   </Row>
                 </Grid>
+              </Column>
+              <Column id="vic-job-headline" width={8}>
+                {
+                  window.google ? <GoogleMap isMobile={isMobile} /> : null
+                }
+              </Column>
+              <Row columns={16}>
+                <Column floated="left" width={16}>
+                  <h1 className="thai intro-sub">สามารถอ่านข้อมูลละเอียดเพิ่มเติม ที่ได้จากการสำรวจและเก็บข้อมูลปัญหาของชุมชนได้ <Link href="/article/1" to="/article/1" style={{ color: "black", textDecoration: "underline" }}>ที่นี่</Link></h1>
+                </Column>
+              </Row>
+            </Grid>
+            {/* </Row> */}
+            <Grid id="timeline" centered verticalAlign="middle" style={{ margin: "5vh 0" }}>
+              <Row columns={16} style={{ marginTop: "10vh" }} centered>
+                <Column id="timepoint" className="timepoint1" computer={2} mobile={16}>
+                  <Grid centered>
+                    <Row centered>
+                      <RegisterIcon style={{ width: "150px", height: "150px", padding: 5, marginLeft: 30 }} />
+                    </Row>
+                    <Row><p className="thai bullet">Registration</p></Row>
+                    <Row><p className="thai bullet">9 - 13 <Column only="computer" /> Nov 2018</p></Row>
+                  </Grid>
+                </Column>
+                <Column computer={2} mobile={12} tablet={7}>
+                  <div style={{ display: "block" }} className="timeline-line-frame">
+                    <div style={{ width: "0%", backgroundColor: "white", height: "3px" }} className="timelink1" id="timeline-link-draw" />
+                  </div>
+                </Column>
+                <Column id="timepoint" className="timepoint2" computer={2} mobile={16}>
+                  <Grid centered>
+                    <Row centered>
+                      <AnnouncedIcon style={{ width: "170px", height: "170px", padding: 5, marginLeft: 30 }} />
+                    </Row>
+                    <Row><p className="thai bullet">Announced</p></Row>
+                    <Row><p className="thai bullet">14 Nov 2018</p></Row>
+                  </Grid>
+                </Column>
+                <Column computer={3} mobile={12} tablet={7}>
+                  <div className="timeline-line-frame">
+                    <div style={{ width: "0%", backgroundColor: "white", height: "3px" }} className="timelink2" id="timeline-link-draw" />
+                  </div>
+                </Column>
+                <Column id="timepoint" className="timepoint3" computer={2} mobile={16}>
+                  <Grid centered>
+                    <Row centered>
+                      <FirstmeetIcon style={{ width: "150px", height: "150px", padding: 5 }} />
+                    </Row>
+                    <Row centered><p className="thai bullet">First Meet</p> </Row>
+                    <Row><p className="thai bullet">16 Nov 2018</p></Row>
+                  </Grid>
+                </Column>
+                <Column computer={3} mobile={12} tablet={7}>
+                  <div style={{ display: "block" }} className="timeline-line-frame">
+                    <div style={{ width: "0%", backgroundColor: "white", height: "3px" }} className="timelink3" id="timeline-link-draw" />
+                  </div>
+                </Column>
+                <Column id="timepoint" className="timepoint4" computer={2} mobile={16}>
+                  <Grid centered>
+                    <Row>
+                      <CampdateIcon style={{ width: "150px", height: "150px", padding: 5 }} />
+                    </Row>
+                    <Row centered><p className="thai bullet">Camp date</p> </Row>
+                    <Row><p className="thai bullet">22 - 28 <Column only="computer" /> Dec 2018</p></Row>
+                  </Grid>
+                </Column>
+              </Row>
+              <Row columns={16}>
+                <Column floated="left" width={16}>
+                  <h1 id="timeline-notice" className="thai intro-sub">*หมายเหตุ : ในช่วงเวลาก่อนวันค่ายจริง อาจจะมีการประชุมเพิ่มเติมกับผู้เข้าร่วมค่าย เพื่อทำความเข้าใจ และวางแผนการปฏิบัติงาน</h1>
+                </Column>
+              </Row>
+            </Grid>
+            <Slider autoplaySpeed={5000} autoplay style={{ opacity: 0 }} slidesToShow={1} slidesToScroll={1} speed={500} dots infinite>
+              <div>
+                <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_1}')`, backgroundSize: "cover" }}>
+                  <Row>
+                    <Column computer={9} mobile={11} floated="right">
+                      <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
+                        <p className="thai interview-personal" style={{ textAlign: "left" }}>
+                          “ตอนแรกคิดว่าเรายังไม่มีประสบการณ์ เลยกลัวว่าจะช่วยเขาไม่ได้มาก <br />
+                          แต่พอถึงวันงานก็มีรุ่นพี่ปีสาม ปีสี่ มาสอนงานให้ สุดท้ายก็ทำเป็น แล้วก็ได้ช่วยงานจริงๆ...”
 
-                <Grid id="camp_infor" stackable centered>
-                  <Column verticalAlign='middle' width={8}>
-                    <Grid style={{ height: "100%" }}>
-                      <Row centered height={50}>
-                        <Grid>
-                          <Row centered>
-                            <ToolIcon style={{ width: "150px", height: "150px", padding: 5 }} />
-                          </Row>
-                          <Row centered><p id="vic-job-headline" className="thai bullet">ปรับปรุงระบบชลประทาน</p></Row>
-                        </Grid>
-                      </Row>
-                      <div className="verticalLine" />
-                      <Row centered height={50}>
-                        <Grid>
-                          <Row centered>
-                            <ActivityIcon style={{ width: "150px", height: "150px", padding: 5 }} />
-                          </Row>
-                          <Row centered><p id="vic-job-headline" className="thai bullet">กิจกรรมปฏิสัมพันธ์กับชุมชน</p></Row>
-                        </Grid>
-                      </Row>
-                    </Grid>
-                  </Column>
-                  <Column id="vic-job-headline" width={8}>
-                    {
-                      window.google ? <GoogleMap isMobile={isMobile} /> : null
-                    }
-                  </Column>
-                </Grid>
-                {/* </Row> */}
-                <Grid id="timeline" centered verticalAlign="middle" style={{ margin: "5vh 0" }}>
-                  <Row columns={16} style={{ marginTop: "10vh" }} centered>
-                    <Column id="timepoint" className="timepoint1" computer={2} mobile={16}>
-                      <Grid centered>
-                        <Row centered>
-                          <RegisterIcon style={{ width: "150px", height: "150px", padding: 5, marginLeft: 30 }} />
-                        </Row>
-                        <Row><p className="thai bullet">Registration</p></Row>
-                        <Row><p className="thai bullet">9 - 13 <Column only="computer" /> Nov 2018</p></Row>
-                      </Grid>
-                    </Column>
-                    <Column computer={2} mobile={12} tablet={7}>
-                      <div style={{display:"block"}} className="timeline-line-frame">
-                        <div style={{ width: "0%", backgroundColor: "white", height: "3px" }} className="timelink1" id="timeline-link-draw" />
+                            </p>
+                        <h1 className="thai interview-overall">
+                          ”...ค่ายทุกค่าย ล้วนเป็นค่ายที่ดีและมีประโยชน์ในแบบของมัน <br />
+                          และนี่ก็เป็นอีกค่ายหนึ่งที่เราคิดว่ามันดีมากๆ...”
+                            </h1>
+                        <h2 className="thai interviewer">มิ้นท์ ทีมติดตั้งระบบเซนเซอร์ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
                       </div>
-                    </Column>
-                    <Column id="timepoint" className="timepoint2" computer={2} mobile={16}>
-                      <Grid centered>
-                        <Row centered>
-                          <AnnouncedIcon style={{ width: "170px", height: "170px", padding: 5, marginLeft: 30 }} />
-                        </Row>
-                        <Row><p className="thai bullet">Announced</p></Row>
-                        <Row><p className="thai bullet">14 Nov 2018</p></Row>
-                      </Grid>
-                    </Column>
-                    <Column computer={3} mobile={12} tablet={7}>
-                      <div  className="timeline-line-frame">
-                        <div style={{ width: "0%", backgroundColor: "white", height: "3px" }} className="timelink2" id="timeline-link-draw" />
-                      </div>
-                    </Column>
-                    <Column id="timepoint" className="timepoint3" computer={2} mobile={16}>
-                      <Grid centered>
-                        <Row centered>
-                          <FirstmeetIcon style={{ width: "150px", height: "150px", padding: 5 }} />
-                        </Row>
-                        <Row centered><p className="thai bullet">First Meet</p> </Row>
-                        <Row><p className="thai bullet">16 Nov 2018</p></Row>
-                      </Grid>
-                    </Column>
-                    <Column computer={3} mobile={12} tablet={7}>
-                      <div style={{display:"block"}}  className="timeline-line-frame">
-                        <div style={{ width: "0%", backgroundColor: "white", height: "3px" }} className="timelink3" id="timeline-link-draw" />
-                      </div>
-                    </Column>
-                    <Column id="timepoint" className="timepoint4" computer={2} mobile={16}>
-                      <Grid centered>
-                        <Row>
-                          <CampdateIcon style={{ width: "150px", height: "150px", padding: 5 }} />
-                        </Row>
-                        <Row centered><p className="thai bullet">Camp date</p> </Row>
-                        <Row><p className="thai bullet">22 - 28 <Column only="computer" /> Dec 2018</p></Row>
-                      </Grid>
                     </Column>
                   </Row>
+                </Grid>
+              </div>
+              <div>
+                <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_2}')`, backgroundSize: "cover" }}>
+                  <Row>
+                    <Column computer={9} mobile={11} floated="right">
+                      <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
+                        <p className="thai interview-personal" style={{ textAlign: "left" }}>
+                          “ค่ายวิศวพัฒน์ เป็นค่ายแรกที่ผมเคยทำ และผมอยากเข้าร่วมอีกครั้งถ้ามีโอกาส <br />
+                          ผมคิดว่าตลอดช่วงเวลาที่ผมได้ทำค่าย เป็นช่วงเวลาที่มีค่าที่สุดในช่วงปิดเทอมนั้นเลย...”
+                            </p>
+                        <h1 className="thai interview-overall">
+                          ”...เป็นค่ายที่เปิดโอกาสให้ผมได้เริ่มทำในสิ่งใหม่ๆ <br />
+                          ได้รู้จักเพื่อนใหม่ และสิ่งที่สำคัญที่สุด <br />
+                          คือได้ทำสิ่งที่เป็นประโยชน์ต่อสังคม...”
+                            </h1>
+                        <h2 className="thai interviewer">อู๋ ทีมเสริมสร้างทักษะการเรียนรู้ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
+                      </div>
+                    </Column>
+                  </Row>
+                </Grid>
+              </div>
+              <div>
+                <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_3}')`, backgroundSize: "cover" }}>
+                  <Row>
+                    <Column computer={9} mobile={11} floated="right">
+                      <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
+                        <p className="thai interview-personal" style={{ textAlign: "left" }}>
+                          “ได้ทำอะไรหลายอย่างมาก เช่นสอนหนังสือน้อง ๆ ทำการทดลอง มีทั้งเด็กที่ตั้งใจเรียน<br />
+                          และที่ไม่อยากเรียน ก็ต้องเรียนรู้วิธีการรับมือกับปัญหาที่เกิดขึ้นให้ได้ ทำให้เราได้เข้าใจเด็กมากขึ้น...”
+                            </p>
+                        <h1 className="thai interview-overall">
+                          ”...จากที่ได้ทำค่ายทำให้รู้สึกภูมิใจที่ได้ช่วยเหลือโรงเรียน <br />
+                          แม้ระยะเวลาที่ช่วยจะไม่นานนัก<br />
+                          แต่ก็ถือเป็นประสบการณ์ที่สนุกมากค่ะ...”
+                            </h1>
+                        <h2 className="thai interviewer">ปิ่น ทีมเสริมสร้างทักษะการเรียนรู้ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
+                      </div>
+                    </Column>
+                  </Row>
+                </Grid>
+              </div>
+              <div>
+                <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_4}')`, backgroundSize: "cover" }}>
+                  <Row>
+                    <Column computer={9} mobile={11} floated="right">
+                      <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
+                        <p className="thai interview-personal" style={{ textAlign: "left" }}>
+                          “ในตอนแรกเหมือนน้องไม่ค่อยอยากที่จะเรียนเท่าไร แต่พอถึงวันสุดท้ายที่น้องๆเขียนความรู้สึกในใจให้เรา<br />
+                          น้องแทบทุกคนเขียนมาว่าอยากให้ไปสอนอีก เราก็รู้สึกดีใจมากจริงๆ...”
+                            </p>
+                        <h1 className="thai interview-overall">
+                          ”...การที่เรามาทำค่ายนี้เราไม่ได้เป็นเพียงผู้ให้ <br />
+                          แต่เรายังได้รับประสบการณ์และความรู้ที่หาไม่ได้ในห้องเรียนอีกด้วย...”
+                            </h1>
+                        <h2 className="thai interviewer">บุ้ค ทีมเสริมสร้างทักษะการเรียนรู้ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
+                      </div>
+                    </Column>
+                  </Row>
+                </Grid>
+              </div>
+            </Slider>
+            <Grid id="FAQ" style={{ margin: "5vh 0" }} stackable>
+              {
+                QAList.map((Q) => (
+                  <Column width={5}>
+                    <QA Question={Q.q} Answer={Q.a} />
+                  </Column>
+                ))
+              }
+            </Grid>
+            <Grid id="contact_us" centered>
+              <Row centered>
+                <h1 className="h1">Contact us</h1>
+              </Row>
+              <Column width={14} centered>
+                <Grid centered>
                   <Row columns={16}>
-                    <Column floated="left" width={16}>
-                      <h1 id="timeline-notice" className="thai intro-sub">*หมายเหตุ : ในช่วงเวลาก่อนวันค่ายจริง อาจจะมีการประชุมเพิ่มเติมกับผู้เข้าร่วมค่าย เพื่อทำความเข้าใจ และวางแผนการปฏิบัติงาน</h1>
+                    <Column computer={10} mobile={16}>
+                      <h1 className="thai">ค่ายวิศวพัฒน์ โครงการวิศวกรรมอาสาพัฒนา</h1>
+                      <p>จุฬาลงกรณ์มหาวิทยาลัย 254 ถนนพญาไท แขวงวังใหม่ เขตปทุมวัน กรุงเทพมหานคร 10330</p>
+                      <h3 className="thai"><Icon name="facebook" /> <a href="https://fb.com/VoluntaryIntaniaCamp" target="_blank" style={{ color: "black" }}><u>ค่ายวิศวพัฒน์</u></a></h3>
+                      <h3><Icon name="mail" /> vidvapath.cu@gmail.com</h3>
+                      <h3 className="thai"><Icon name="desktop" /> <a href="http://vic.eng.chula.ac.th" target="_blank" style={{ color: "black" }}><u>http://vic.eng.chula.ac.th</u></a></h3>
+                      <h3 className="thai"><Icon name="group" /> <Link href="/about" to="/about" style={{ color: "black", textDecoration: "underline" }}>ทีมบริหารค่าย</Link></h3>
+                    </Column>
+                    <Column computer={6} mobile={16}>
+                      <Grid verticalAlign="middle" centered style={isMobile ? { marginTop: 50 } : {}}>
+                        <div id="fb-root" />
+                        <div style={{ width: "100%" }} className="fb-page" data-href="https://www.facebook.com/VoluntaryIntaniaCamp/"
+                          data-tabs="" data-width={isMobile ? "350" : "500"}
+                          data-small-header="false" data-adapt-container-width="true"
+                          data-hide-cover="false" data-show-facepile="true">
+                          <blockquote cite="https://www.facebook.com/VoluntaryIntaniaCamp/" className="fb-xfbml-parse-ignore">
+                            <a href="https://www.facebook.com/VoluntaryIntaniaCamp/">ค่ายวิศวพัฒน์</a>
+                          </blockquote>
+                        </div>
+                      </Grid>
                     </Column>
                   </Row>
-                </Grid>
-                <Slider style={{ opacity: 0 }} slidesToShow={1} slidesToScroll={1} speed={500} dots infinite>
-                  <div>
-                    <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_1}')`, backgroundSize: "cover" }}>
-                      <Row>
-                        <Column computer={9} mobile={11} floated="right">
-                          <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
-                            <p className="thai interview-personal" style={{ textAlign: "left" }}>
-                            “ตอนแรกคิดว่าเรายังไม่มีประสบการณ์ เลยกลัวว่าจะช่วยเขาไม่ได้มาก <br />
-                              แต่พอถึงวันงานก็มีรุ่นพี่ปีสาม ปีสี่ มาสอนงานให้ สุดท้ายก็ทำเป็น แล้วก็ได้ช่วยงานจริงๆ...”
-                              
-                            </p>
-                            <h1 className="thai interview-overall">
-                              ”...ค่ายทุกค่าย ล้วนเป็นค่ายที่ดีและมีประโยชน์ในแบบของมัน <br />
-                              และค่ายนี้ก็เป็นอีกค่ายหนึ่งที่เราคิดว่ามันดีมากๆ...”
-                            </h1>
-                            <h2 className="thai interviewer">มิ้นท์ วิศวะ #2 ทีมติดตั้งระบบเซนเซอร์ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
-                          </div>
-                        </Column>
-                      </Row>
-                    </Grid>
-                  </div>
-                  <div>
-                    <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_2}')`, backgroundSize: "cover" }}>
-                      <Row>
-                        <Column computer={9} mobile={11} floated="right">
-                          <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
-                            <p className="thai interview-personal" style={{ textAlign: "left" }}>
-                            “ผมได้ลองทำอะไรใหม่ๆ เช่น ไปสอนน้องๆที่โรงเรียน <br />
-                              ได้นั่งรถสองแถวที่หนาวยิ่งกว่าเปิดแอร์ นอกจากนี้ยังได้รู้จักเพื่อนใหม่อีกด้วย...”
-                            </p>
-                            <h1 className="thai interview-overall">
-                              ”...หากมีโอกาสผมอยากเข้าร่วมค่ายวิศวพัฒน์อีกครั้ง<br />
-                               เพราะผมคิดว่าตลอดช่วงเวลาในค่าย<br />
-                               คือช่วงเวลาที่มีค่าที่สุดในปิดเทอมนั้น...”
-                            </h1>
-                            <h2 className="thai interviewer">อู๋ วิศวะ #2 ทีมเสริมสร้างทักษะการเรียนรู้ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
-                          </div>
-                        </Column>
-                      </Row>
-                    </Grid>
-                  </div>
-                  <div>
-                    <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_3}')`, backgroundSize: "cover" }}>
-                      <Row>
-                        <Column computer={9} mobile={11} floated="right">
-                          <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
-                            <p className="thai interview-personal" style={{ textAlign: "left" }}>
-                              “ได้ไปสอนหนังสือเด็ก ๆ สอนน้อง ๆ ทำการทดลอง มีทั้งเด็กที่ตั้งใจเรียน<br />
-                            และที่ไม่อยากเรียน ก็ต้องรับมือให้ได้ ยังดีที่มีเพื่อนๆช่วยกันคุม...”
-                            </p>
-                            <h1 className="thai interview-overall">
-                              ”...จากที่ได้ทำค่ายทำให้รู้สึกภูมิใจที่ได้ช่วยเหลือโรงเรียน <br />
-                              แม้จะเป็นช่วงเวลาที่ไม่นาน<br />
-                              แต่ก็เป็นประสบการณ์ที่สนุกมากค่ะ...”
-                            </h1>
-                            <h2 className="thai interviewer">ปิ่น วิศวะ #2 ทีมเสริมสร้างทักษะการเรียนรู้ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
-                          </div>
-                        </Column>
-                      </Row>
-                    </Grid>
-                  </div>
-                  <div>
-                    <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_4}')`, backgroundSize: "cover" }}>
-                      <Row>
-                        <Column computer={9} mobile={11} floated="right">
-                          <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
-                            <p className="thai interview-personal" style={{ textAlign: "left" }}>
-                              “ในตอนแรกเหมือนน้องไม่ค่อยอยากที่จะเรียนเท่าไร แต่พอค่ายจบ  <br />
-                              เราได้รับความประทับใจที่น้องๆเขียนส่งมา ว่าอยากให้ไปสอนอีก เราก็รู้สึกดีใจมาก...”
-                            </p>
-                            <h1 className="thai interview-overall">
-                              ”...การที่เรามาทำค่ายนี้เราไม่ได้เป็นเพียงผู้ให้ <br />
-                              แต่เรายังได้รับประสบการณ์และความรู้ที่หาไม่ได้ในห้องเรียนอีกด้วย...”
-                            </h1>
-                            <h2 className="thai interviewer">บุ้ค วิศวะ #2 ทีมติดตั้งระบบเซนเซอร์ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
-                          </div>
-                        </Column>
-                      </Row>
-                    </Grid>
-                  </div>
-                </Slider>
-                <Grid id="FAQ" style={{ margin: "5vh 0" }} stackable>
-                  {
-                    QAList.map((Q) => (
-                      <Column width={5}>
-                        <QA Question={Q.q} Answer={Q.a} />
-                      </Column>
-                    ))
-                  }
-                </Grid>
-                <Grid id="contact_us" centered>
-                  <Row centered>
-                    <h1 className="h1">Contact us</h1>
-                  </Row>
-                  <Column width={14} centered>
-                    <Grid centered>
-                      <Row columns={16}>
-                        <Column computer={10} mobile={16}>
-                          <h1 className="thai">ค่ายวิศวพัฒน์ โครงการวิศวกรรมอาสาพัฒนา</h1>
-                          <p>จุฬาลงกรณ์มหาวิทยาลัย 254 ถนนพญาไท แขวงวังใหม่ เขตปทุมวัน กรุงเทพมหานคร 10330</p>
-                          <h3 className="thai"><Icon name="facebook" /> <a href="https://fb.com/VoluntaryIntaniaCamp" target="_blank" style={{ color: "black" }}><u>ค่ายวิศวพัฒน์</u></a></h3>
-                          <h3><Icon name="mail" /> vidvapath.cu@gmail.com</h3>
-                          <h3 className="thai"><Icon name="desktop" /> <a href="http://vic.eng.chula.ac.th" target="_blank" style={{ color: "black" }}><u>http://vic.eng.chula.ac.th</u></a></h3>
-                          <h3 className="thai"><Icon name="group" /> <Link href="/about" to="/about" style={{ color: "black", textDecoration: "underline" }}>ทีมบริหารค่าย</Link></h3>
-                        </Column>
-                        <Column computer={6} mobile={16}>
-                          <Grid verticalAlign="middle" centered style={isMobile ? { marginTop: 50 } : {}}>
-                            <div id="fb-root" />
-                            <div style={{ width: "100%" }} className="fb-page" data-href="https://www.facebook.com/VoluntaryIntaniaCamp/"
-                              data-tabs="" data-width={isMobile ? "350" : "500"}
-                              data-small-header="false" data-adapt-container-width="true"
-                              data-hide-cover="false" data-show-facepile="true">
-                              <blockquote cite="https://www.facebook.com/VoluntaryIntaniaCamp/" className="fb-xfbml-parse-ignore">
-                                <a href="https://www.facebook.com/VoluntaryIntaniaCamp/">ค่ายวิศวพัฒน์</a>
-                              </blockquote>
-                            </div>
-                          </Grid>
-                        </Column>
-                      </Row>
-                    </Grid>
-                  </Column>
                 </Grid>
               </Column>
             </Grid>
-            : <Loading open />
-        }
+          </Column>
+        </Grid>
       </div>
       <div id="floating-button" style={{
         position: "fixed", zIndex: 150,
@@ -498,6 +538,8 @@ class HomePage extends Component {
         const FayJobScene = new ScrollMagic.Scene({ triggerElement: "#camp_infor", tweenChanges: true, reverse: false })
         const FaySceneScheduler = new TimelineLite() // Animation time schedule
 
+        FaySceneScheduler.add(Tween.fromTo(`#camp_infor`, 0.5, { opacity: 0 }, { opacity: 1 }), 0)
+
         // Tools icon animation
         const toolSVG = document.querySelector(`path.tools_1`)
         toolSVG.style.stroke = "#ffffff"
@@ -524,7 +566,8 @@ class HomePage extends Component {
 
 
         FaySceneScheduler.add(Tween.fromTo(`#vic-job-headline`, 3, { opacity: 0 }, { opacity: 1 }), 0)
-        FaySceneScheduler.add(Tween.fromTo(`.verticalLine`, 1.5, { width: "0%", ease: Expo.easeOut }, { width: isMobile ? "100%" : "70%", ease: Expo.easeOut }), 0)
+        FaySceneScheduler.add(Tween.fromTo(`#vic-job-detail`, 1, { opacity: 0, x: -100 }, { opacity: 1, x: 0 }), 0.5)
+        FaySceneScheduler.add(Tween.fromTo(`.verticalLine`, 1.5, { width: "0%", ease: Expo.easeOut }, { width: "100%", ease: Expo.easeOut }), 0)
 
         // Add schedule to scene
         FayJobScene.setTween(FaySceneScheduler)
@@ -560,21 +603,19 @@ class HomePage extends Component {
         // Add scene to controller
         controller.addScene(TlScene)
       }
-      //<------------ Camp History Animation --------------->
-      for (let hisIndex = 1; hisIndex <= 3; hisIndex++) {
+      // <------------ Camp History Animation --------------->
+      for (let hisIndex = 1; hisIndex <= 2; hisIndex++) {
         const HisConScene = new ScrollMagic.Scene({ triggerElement: `.historycontent${hisIndex}`, tweenChanges: true, reverse: false })
 
         HisConScene.setTween(Tween.fromTo(`.historycontent${hisIndex}`, 0.5, { opacity: 0 }, { opacity: 1 }, 1))
 
         controller.addScene(HisConScene)
 
-        if (hisIndex < 3) {
-          const HisLineScene = new ScrollMagic.Scene({ triggerElement: `.hisline${hisIndex}`, tweenChanges: true, reverse: false })
+        const HisLineScene = new ScrollMagic.Scene({ triggerElement: `.hisline${hisIndex}`, tweenChanges: true, reverse: false })
 
-          HisLineScene.setTween(Tween.fromTo(`.hisline${hisIndex}`, 1.5, { height: "0px" }, { height: "300px" }, 1))
+        HisLineScene.setTween(Tween.fromTo(`.hisline${hisIndex}`, 1.5, { height: "0%" }, { height: "100%" }, 1))
 
-          controller.addScene(HisLineScene)
-        }
+        controller.addScene(HisLineScene)
       }
 
 
@@ -584,13 +625,13 @@ class HomePage extends Component {
   componentDidMount = () => {
     window.particlesJS("background", ParticleConfig)
     window.IndexComponent = this
-    window.LoadedAPI = window.LoadedAPI || { fb: false, google: false }
+    window.LoadedAPI = window.LoadedAPI || { fb: false, google: false, iframe1: false }
     if (window.LoadedAPI.fb && window.LoadedAPI.google) {
       window.IndexComponent.InitAnimation()
     } else {
       window.ExternalAPILoaded = (origin) => {
         window.LoadedAPI[origin] = true
-        if (window.LoadedAPI.fb && window.LoadedAPI.google) {
+        if (window.LoadedAPI.fb && window.LoadedAPI.google && window.LoadedAPI.iframe1) {
           console.log("State: API loaded")
           window.IndexComponent.InitAnimation()
         }
