@@ -21,6 +21,7 @@ import interview_2 from "../asset/interview2.jpg";
 import interview_3 from "../asset/interview3.jpg";
 import interview_4 from "../asset/interview4.jpg";
 import background from "../asset/background.jpg";
+import scbImage from "../asset/scb-icon.png"
 
 import VIC from '../asset/VIC.svg'
 import ToolIcon from '../asset/tools.svg'
@@ -32,10 +33,10 @@ import RegisterIcon from '../asset/registeration.svg'
 
 import ParticleConfig from '../asset/particle_config.json'
 import './style.css'
-
+import QA from './Q&A';
 import "../lib/illuminated.js";
 import Loading from './Loading';
-import QA from './Q&A';
+
 const { Column, Row } = Grid
 
 const R = 300
@@ -120,13 +121,13 @@ class HomePage extends Component {
             </Grid>
             <Grid id="intro" style={{ padding: "100px 0" }} verticalAlign='middle' centered>
               <Grid stackable id="intro_paragraph" verticalAlign="middle">
-                <Column floated="right" width={8}>
+                <Column floated="right" width={8} tablet={16}>
                   <p className="thai small intro-head">
                     ถือกำเนิดขึ้นจากการรวมกลุ่มกันของนิสิตทุนวิศวฯ จุฬาฯ เพื่อทำกิจกรรมตอบแทนมหาวิทยาลัย และสังคมภายนอก
                     เนื่องด้วยความตระหนักและมีจิตสำนึกในฐานะการเป็นผู้รับ ที่ได้รับโอกาสทางการศึกษาจากจุฬาลงกรณ์มหาวิทยาลัย และต้องการส่งต่อ แบ่งปันโอกาสด้วยความรู้ความสามารถของตน
                       </p>
                 </Column>
-                <Column floated="left" width={8}>
+                <Column floated="left" width={8} tablet={16}>
                   <Grid>
                     <Row centered>
                       <Column width={10}>
@@ -137,7 +138,7 @@ class HomePage extends Component {
                 </Column>
               </Grid>
               <Grid stackable id="intro_paragraph" verticalAlign="middle">
-                <Column floated="left" width={8}>
+                <Column floated="left" width={8} tablet={16}>
                   <Grid>
                     <Row centered>
                       <Column width={10}>
@@ -146,7 +147,7 @@ class HomePage extends Component {
                     </Row>
                   </Grid>
                 </Column>
-                <Column floated="right" width={8}>
+                <Column floated="right" width={8} tablet={16}>
                   <p className="thai small intro-sub">
                     &nbsp;&nbsp;&nbsp;&nbsp;ค่ายวิศวพัฒน์จึงถือเป็นค่ายที่เปิดโอกาสให้นิสิตทุน และนิสิตวิศวะ จุฬาฯ ได้นำความสามารถที่มี ออกไปช่วยเหลือสังคมในหลากหลายมิติ และในบริบทต่างๆโดยไม่จำกัด และไม่ปิดกั้นความเฉพาะของงาน
                         ไม่ว่าจะเป็นงานโยธา งานวิชาการ งานเทคโนโลยี หรืองานที่ต้องใช้องค์ความรู้ทางวิศวกรรมด้านต่างๆ โดยเน้นการมีส่วนร่วมกับชุมชน ด้วยหลักของการ <strong>“เข้าถึง เข้าใจ และพัฒนา”</strong> เพื่อช่วยเหลือ และพัฒนาได้ตรงสาเหตุที่แท้จริงของปัญหาเหล่านั้น นำไปสู่การสร้างชุมชนที่เข้มแข็ง
@@ -162,17 +163,8 @@ class HomePage extends Component {
                     <h1 style={{ textAlign: "center", color: "white", padding: 30 }} className="thai" >ธันวาคม 2017</h1>
                   </div>
                 </Column>
-                <Column only="computer" computer={10} >
-                  <iframe onLoad={() => window.ExternalAPILoaded("iframe1")} title="ค่ายวิศวพัฒน์ครั้งที่ 1" src="/VIC2017" style={{ width: "100%", height: "60vh" }} />
-                  {/* <VIC2017 /> */}
-                </Column>
-                <Column only="mobile" mobile={16} >
-                  <iframe onLoad={() => window.ExternalAPILoaded("iframe1")} title="ค่ายวิศวพัฒน์ครั้งที่ 1" src="/VIC2017" style={{ width: "100%", height: "30vh" }} />
-                  {/* <VIC2017 /> */}
-                </Column>
-                <Column only="tablet" tablet={16} >
-                  <iframe onLoad={() => window.ExternalAPILoaded("iframe1")} title="ค่ายวิศวพัฒน์ครั้งที่ 1" src="/VIC2017" style={{ width: "100%", height: "40vh" }} />
-                  {/* <VIC2017 /> */}
+                <Column computer={10} mobile={16} tablet={16} >
+                  <iframe onLoad={() => window.ExternalAPILoaded("iframe1")} title="ค่ายวิศวพัฒน์ครั้งที่ 1" src="/VIC2017" style={{ width: "100%", height: isMobile?"30vh":(isTablet?"40vh":"60vh")}} />
                 </Column>
               </Row>
               <Row centered >
@@ -186,18 +178,10 @@ class HomePage extends Component {
                     <h1 style={{ textAlign: "center", color: "white", padding: 30 }} className="thai" >พฤษภาคม 2018</h1>
                   </div>
                 </Column>
-                <Column only="computer" computer={10} >
-                  <iframe onLoad={() => window.ExternalAPILoaded("iframe1")} title="ค่ายวิศวพลัสครั้งที่ 1" src="/VIC2018" style={{ width: "100%", height: "60vh" }} />
-                  {/* <VIC2017 /> */}
+                <Column computer={10} mobile={16} tablet={16} >
+                  <iframe onLoad={() => window.ExternalAPILoaded("iframe2")} title="ค่ายวิศวพลัสครั้งที่ 1" src="/VIC2018" style={{ width: "100%", height:isMobile?"30vh":(isTablet?"40vh":"60vh")}} />
                 </Column>
-                <Column only="mobile" mobile={16} >
-                  <iframe onLoad={() => window.ExternalAPILoaded("iframe1")} title="ค่ายวิศวพลัสครั้งที่ 1" src="/VIC2018" style={{ width: "100%", height: "30vh" }} />
-                  {/* <VIC2017 /> */}
-                </Column>
-                <Column only="tablet" tablet={16} >
-                  <iframe onLoad={() => window.ExternalAPILoaded("iframe1")} title="ค่ายวิศวพลัสครั้งที่ 1" src="/VIC2018" style={{ width: "100%", height: "40vh" }} />
-                  {/* <VIC2017 /> */}
-                </Column>
+                
               </Row>
               <Row centered>
                 <div style={{ display: "block", width: "3px", height: "300px" }}>
@@ -278,7 +262,7 @@ class HomePage extends Component {
                       <RegisterIcon style={{ width: "150px", height: "150px", padding: 5, marginLeft: 30 }} />
                     </Row>
                     <Row><p className="thai bullet">Registration</p></Row>
-                    <Row><p className="thai bullet">Coming soon</p></Row>
+                    <Row><p className="thai bullet">12 - 13 <Column only="computer" /> Nov 2018</p></Row>
                   </Grid>
                 </Column>
                 <Column computer={2} mobile={12} tablet={7}>
@@ -324,11 +308,11 @@ class HomePage extends Component {
                   </Grid>
                 </Column>
               </Row>
-              <Row columns={16}>
+              {/* <Row columns={16}>
                 <Column floated="left" width={16}>
                   <h1 id="timeline-notice" className="thai intro-sub">*หมายเหตุ : ในช่วงเวลาก่อนวันค่ายจริง อาจจะมีการประชุมเพิ่มเติมกับผู้เข้าร่วมค่าย เพื่อทำความเข้าใจ และวางแผนการปฏิบัติงาน</h1>
                 </Column>
-              </Row>
+              </Row> */}
             </Grid>
             <Slider autoplaySpeed={5000} autoplay style={{ opacity: 0 }} slidesToShow={1} slidesToScroll={1} speed={500} dots infinite>
               <div>
@@ -410,7 +394,6 @@ class HomePage extends Component {
                   </Row>
                 </Grid>
               </div>
-
             </Slider>
             <Grid id="FAQ" style={{ margin: "5vh 0" }} stackable>
             <Row columns={16} style={{ marginTop: "10vh" }} centered>
@@ -423,22 +406,50 @@ class HomePage extends Component {
                   </Column>
                 ))
               }
-            </Grid>
-            <Grid id="Raise funds" style={{height:"auto",width:"14/16 vw", backgroundImage: `url('${background}')`, backgroundSize: "cover" }}>
-              <Row>
-                <Column width={8} floated="left">
-                  <div style={{height:"100%"}} >
-                    <h1 style={{ fontSize: "60px", textAlign: "center", display: "block" }} className="thai">
-                      ช่องทางการสมทบทุน
-                    </h1>
-                      <p>ชื่อบัญชี : กรรมการนิสิต คณะวิศวกรรมศาสตร์<br/> จุฬาลงกรณ์มหาวิทยาลัย<br/></p>
-                      <p>เลขบัญชี : 048 - 286444 - 0<br/></p>
-                      <p>ธนาคาร : ไทยพาณิชย์ สาขา สภากาชาดไทย<br/></p>
-                      <p>แจ้งการโอน : 02 - 218 - 6349<br/></p>
-
-                  </div>
-
-
+            </Grid> */}
+            <Grid id="raise_funds" style={{ backgroundImage: `url('${background}')`, backgroundSize: "cover", marginTop: "10vh", height: isMobile ? "50vh" : "65vh", backgroundPosition: isMobile || isTablet ? "85% center" : "center" }}>
+              <Row verticalAlign="middle">
+                <Column width={10}>
+                  <Grid style={{ backgroundColor: "rgba(255,255,255,0.44)" }}>
+                    <Row>
+                      <Column width={16}>
+                        <Row>
+                          <h2 className="thai interviewer">
+                            ร่วมสมทบทุน เพื่อการร่วมกันพัฒนาชุมชนอย่างยั่งยืน
+                          </h2>
+                          <h1 className="thai interview-overall">
+                            ช่องทางการสนับสนุน
+                          </h1>
+                        </Row>
+                      </Column>
+                    </Row>
+                    <Row centered>
+                      <Column width={14}>
+                        <Row>
+                          <Grid>
+                            <Row>
+                              <Column computer={2} mobile={16}>
+                                <Image centered src={scbImage} width={40} height={40} />
+                              </Column>
+                              <Column computer={14} mobile={16}>
+                                <h1 className="thai interview-overall" style={{ textAlign: isMobile || isTablet ? "center" : "left" }}>
+                                  ”กรรมการนิสิต {isMobile || isTablet ? <br /> : null} คณะวิศวกรรมศาสตร์ {isMobile || isTablet ? <br /> : null} จุฬาฯ”
+                                </h1>
+                              </Column>
+                            </Row>
+                            <Row>
+                              <h2 className="thai interviewer">เลขที่บัญชี 045-286444-0 {isMobile ? <br /> : null} ธนาคารไทยพาณิชย์ {isMobile ? <br /> : null} สาขาสภากาชาดไทย</h2>
+                            </Row>
+                          </Grid>
+                        </Row>
+                      </Column>
+                    </Row>
+                    <Row>
+                      <Column width={16}>
+                        <h2 className="thai interviewer" style={{ textAlign: "left" }}>แจ้งการโอนเงิน หรือความประสงค์สนับสนุนเป็นผลิตภัณฑ์ได้ที่ vidvapath.cu@gmail.com </h2>
+                      </Column>
+                    </Row>
+                  </Grid>
                 </Column>
               </Row>
             </Grid>
@@ -477,7 +488,7 @@ class HomePage extends Component {
           </Column>
         </Grid>
       </div>
-      <div id="floating-button" style={{
+      {/* <div id="floating-button" style={{
         position: "fixed", zIndex: 150,
         bottom: 0, right: 0, opacity: 0,
         marginBottom: "10vh",
@@ -499,7 +510,7 @@ class HomePage extends Component {
             </Grid>
           </Button.Content>
         </Button>
-      </div>
+      </div> */}
     </div>
   )
   InitAnimation = async () => {
@@ -657,13 +668,13 @@ class HomePage extends Component {
   componentDidMount = () => {
     window.particlesJS("background", ParticleConfig)
     window.IndexComponent = this
-    window.LoadedAPI = window.LoadedAPI || { fb: false, google: false, iframe1: false }
+    window.LoadedAPI = window.LoadedAPI || { fb: false, google: false, iframe1: false, iframe2: false }
     if (window.LoadedAPI.fb && window.LoadedAPI.google) {
       window.IndexComponent.InitAnimation()
     } else {
       window.ExternalAPILoaded = (origin) => {
         window.LoadedAPI[origin] = true
-        if (window.LoadedAPI.fb && window.LoadedAPI.google && window.LoadedAPI.iframe1) {
+        if (window.LoadedAPI.fb && window.LoadedAPI.google && window.LoadedAPI.iframe1 && window.LoadedAPI.iframe2) {
           console.log("State: API loaded")
           window.IndexComponent.InitAnimation()
         }
