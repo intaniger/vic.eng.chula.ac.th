@@ -6,11 +6,11 @@ import { isMobile, isTablet } from 'react-device-detect';
 import Slider from "react-slick";
 
 import ScrollMagic from "../lib/ScrollMagic";
-import VIC_1 from "../asset/vic-1-1.jpg";
-import VIC_2 from "../asset/vic-1-2.jpg";
-import VIC_3 from "../asset/vic-1-3.jpg";
-import VIC_4 from "../asset/vic-1-4.jpg";
-import VIC_5 from "../asset/vic-1-5.jpg";
+import VIC_1 from "../asset/camp_history/vic-1-1.jpg";
+import VIC_2 from "../asset/camp_history/vic-1-2.jpg";
+import VIC_3 from "../asset/camp_history/vic-1-3.jpg";
+import VIC_4 from "../asset/camp_history/vic-1-4.jpg";
+import VIC_5 from "../asset/camp_history/vic-1-5.jpg";
 
 import './VIC2017.css'
 
@@ -178,9 +178,9 @@ class VIC2017 extends Component {
       const controller = new ScrollMagic.Controller()
       const wipeAnimation = new TimelineMax()
         .fromTo("div.panel.vic2017-slide-1", 1, { y: "0%" }, { y: "-100%", ease: Linear.easeNone }, "+=0.33")
-        .fromTo("div.panel.vic2017-slide-2", 1, { y: "0%" }, { y: "-100%", ease: Linear.easeNone }, "+=0.33")
-        .fromTo("div.panel.vic2017-slide-3", 1, { y: "0%" }, { y: "-100%", ease: Linear.easeNone }, "+=0.33")
-        .fromTo("div.panel.vic2017-slide-4", 1, { y: "0%" }, { y: "-100%", ease: Linear.easeNone }, "+=0.33")
+        .fromTo("div.panel.vic2017-slide-2", 1, { x: "0%" }, { x: "-100%", ease: Linear.easeNone }, "+=0.66")
+        .fromTo("div.panel.vic2017-slide-3", 1, { y: "0%" }, { y: "-100%", ease: Linear.easeNone }, "+=1")
+        .fromTo("div.panel.vic2017-slide-4", 1, { x: "0%" }, { x: "-100%", ease: Linear.easeNone }, "+=1.33")
 
       // create scene to pin and link animation
       new ScrollMagic.Scene({

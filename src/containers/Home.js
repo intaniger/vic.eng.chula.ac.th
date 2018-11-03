@@ -16,20 +16,21 @@ import VICLogo from '../asset/VICLogo.png'
 import Moon from '../asset/moon.png'
 import section_1_img_1 from '../asset/section1_1.jpg'
 import section_1_img_2 from '../asset/section1_2.jpg'
-import interview_1 from "../asset/interview1.jpg";
-import interview_2 from "../asset/interview2.jpg";
-import interview_3 from "../asset/interview3.jpg";
-import interview_4 from "../asset/interview4.jpg";
+import interview_1 from "../asset/interview/interview1.jpg";
+import interview_2 from "../asset/interview/interview2.jpg";
+import interview_3 from "../asset/interview/interview3.jpg";
+import interview_4 from "../asset/interview/interview4.jpg";
 import background from "../asset/background.jpg";
 import scbImage from "../asset/scb-icon.png"
 
 import VIC from '../asset/VIC.svg'
-import ToolIcon from '../asset/tools.svg'
-import ActivityIcon from '../asset/sprout.svg'
-import AnnouncedIcon from '../asset/announced.svg'
-import CampdateIcon from '../asset/campdate.svg'
-import FirstmeetIcon from '../asset/firstmeet.svg'
-import RegisterIcon from '../asset/registeration.svg'
+import ToolIcon from '../asset/activity_icon/tools.svg'
+import ActivityIcon from '../asset/activity_icon/sprout.svg'
+
+import AnnouncedIcon from '../asset/timeline_icon/announced.svg'
+import CampdateIcon from '../asset/timeline_icon/campdate.svg'
+import FirstmeetIcon from '../asset/timeline_icon/firstmeet.svg'
+import RegisterIcon from '../asset/timeline_icon/registeration.svg'
 
 import ParticleConfig from '../asset/particle_config.json'
 import './style.css'
@@ -121,13 +122,13 @@ class HomePage extends Component {
             </Grid>
             <Grid id="intro" style={{ padding: "100px 0" }} verticalAlign='middle' centered>
               <Grid stackable id="intro_paragraph" verticalAlign="middle">
-                <Column floated="right" width={8} tablet={16}>
+                <Column floated="right" computer={8} mobile={8} tablet={16}>
                   <p className="thai small intro-head">
                     ถือกำเนิดขึ้นจากการรวมกลุ่มกันของนิสิตทุนวิศวฯ จุฬาฯ เพื่อทำกิจกรรมตอบแทนมหาวิทยาลัย และสังคมภายนอก
                     เนื่องด้วยความตระหนักและมีจิตสำนึกในฐานะการเป็นผู้รับ ที่ได้รับโอกาสทางการศึกษาจากจุฬาลงกรณ์มหาวิทยาลัย และต้องการส่งต่อ แบ่งปันโอกาสด้วยความรู้ความสามารถของตน
                       </p>
                 </Column>
-                <Column floated="left" width={8} tablet={16}>
+                <Column floated="left" computer={8} mobile={8} tablet={16}>
                   <Grid>
                     <Row centered>
                       <Column width={10}>
@@ -138,7 +139,7 @@ class HomePage extends Component {
                 </Column>
               </Grid>
               <Grid stackable id="intro_paragraph" verticalAlign="middle">
-                <Column floated="left" width={8} tablet={16}>
+                <Column floated="left" computer={8} mobile={8} tablet={16}>
                   <Grid>
                     <Row centered>
                       <Column width={10}>
@@ -147,7 +148,7 @@ class HomePage extends Component {
                     </Row>
                   </Grid>
                 </Column>
-                <Column floated="right" width={8} tablet={16}>
+                <Column floated="right" computer={8} mobile={8} tablet={16}>
                   <p className="thai small intro-sub">
                     &nbsp;&nbsp;&nbsp;&nbsp;ค่ายวิศวพัฒน์จึงถือเป็นค่ายที่เปิดโอกาสให้นิสิตทุน และนิสิตวิศวะ จุฬาฯ ได้นำความสามารถที่มี ออกไปช่วยเหลือสังคมในหลากหลายมิติ และในบริบทต่างๆโดยไม่จำกัด และไม่ปิดกั้นความเฉพาะของงาน
                         ไม่ว่าจะเป็นงานโยธา งานวิชาการ งานเทคโนโลยี หรืองานที่ต้องใช้องค์ความรู้ทางวิศวกรรมด้านต่างๆ โดยเน้นการมีส่วนร่วมกับชุมชน ด้วยหลักของการ <strong>“เข้าถึง เข้าใจ และพัฒนา”</strong> เพื่อช่วยเหลือ และพัฒนาได้ตรงสาเหตุที่แท้จริงของปัญหาเหล่านั้น นำไปสู่การสร้างชุมชนที่เข้มแข็ง
@@ -164,7 +165,7 @@ class HomePage extends Component {
                   </div>
                 </Column>
                 <Column computer={10} mobile={16} tablet={16} >
-                  <iframe onLoad={() => window.ExternalAPILoaded("iframe1")} title="ค่ายวิศวพัฒน์ครั้งที่ 1" src="/VIC2017" style={{ width: "100%", height: isMobile?"30vh":(isTablet?"40vh":"60vh")}} />
+                  <iframe onLoad={() => window.ExternalAPILoaded("iframe1")} title="ค่ายวิศวพัฒน์ครั้งที่ 1" src="/VIC2017" style={{ width: "100%", height: isMobile ? "30vh" : (isTablet ? "40vh" : "60vh") }} />
                 </Column>
               </Row>
               <Row centered >
@@ -179,9 +180,9 @@ class HomePage extends Component {
                   </div>
                 </Column>
                 <Column computer={10} mobile={16} tablet={16} >
-                  <iframe onLoad={() => window.ExternalAPILoaded("iframe2")} title="ค่ายวิศวพลัสครั้งที่ 1" src="/VIC2018" style={{ width: "100%", height:isMobile?"30vh":(isTablet?"40vh":"60vh")}} />
+                  <iframe onLoad={() => window.ExternalAPILoaded("iframe2")} title="ค่ายวิศวพลัสครั้งที่ 1" src="/VIC2018" style={{ width: "100%", height: isMobile ? "30vh" : (isTablet ? "40vh" : "60vh") }} />
                 </Column>
-                
+
               </Row>
               <Row centered>
                 <div style={{ display: "block", width: "3px", height: "300px" }}>
@@ -252,9 +253,9 @@ class HomePage extends Component {
             </Grid>
             {/* </Row> */}
             <Grid id="timeline" centered verticalAlign="middle" style={{ margin: "5vh 0" }}>
-            <Row columns={16} style={{ marginTop: "10vh" }} centered>
-                <h1 className="thai" style={{fontSize: isMobile ? "7.5vw":"50px",color:"white"}}>หมายกำหนดการ</h1>
-            </Row>
+              <Row columns={16} style={{ marginTop: "10vh" }} centered>
+                <h1 className="thai" style={{ fontSize: isMobile ? "7.5vw" : "50px", color: "white" }}>Timeline</h1>
+              </Row>
               <Row columns={16} style={{ marginTop: "3vh" }} centered>
                 <Column id="timepoint" className="timepoint1" computer={2} mobile={16}>
                   <Grid centered>
@@ -395,10 +396,10 @@ class HomePage extends Component {
                 </Grid>
               </div>
             </Slider>
-            <Grid id="FAQ" style={{ margin: "5vh 0" }} stackable>
-            <Row columns={16} style={{ marginTop: "10vh" }} centered>
-                <h1 className="thai" style={{fontSize: isMobile ? "7.5vw":"50px",color:"white"}}>คำถามที่พบบ่อย</h1>
-            </Row>
+            {/* <Grid id="FAQ" style={{ margin: "5vh 0" }} stackable>
+              <Row columns={16} style={{ marginTop: "10vh" }} centered>
+                <h1 className="thai" style={{ fontSize: isMobile ? "7.5vw" : "50px", color: "white" }}>คำถามที่พบบ่อย</h1>
+              </Row>
               {
                 QAList.map((Q) => (
                   <Column width={5}>

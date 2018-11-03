@@ -8,13 +8,13 @@ import Moon from '../asset/moon.png'
 import { Grid, Card } from 'semantic-ui-react';
 import Contact from './ContactCard';
 
-import PresidentImage from '../asset/president.jpg'
-import FinanceImage from '../asset/finance.jpg'
-import SecretaryImage from '../asset/secretary.jpg'
-import PlaceImage from '../asset/place.jpg'
-import RegistrarImage from '../asset/registrar.jpg'
-import EvaluatorImage from '../asset/evaluation.jpg'
-import WelfareImage from '../asset/welfare.jpg'
+import PresidentImage from '../asset/executive/president.jpg'
+import FinanceImage from '../asset/executive/finance.jpg'
+import SecretaryImage from '../asset/executive/secretary.jpg'
+import PlaceImage from '../asset/executive/place.jpg'
+import RegistrarImage from '../asset/executive/registrar.jpg'
+import EvaluatorImage from '../asset/executive/evaluation.jpg'
+import WelfareImage from '../asset/executive/welfare.jpg'
 
 
 const { Column, Row } = Grid
