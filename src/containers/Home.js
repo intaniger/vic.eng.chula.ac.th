@@ -3,7 +3,7 @@ import { Link } from 'react-static';
 import { Grid, Image, Icon, Button, Reveal } from 'semantic-ui-react'
 import { TweenLite as Tween, Linear, TimelineLite, Expo, TweenMax } from 'gsap';
 import "particles.js";
-import { isMobile, isTablet } from 'react-device-detect';
+import { isMobile, isTablet, isIOS } from 'react-device-detect';
 import Slider from "react-slick";
 
 import ScrollMagic from "../lib/ScrollMagic";
@@ -23,7 +23,6 @@ import interview_4 from "../asset/interview/interview4.jpg";
 import interview_5 from "../asset/interview/interview5.jpg";
 import interview_6 from "../asset/interview/interview6.jpg";
 import background from "../asset/background.jpg";
-import scbImage from "../asset/scb-icon.png"
 
 import VIC from '../asset/VIC.svg'
 import ToolIcon from '../asset/activity_icon/tools.svg'
@@ -39,6 +38,8 @@ import './style.css'
 import QA from './Q&A';
 import "../lib/illuminated.js";
 import Loading from './Loading';
+import VIC2017IOS from "./camp_history/VIC_2017_IOS";
+import VIC2018IOS from "./camp_history/VIC_2018_IOS";
 
 const { Column, Row } = Grid
 
@@ -167,7 +168,15 @@ class HomePage extends Component {
                   </div>
                 </Column>
                 <Column computer={10} mobile={16} tablet={16} >
-                  <iframe onLoad={() => window.ExternalAPILoaded("iframe1")} title="ค่ายวิศวพัฒน์ครั้งที่ 1" src="/VIC2017" style={{ width: "100%", height: isMobile ? "30vh" : (isTablet ? "40vh" : "60vh") }} />
+                  {
+                    isIOS ? (() => {
+                      setTimeout(() => {
+                        window.LoadedAPI.iframe1 = true
+                      }, 500)
+                      return <VIC2017IOS />
+                    })() :
+                      <iframe onLoad={() => window.ExternalAPILoaded("iframe1")} title="ค่ายวิศวพัฒน์ครั้งที่ 1" src="/VIC2017" style={{ width: "100%", height: isMobile ? "30vh" : (isTablet ? "40vh" : "60vh") }} />
+                  }
                 </Column>
               </Row>
               <Row centered >
@@ -182,7 +191,15 @@ class HomePage extends Component {
                   </div>
                 </Column>
                 <Column computer={10} mobile={16} tablet={16} >
-                  <iframe onLoad={() => window.ExternalAPILoaded("iframe2")} title="ค่ายวิศวพลัสครั้งที่ 1" src="/VIC2018" style={{ width: "100%", height: isMobile ? "30vh" : (isTablet ? "40vh" : "60vh") }} />
+                  {
+                    isIOS ? (() => {
+                      setTimeout(() => {
+                        window.LoadedAPI.iframe2 = true
+                      }, 500)
+                      return <VIC2018IOS />
+                    })() :
+                      <iframe onLoad={() => window.ExternalAPILoaded("iframe2")} title="ค่ายวิศวพลัสครั้งที่ 1" src="/VIC2018" style={{ width: "100%", height: isMobile ? "30vh" : (isTablet ? "40vh" : "60vh") }} />
+                  }
                 </Column>
 
               </Row>
@@ -322,7 +339,7 @@ class HomePage extends Component {
                 <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_1}')`, backgroundSize: "cover" }}>
                   <Row>
                     <Column computer={9} mobile={11} floated="right">
-                      <div className="interview-container" style={{ backgroundColor: "rgba(255, 255, 255,0.44)" }}>
+                      <div className="interview-container" style={{ backgroundColor: "rgba(255, 255, 255, 0.44)" }}>
                         <p className="thai interview-personal" style={{ textAlign: "left" }}>
                           “ในตอนแรกเหมือนน้องไม่ค่อยอยากที่จะเรียนเท่าไร แต่พอถึงวันสุดท้ายที่น้องๆเขียนความรู้สึกในใจให้เรา<br />
                           น้องแทบทุกคนเขียนมาว่าอยากให้ไปสอนอีก เราก็รู้สึกดีใจมากจริงๆ...”
@@ -339,20 +356,20 @@ class HomePage extends Component {
                 </Grid>
               </div>
               <div>
-                <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_2}')`, backgroundSize: "cover" }}>
+                <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_5}')`, backgroundSize: "cover" }}>
                   <Row>
                     <Column computer={9} mobile={11} floated="right">
                       <div className="interview-container" style={{ backgroundColor: "rgba(255, 255, 255,0.44)" }}>
                         <p className="thai interview-personal" style={{ textAlign: "left" }}>
-                          “ตอนแรกคิดว่าเรายังไม่มีประสบการณ์ เลยกลัวว่าจะช่วยเขาไม่ได้มาก <br />
-                          แต่พอถึงวันงานก็มีรุ่นพี่ปีสาม ปีสี่ มาสอนงานให้ สุดท้ายก็ทำเป็น แล้วก็ได้ช่วยงานจริงๆ...”
-
+                          ”... ได้สำรวจข้อมูลว่ามีปัญหาอะไรบ้างในชุมชน เพราะอาจจะช่วยได้ในบางเรื่อง <br />
+                          ได้เจอกับชาวบ้านเยอะมากๆ ไปทั้งหมู่บ้าน เกือบร้อยครัวเรือน...”
                             </p>
                         <h1 className="thai interview-overall">
-                          ”...ค่ายทุกค่าย ล้วนเป็นค่ายที่ดีและมีประโยชน์ในแบบของมัน <br />
-                          และนี่ก็เป็นอีกค่ายหนึ่งที่เราคิดว่ามันดีมากๆ...”
+                          “หลังทำค่ายเราได้อะไรหลายอย่างกลับมา <br />
+                          ได้ฝึกสกิลการสื่อสาร มีความสุขทุกครั้งที่ได้คุยกับชาวบ้าน <br />
+                          ได้เห็นวิถีชีวิตของชาวบ้าน เข้าใจคนอื่นมากขึ้น...”
                             </h1>
-                        <h2 className="thai interviewer">มิ้นท์ ทีมติดตั้งระบบเซนเซอร์ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
+                        <h2 className="thai interviewer">ฝาย ทีมสำรวจข้อมูลครัวเรือน <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
                       </div>
                     </Column>
                   </Row>
@@ -362,7 +379,7 @@ class HomePage extends Component {
                 <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_3}')`, backgroundSize: "cover" }}>
                   <Row>
                     <Column computer={9} mobile={11} floated="right">
-                      <div className="interview-container" style={{ backgroundColor: "rgba(255, 255, 255,0.44)" }}>
+                      <div className="interview-container" style={{ backgroundColor: "rgba(255, 255, 255, 0.44)" }}>
                         <p className="thai interview-personal" style={{ textAlign: "left" }}>
                           “ค่ายวิศวพัฒน์ เป็นค่ายแรกที่ผมเคยทำ และผมอยากเข้าร่วมอีกครั้งถ้ามีโอกาส <br />
                           ผมคิดว่าตลอดช่วงเวลาที่ผมได้ทำค่าย เป็นช่วงเวลาที่มีค่าที่สุดในช่วงปิดเทอมนั้นเลย...”
@@ -379,40 +396,20 @@ class HomePage extends Component {
                 </Grid>
               </div>
               <div>
-                <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_4}')`, backgroundSize: "cover" }}>
+                <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_2}')`, backgroundSize: "cover" }}>
                   <Row>
                     <Column computer={9} mobile={11} floated="right">
-                      <div className="interview-container" style={{ backgroundColor: "rgba(255, 255, 255,0.44)" }}>
+                      <div className="interview-container" style={{ backgroundColor: "rgba(255, 255, 255, 0.44)" }}>
                         <p className="thai interview-personal" style={{ textAlign: "left" }}>
-                          “ได้ทำอะไรหลายอย่างมาก เช่นสอนหนังสือน้อง ๆ ทำการทดลอง มีทั้งเด็กที่ตั้งใจเรียน<br />
-                          และที่ไม่อยากเรียน ก็ต้องเรียนรู้วิธีการรับมือกับปัญหาที่เกิดขึ้นให้ได้ ทำให้เราได้เข้าใจเด็กมากขึ้น...”
+                          “ตอนแรกคิดว่าเรายังไม่มีประสบการณ์ เลยกลัวว่าจะช่วยเขาไม่ได้มาก <br />
+                          แต่พอถึงวันงานก็มีรุ่นพี่ปีสาม ปีสี่ มาสอนงานให้ สุดท้ายก็ทำเป็น แล้วก็ได้ช่วยงานจริงๆ...”
+
                             </p>
                         <h1 className="thai interview-overall">
-                          ”...จากที่ได้ทำค่ายทำให้รู้สึกภูมิใจที่ได้ช่วยเหลือโรงเรียน <br />
-                          แม้ระยะเวลาที่ช่วยจะไม่นานนัก<br />
-                          แต่ก็ถือเป็นประสบการณ์ที่สนุกมากค่ะ...”
+                          ”...ค่ายทุกค่าย ล้วนเป็นค่ายที่ดีและมีประโยชน์ในแบบของมัน <br />
+                          และนี่ก็เป็นอีกค่ายหนึ่งที่เราคิดว่ามันดีมากๆ...”
                             </h1>
-                        <h2 className="thai interviewer">ปิ่น ทีมเสริมสร้างทักษะการเรียนรู้ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
-                      </div>
-                    </Column>
-                  </Row>
-                </Grid>
-              </div>
-              <div>
-                <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_5}')`, backgroundSize: "cover" }}>
-                  <Row>
-                    <Column computer={9} mobile={11} floated="right">
-                      <div className="interview-container" style={{ backgroundColor: "rgba(255, 255, 255,0.44)" }}>
-                        <p className="thai interview-personal" style={{ textAlign: "left" }}>
-                        ”... ได้สำรวจข้อมูลว่ามีปัญหาอะไรบ้างในชุมชน เพราะอาจจะช่วยได้ในบางเรื่อง <br />
-                        ได้เจอกับชาวบ้านเยอะมากๆ ไปทั้งหมู่บ้าน เกือบร้อยครัวเรือน...”
-                            </p>
-                        <h1 className="thai interview-overall">
-                        “หลังทำค่ายเราได้อะไรหลายอย่างกลับมา <br />
-                        ได้ฝึกสกิลการสื่อสาร มีความสุขทุกครั้งที่ได้คุยกับชาวบ้าน <br />
-                          ได้เห็นวิถีชีวิตของชาวบ้าน เข้าใจคนอื่นมากขึ้น...”
-                            </h1>
-                        <h2 className="thai interviewer">ฝาย ทีมสำรวจข้อมูลครัวเรือน <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
+                        <h2 className="thai interviewer">มิ้นท์ ทีมติดตั้งระบบเซนเซอร์ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
                       </div>
                     </Column>
                   </Row>
@@ -423,7 +420,7 @@ class HomePage extends Component {
                   <Row>
                     <Column computer={9} mobile={11} floated="left">
                       <div className="interview-container" style={{ backgroundColor: "rgba(255, 255, 255,0.44)" }}>
-                        <p className="thai interview-personal" style={{ textAlign: "right" }}>
+                        <p className="thai interview-personal" style={{ textAlign: "left" }}>
                           “ตอนแรกก็กลัวอยู่บ้าง แต่ก็ได้ลองทำสิ่งใหม่ๆอย่างจากการลงมือทำจริง <br />
                           ค่ายนี้สนุกดี ได้เจอเพื่อนๆพี่ๆเยอะมากๆ เป็นค่ายที่ดีค่ายหนึ่งเลย...”
 
@@ -434,6 +431,26 @@ class HomePage extends Component {
                           ได้ลองอะไรใหม่ๆ และที่สำคัญคือการได้ช่วยเหลือสังคม...”
                             </h1>
                         <h2 className="thai interviewer">เฟรน ทีมติดตั้งระบบเซนเซอร์ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
+                      </div>
+                    </Column>
+                  </Row>
+                </Grid>
+              </div>
+              <div>
+                <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_4}')`, backgroundSize: "cover" }}>
+                  <Row>
+                    <Column computer={9} mobile={11} floated="right">
+                      <div className="interview-container" style={{ backgroundColor: "rgba(255, 255, 255, 0.44)" }}>
+                        <p className="thai interview-personal" style={{ textAlign: "left" }}>
+                          “ได้ทำอะไรหลายอย่างมาก เช่นสอนหนังสือน้อง ๆ ทำการทดลอง มีทั้งเด็กที่ตั้งใจเรียน<br />
+                          และที่ไม่อยากเรียน ก็ต้องเรียนรู้วิธีการรับมือกับปัญหาที่เกิดขึ้นให้ได้ ทำให้เราได้เข้าใจเด็กมากขึ้น...”
+                            </p>
+                        <h1 className="thai interview-overall">
+                          ”...จากที่ได้ทำค่ายทำให้รู้สึกภูมิใจที่ได้ช่วยเหลือโรงเรียน <br />
+                          แม้ระยะเวลาที่ช่วยจะไม่นานนัก<br />
+                          แต่ก็ถือเป็นประสบการณ์ที่สนุกมากค่ะ...”
+                            </h1>
+                        <h2 className="thai interviewer">ปิ่น ทีมเสริมสร้างทักษะการเรียนรู้ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
                       </div>
                     </Column>
                   </Row>
@@ -460,7 +477,7 @@ class HomePage extends Component {
                       <Column width={16}>
                         <Row>
                           <h2 className="thai interviewer">
-                            ร่วมสมทบทุน เพื่อการร่วมกันพัฒนาชุมชนอย่างยั่งยืน
+                            ร่วมสมทบทุน {isMobile || isTablet ? <br /> : null} เพื่อการร่วมกันพัฒนาชุมชนอย่างยั่งยืน
                           </h2>
                           <h1 className="thai interview-overall">
                             ช่องทางการสนับสนุน
@@ -469,21 +486,25 @@ class HomePage extends Component {
                       </Column>
                     </Row>
                     <Row centered>
-                      <Column width={14}>
+                      <Column width={16}>
                         <Row>
                           <Grid>
                             <Row>
-                              <Column computer={2} mobile={16}>
-                                <Image centered src={scbImage} width={40} height={40} />
+                              <Column computer={3} mobile={16}>
+                                <h2 className="thai interview-overall" style={{ textAlign: isMobile || isTablet ? "left" : "center" }} >
+                                  ชื่อบัญชี
+                                </h2>
                               </Column>
-                              <Column computer={14} mobile={16}>
-                                <h1 className="thai interview-overall" style={{ textAlign: isMobile || isTablet ? "center" : "left" }}>
-                                  ”กรรมการนิสิต {isMobile || isTablet ? <br /> : null} คณะวิศวกรรมศาสตร์ {isMobile || isTablet ? <br /> : null} จุฬาฯ”
+                              <Column computer={12} mobile={16}>
+                                <h1 className="thai interview-overall" style={{ textAlign: "left" }}>
+                                  ”กรรมการนิสิต {isMobile ? <br /> : null} คณะวิศวกรรมศาสตร์ จุฬาฯ”
                                 </h1>
                               </Column>
                             </Row>
                             <Row>
-                              <h2 className="thai interviewer">เลขที่บัญชี 045-286444-0 {isMobile ? <br /> : null} ธนาคารไทยพาณิชย์ {isMobile ? <br /> : null} สาขาสภากาชาดไทย</h2>
+                              <Column>
+                                <h2 className="thai interviewer">เลขที่บัญชี 045-286444-0 {isMobile ? <br /> : null} ธนาคารไทยพาณิชย์ {isMobile ? <br /> : null} สาขาสภากาชาดไทย</h2>
+                              </Column>
                             </Row>
                           </Grid>
                         </Row>
@@ -491,7 +512,7 @@ class HomePage extends Component {
                     </Row>
                     <Row>
                       <Column width={16}>
-                        <h2 className="thai interviewer" style={{ textAlign: "left" }}>แจ้งการโอนเงิน หรือความประสงค์สนับสนุนเป็นผลิตภัณฑ์ได้ที่ vidvapath.cu@gmail.com </h2>
+                        <h2 className="thai interviewer" style={{ textAlign: "left" }}>แจ้งการโอนเงิน หรือความประสงค์สนับสนุนเป็นผลิตภัณฑ์ได้ที่ <br /> คุณสาโรจน์ ทะสุ thasusaroj@gmail.com </h2>
                       </Column>
                     </Row>
                   </Grid>

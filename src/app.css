@@ -2,6 +2,11 @@ body {
   font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
     'Lucida Grande', 'Kanit', sans-serif!important;
 }
+iframe{
+  height: 1px;
+  min-height: 60vh;
+  *height: 60vh;
+}
 .thai{
   font-family: 'Kanit', sans-serif!important;
 }
@@ -91,6 +96,11 @@ h3.resize{
 }
 /* style={{ width: "100%", height: "3px", padding: "0", backgroundColor: "white", }} */
 @media only screen and (max-width: 767px){
+  iframe{
+    height: 1px;
+    min-height: 30vh;
+    *height: 30vh;
+  }
   .interview-personal{
     display: none;
   }
@@ -150,6 +160,11 @@ h3.resize{
 
 }
 @media only screen and (min-width: 768px) and (max-width: 1007px) {
+  iframe{
+    height: 1px;
+    min-height: 40vh;
+    *height: 40vh;
+  }
   .bullet{
     font-size: 22px!important;
   }

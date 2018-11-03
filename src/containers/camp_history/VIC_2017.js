@@ -5,16 +5,16 @@ import { TweenLite as Tween, Linear, TimelineLite, Expo, TweenMax, TimelineMax }
 import { isMobile, isTablet } from 'react-device-detect';
 import Slider from "react-slick";
 
-import ScrollMagic from "../lib/ScrollMagic";
-import VIC_1 from "../asset/camp_history/vic-1-1.jpg";
-import VIC_2 from "../asset/camp_history/vic-1-2.jpg";
-import VIC_3 from "../asset/camp_history/vic-1-3.jpg";
-import VIC_4 from "../asset/camp_history/vic-1-4.jpg";
-import VIC_5 from "../asset/camp_history/vic-1-5.jpg";
+import ScrollMagic from "../../lib/ScrollMagic";
+import VIC_1 from "../../asset/camp_history/vic-1-1.jpg";
+import VIC_2 from "../../asset/camp_history/vic-1-2.jpg";
+import VIC_3 from "../../asset/camp_history/vic-1-3.jpg";
+import VIC_4 from "../../asset/camp_history/vic-1-4.jpg";
+import VIC_5 from "../../asset/camp_history/vic-1-5.jpg";
 
 import './VIC2017.css'
 
-import "../lib/illuminated.js";
+import "../../lib/illuminated";
 
 const { Column, Row } = Grid
 

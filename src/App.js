@@ -5,6 +5,8 @@ import { NodeGroup } from 'react-move'
 import { withContext, getContext } from 'recompose'
 import PropTypes from 'prop-types'
 import { hot } from 'react-hot-loader'
+import { isMobile, isTablet, browserName, browserVersion, mobileModel, mobileVendor, osName, osVersion } from 'react-device-detect';
+import axios from "axios";
 
 import 'semantic-ui-css/semantic.min.css';
 import VICLogo from './asset/VICLogo.png'
@@ -30,7 +32,16 @@ const AnimatedRoutes = getContext({
       if (!Comp) {
         Comp = getComponentForPath('404')
       }
-
+      axios.post(`https://datanaliez.com/api/v1/form/submit/2d490e5efb88666bf2668ca6c766bde598f47b1316ddc0dbcb321baebb8d773c`, {
+        path: props.location.pathname,
+        browser: `${browserName} ${browserVersion}`,
+        osname: osName,
+        osversion: osVersion,
+        devicename: `${mobileModel} ${mobileVendor}`,
+        mobile: `${isMobile}`,
+        tablet: `${isTablet}`,
+        timestamp: `${(new Date())}`
+      })
       // When we're rendering for static HTML, be sure to NOT animate in.
       if (staticURL) {
         return (
@@ -100,9 +111,9 @@ const AnimatedRoutes = getContext({
                     }}
                   >
                     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet" />
-                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossOrigin="anonymous"/>
-                    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css"/>
-                    <data.Comp animationState={{transform: translateX === 0 ?undefined:`translateX(${translateX}px)`, opacity}} {...data.props} />
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossOrigin="anonymous" />
+                    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css" />
+                    <data.Comp animationState={{ transform: translateX === 0 ? undefined : `translateX(${translateX}px)`, opacity }} {...data.props} />
                   </PreservedRouterContext>
                 )
               })}

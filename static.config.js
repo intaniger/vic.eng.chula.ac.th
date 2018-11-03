@@ -52,15 +52,19 @@ export default {
     },
     {
       path: '/VIC2017',
-      component: 'src/containers/VIC_2017',
+      component: 'src/containers/camp_history/VIC_2017',
     },
     {
       path: '/VIC2018',
-      component: 'src/containers/VIC_2018',
+      component: 'src/containers/camp_history/VIC_2018',
     },
     {
       path: '/about',
       component: 'src/containers/About',
+    },
+    {
+      path: '/article/1',
+      component: 'src/containers/article/1',
     },
     {
       path: '/register',
