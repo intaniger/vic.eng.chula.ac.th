@@ -158,7 +158,7 @@ class HomePage extends Component {
             <Grid id="camphistory" columns={16} centered verticalAlign="middle">
               <Row centered className="historycontent1" id="historycontent">
                 <Column width={16} style={{ marginBottom: "10px" }} >
-                  <div style={{ width: isMobile ? "60%" : "30%", backgroundColor: "#03243c7d", margin: "0 auto", borderRadius: "50%" }}>
+                  <div style={{ width: isMobile ? "60%" : "30%", backgroundColor: "rgba(3, 36, 60,0.49)", margin: "0 auto", borderRadius: "50%" }}>
                     <h1 style={{ textAlign: "center", color: "white", padding: 30 }} className="thai" >ธันวาคม 2017</h1>
                   </div>
                 </Column>
@@ -182,7 +182,7 @@ class HomePage extends Component {
               </Row>
               <Row centered className="historycontent2" id="historycontent">
                 <Column width={16} style={{ marginBottom: "10px" }} >
-                  <div style={{ width: isMobile ? "60%" : "30%", backgroundColor: "#03243c7d", margin: "0 auto", borderRadius: "50%" }}>
+                  <div style={{ width: isMobile ? "60%" : "30%", backgroundColor: "rgba(3, 36, 60,0.49)", margin: "0 auto", borderRadius: "50%" }}>
                     <h1 style={{ textAlign: "center", color: "white", padding: 30 }} className="thai" >พฤษภาคม 2018</h1>
                   </div>
                 </Column>
@@ -208,7 +208,7 @@ class HomePage extends Component {
 
             <Grid id="camp_infor" stackable centered>
               <Column width={16}>
-                <div style={{ width: isMobile ? "60%" : "30%", backgroundColor: "#03243c7d", margin: "0 auto", borderRadius: "50%" }}>
+                <div style={{ width: isMobile ? "60%" : "30%", backgroundColor: "rgba(3, 36, 60,0.49)", margin: "0 auto", borderRadius: "50%" }}>
                   <h1 style={{ textAlign: "center", color: "white", padding: 30 }} className="thai" >ปัจจุบัน</h1>
                 </div>
               </Column>
@@ -268,7 +268,10 @@ class HomePage extends Component {
             </Grid>
             {/* </Row> */}
             <Grid id="timeline" centered verticalAlign="middle" style={{ margin: "5vh 0" }}>
-              <Row columns={16} style={{ marginTop: "10vh" }} centered>
+            <Row columns={16} style={{ marginTop: "10vh" }} centered>
+                <h1 className="thai" style={{fontSize: isMobile ? "7.5vw":"50px",color:"white"}}>หมายกำหนดการ</h1>
+            </Row>
+              <Row columns={16} style={{ marginTop: "3vh" }} centered>
                 <Column id="timepoint" className="timepoint1" computer={2} mobile={16}>
                   <Grid centered>
                     <Row centered>
@@ -328,11 +331,11 @@ class HomePage extends Component {
               </Row>
             </Grid>
             <Slider autoplaySpeed={5000} autoplay style={{ opacity: 0 }} slidesToShow={1} slidesToScroll={1} speed={500} dots infinite>
-            <div>
+              <div>
                 <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_1}')`, backgroundSize: "cover" }}>
                   <Row>
                     <Column computer={9} mobile={11} floated="right">
-                      <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
+                      <div className="interview-container" style={{ backgroundColor: "rgba(255, 255, 255,0.44)" }}>
                         <p className="thai interview-personal" style={{ textAlign: "left" }}>
                           “ในตอนแรกเหมือนน้องไม่ค่อยอยากที่จะเรียนเท่าไร แต่พอถึงวันสุดท้ายที่น้องๆเขียนความรู้สึกในใจให้เรา<br />
                           น้องแทบทุกคนเขียนมาว่าอยากให้ไปสอนอีก เราก็รู้สึกดีใจมากจริงๆ...”
@@ -351,7 +354,7 @@ class HomePage extends Component {
                 <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_2}')`, backgroundSize: "cover" }}>
                   <Row>
                     <Column computer={9} mobile={11} floated="right">
-                      <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
+                      <div className="interview-container" style={{ backgroundColor: "rgba(255, 255, 255,0.44)" }}>
                         <p className="thai interview-personal" style={{ textAlign: "left" }}>
                           “ตอนแรกคิดว่าเรายังไม่มีประสบการณ์ เลยกลัวว่าจะช่วยเขาไม่ได้มาก <br />
                           แต่พอถึงวันงานก็มีรุ่นพี่ปีสาม ปีสี่ มาสอนงานให้ สุดท้ายก็ทำเป็น แล้วก็ได้ช่วยงานจริงๆ...”
@@ -371,7 +374,7 @@ class HomePage extends Component {
                 <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_3}')`, backgroundSize: "cover" }}>
                   <Row>
                     <Column computer={9} mobile={11} floated="right">
-                      <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
+                      <div className="interview-container" style={{ backgroundColor: "rgba(255, 255, 255,0.44)" }}>
                         <p className="thai interview-personal" style={{ textAlign: "left" }}>
                           “ค่ายวิศวพัฒน์ เป็นค่ายแรกที่ผมเคยทำ และผมอยากเข้าร่วมอีกครั้งถ้ามีโอกาส <br />
                           ผมคิดว่าตลอดช่วงเวลาที่ผมได้ทำค่าย เป็นช่วงเวลาที่มีค่าที่สุดในช่วงปิดเทอมนั้นเลย...”
@@ -391,7 +394,7 @@ class HomePage extends Component {
                 <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_4}')`, backgroundSize: "cover" }}>
                   <Row>
                     <Column computer={9} mobile={11} floated="right">
-                      <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
+                      <div className="interview-container" style={{ backgroundColor: "rgba(255, 255, 255,0.44)" }}>
                         <p className="thai interview-personal" style={{ textAlign: "left" }}>
                           “ได้ทำอะไรหลายอย่างมาก เช่นสอนหนังสือน้อง ๆ ทำการทดลอง มีทั้งเด็กที่ตั้งใจเรียน<br />
                           และที่ไม่อยากเรียน ก็ต้องเรียนรู้วิธีการรับมือกับปัญหาที่เกิดขึ้นให้ได้ ทำให้เราได้เข้าใจเด็กมากขึ้น...”
@@ -407,9 +410,12 @@ class HomePage extends Component {
                   </Row>
                 </Grid>
               </div>
-              
+
             </Slider>
             <Grid id="FAQ" style={{ margin: "5vh 0" }} stackable>
+            <Row columns={16} style={{ marginTop: "10vh" }} centered>
+                <h1 className="thai" style={{fontSize: isMobile ? "7.5vw":"50px",color:"white"}}>คำถามที่พบบ่อย</h1>
+            </Row>
               {
                 QAList.map((Q) => (
                   <Column width={5}>
@@ -418,24 +424,24 @@ class HomePage extends Component {
                 ))
               }
             </Grid>
-            <Grid id="Raise funds" style={{backgroundImage: `url('${background}')`, backgroundSize: "cover" }}>
-                  <Row>
-                    <Column width={16}  floated="left">
-                      <div className="interview-container" style={{ backgroundColor: "#ffffff70" }}>
-                        <p className="thai interview-personal" style={{ textAlign: "left" }}>
-                          “ได้ทำอะไรหลายอย่างมาก เช่นสอนหนังสือน้อง ๆ ทำการทดลอง มีทั้งเด็กที่ตั้งใจเรียน<br />
-                          และที่ไม่อยากเรียน ก็ต้องเรียนรู้วิธีการรับมือกับปัญหาที่เกิดขึ้นให้ได้ ทำให้เราได้เข้าใจเด็กมากขึ้น...”
-                            </p>
-                        <h1 className="thai interview-overall">
-                          ”...จากที่ได้ทำค่ายทำให้รู้สึกภูมิใจที่ได้ช่วยเหลือโรงเรียน <br />
-                          แม้ระยะเวลาที่ช่วยจะไม่นานนัก<br />
-                          แต่ก็ถือเป็นประสบการณ์ที่สนุกมากค่ะ...”
-                            </h1>
-                        <h2 className="thai interviewer">ปิ่น ทีมเสริมสร้างทักษะการเรียนรู้ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
-                      </div>
-                    </Column>
-                  </Row>
-                </Grid>
+            <Grid id="Raise funds" style={{height:"auto",width:"14/16 vw", backgroundImage: `url('${background}')`, backgroundSize: "cover" }}>
+              <Row>
+                <Column width={8} floated="left">
+                  <div style={{height:"100%"}} >
+                    <h1 style={{ fontSize: "60px", textAlign: "center", display: "block" }} className="thai">
+                      ช่องทางการสมทบทุน
+                    </h1>
+                      <p>ชื่อบัญชี : กรรมการนิสิต คณะวิศวกรรมศาสตร์<br/> จุฬาลงกรณ์มหาวิทยาลัย<br/></p>
+                      <p>เลขบัญชี : 048 - 286444 - 0<br/></p>
+                      <p>ธนาคาร : ไทยพาณิชย์ สาขา สภากาชาดไทย<br/></p>
+                      <p>แจ้งการโอน : 02 - 218 - 6349<br/></p>
+
+                  </div>
+
+
+                </Column>
+              </Row>
+            </Grid>
             <Grid id="contact_us" centered>
               <Row centered>
                 <h1 className="h1">Contact us</h1>
@@ -516,15 +522,15 @@ class HomePage extends Component {
           // SVG Sections --> "วิศวพัฒน์" text drawing
           for (let charIndex = 1; charIndex < 14; charIndex++) {
             const charSVG = document.querySelector(`path.char_${charIndex}`)
-            charSVG.style.stroke = "#fff68f"
+            charSVG.style.stroke = "rgba(255, 246, 143,1)"
             charSVG.style.strokeDasharray = charSVG.getTotalLength()
             charSVG.style.ease = Linear.easeNone
             scheduler1.add(Tween.fromTo(`path.char_${charIndex}`, 0.15, { strokeDashoffset: charSVG.getTotalLength() }, { strokeDashoffset: 0 }), 0.15 * (charIndex - 1))
           }
         }
 
-        // Fill "วิศวพัฒน์" text with #fff68f (bright yellow) color
-        scheduler1.add(Tween.fromTo(`path[class^="char"]`, 2, { fill: "#fff68f00", ease: Expo.easeIn }, { fill: "#fff68f", ease: Expo.easeIn }), 0)
+        // Fill "วิศวพัฒน์" text with rgba(255, 246, 143,1) (bright yellow) color
+        scheduler1.add(Tween.fromTo(`path[class^="char"]`, 2, { fill: "rgba(255, 246, 143,0)", ease: Expo.easeIn }, { fill: "rgba(255, 246, 143,1)", ease: Expo.easeIn }), 0)
 
         // Printing "นิสิตทุนคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย" text
         scheduler1.add(Tween.to(fakeState, 1, { currentSubheading1Length: 47, onUpdate: () => window.IndexComponent.setState({ ...fakeState }), ease: Linear.easeInOut }), 2)
@@ -568,7 +574,7 @@ class HomePage extends Component {
 
         // Tools icon animation
         const toolSVG = document.querySelector(`path.tools_1`)
-        toolSVG.style.stroke = "#ffffff"
+        toolSVG.style.stroke = "rgba(255, 255, 255,1)"
         toolSVG.style.strokeWidth = "5px"
         toolSVG.style.strokeDasharray = toolSVG.getTotalLength()
         toolSVG.style.ease = Linear.easeNone
@@ -577,14 +583,14 @@ class HomePage extends Component {
         // Sprout icon animation
 
         const sproutSVG1 = document.querySelector(`path.sprout_1`)
-        sproutSVG1.style.stroke = "#ffffff"
+        sproutSVG1.style.stroke = "rgba(255, 255, 255,1)"
         sproutSVG1.style.strokeWidth = "5px"
         sproutSVG1.style.strokeDasharray = sproutSVG1.getTotalLength()
         sproutSVG1.style.ease = Linear.easeNone
         FaySceneScheduler.add(Tween.fromTo(`path.sprout_1`, 1.5, { strokeDashoffset: sproutSVG1.getTotalLength() }, { strokeDashoffset: 0 }), 0)
 
         const sproutSVG2 = document.querySelector(`path.sprout_2`)
-        sproutSVG2.style.stroke = "#ffffff"
+        sproutSVG2.style.stroke = "rgba(255, 255, 255,1)"
         sproutSVG2.style.strokeWidth = "5px"
         sproutSVG2.style.strokeDasharray = sproutSVG2.getTotalLength()
         sproutSVG2.style.ease = Linear.easeNone

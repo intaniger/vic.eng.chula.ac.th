@@ -29,20 +29,20 @@ class VIC2018 extends Component {
         <div className="panel vic2018-slide-1" style={{ zIndex: 10 }}>
           <div style={{ position: "fixed", zIndex: 2, width: "100vw", height: "100vh", backgroundImage: `url('${VIC_1}')`, backgroundSize: "cover", backgroundPosition: "center", filter: "blur(1px) brightness(0.9) sepia(0.2)" }} />
           <div style={{ position: "relative", zIndex: 3 }}>
-            <Grid style={{ backgroundColor: "#ffffff33", height: "100vh" }}>
+            <Grid style={{ backgroundColor: "rgba(255, 255, 255,0.6)", height: "100vh" }}>
               <Row columns={16} style={{ marginTop: "10vh" }}>
                 <Column computer={6} mobile={16} floated="left">
-                  <h1 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center" }} className="thai resize">ค่ายวิศวพลัส ครั้งที่ 1</h1>
+                  <h1 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center" }} className="thai resize">ค่ายวิศวพลัส ครั้งที่ 1</h1>
                 </Column>
               </Row>
               <Row columns={16}>
                 <Column computer={6} mobile={16} floated="right">
-                  <h1 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center" }} className="thai resize">19 - 20 JUN 2018 </h1>
+                  <h1 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center" }} className="thai resize">19 - 20 JUN 2018 </h1>
                 </Column>
               </Row>
               <Row centered>
                 <div style={{ position: "fixed", bottom: "10vh" }}>
-                  <h2 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center", marginTop: "5vh" }} className="thai resize">
+                  <h2 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center", marginTop: "5vh" }} className="thai resize">
                   โรงเรียนเทศบาลวัดศาลาปูน ตำบลภูเขาทอง  <br />
                   อำเภอพระนครศรีอยุธยา จังหวัดพระนครศรีอยุธยา
                   </h2>
@@ -50,7 +50,7 @@ class VIC2018 extends Component {
               </Row>
               <Row centered>
                 <div style={{ position: "fixed", bottom: "0vh" }}>
-                  <h3 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center", }} className="thai resize">
+                  <h3 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center", }} className="thai resize">
                     ScrollDown
                   </h3>
                 </div>
@@ -66,7 +66,7 @@ class VIC2018 extends Component {
                 <Grid style={{ height: "70vh", padding: "10vh 0" }}>
                   <Row verticalAlign='top'>
                     <Column>
-                      <h1 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center" }} className="thai resize">PAINTING TEAM</h1>
+                      <h1 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center" }} className="thai resize">PAINTING TEAM</h1>
                     </Column>
                   </Row>
                 </Grid>
@@ -75,12 +75,12 @@ class VIC2018 extends Component {
                 <Grid style={{ height: "90vh", padding: "10vh 0" }}>
                   <Row verticalAlign='top'>
                     <Column width={16}>
-                      <h1 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center" }} className="thai resize">ทีมทาสี</h1>
+                      <h1 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center" }} className="thai resize">ทีมทาสี</h1>
                     </Column>
                   </Row>
                   <Row centered verticalAlign='bottom'>
                     <Column width={16}>
-                      <h2 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "left" }} className="thai resize">
+                      <h2 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "left" }} className="thai resize">
                       ปรับปรุงสีของห้องเรียน<br />
                       ขูด/ทาสี ภายในตัวอาคาร </h2>
                     </Column>
@@ -98,7 +98,7 @@ class VIC2018 extends Component {
               <Grid style={{ height: "70vh", padding: "10vh 0" }}>
                 <Row verticalAlign='top'>
                   <Column>
-                    <h1 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center" }} className="thai resize">ELECTRIC TEAM</h1>
+                    <h1 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center" }} className="thai resize">ELECTRIC TEAM</h1>
                   </Column>
                 </Row>
               </Grid>
@@ -107,12 +107,12 @@ class VIC2018 extends Component {
               <Grid style={{ height: "90vh", padding: "10vh 0" }}>
                 <Row verticalAlign='top'>
                   <Column width={16}>
-                    <h1 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center" }} className="thai resize">ทีมไฟฟ้า</h1>
+                    <h1 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center" }} className="thai resize">ทีมไฟฟ้า</h1>
                   </Column>
                 </Row>
                 <Row centered verticalAlign='bottom'>
                   <Column width={16}>
-                    <h2 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "left" }} className="thai resize">
+                    <h2 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "left" }} className="thai resize">
                     รับผิดชอบในงานไฟฟ้า <br />
                     เปลี่ยนพัดลม/หลอดไฟที่เสียหาย </h2>
                   </Column>
@@ -130,7 +130,7 @@ class VIC2018 extends Component {
               <Grid style={{ height: "70vh", padding: "10vh 0" }}>
                 <Row verticalAlign='top'>
                   <Column>
-                    <h1 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center" }} className="thai resize">PLUMBING TEAM</h1>
+                    <h1 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center" }} className="thai resize">PLUMBING TEAM</h1>
                   </Column>
                 </Row>
               </Grid>
@@ -139,12 +139,12 @@ class VIC2018 extends Component {
               <Grid style={{ height: "90vh", padding: "10vh 0" }}>
                 <Row verticalAlign='top'>
                   <Column width={16}>
-                    <h1 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center" }} className="thai resize">ทีมประปา</h1>
+                    <h1 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center" }} className="thai resize">ทีมประปา</h1>
                   </Column>
                 </Row>
                 <Row centered verticalAlign='bottom'>
                   <Column width={16}>
-                    <h2 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "left" }} className="thai resize">
+                    <h2 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "left" }} className="thai resize">
                     ปรับปรุงในส่วนการประปา <br />
                     ซ่อมแซมระบบน้ำ เปลี่ยนก็อกน้ำ </h2>
                   </Column>

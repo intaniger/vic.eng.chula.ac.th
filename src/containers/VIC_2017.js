@@ -29,20 +29,20 @@ class VIC2017 extends Component {
         <div className="panel vic2017-slide-1" style={{ zIndex: 10 }}>
           <div style={{ position: "fixed", zIndex: 2, width: "100vw", height: "100vh", backgroundImage: `url('${VIC_1}')`, backgroundSize: "cover", backgroundPosition: "center", filter: "blur(1px) brightness(0.9) sepia(0.2)" }} />
           <div style={{ position: "relative", zIndex: 3 }}>
-            <Grid style={{ backgroundColor: "#ffffff33", height: "100vh" }}>
+            <Grid style={{ backgroundColor: "rgba(255, 255, 255,0.6)", height: "100vh" }}>
               <Row columns={16} style={{ marginTop: "10vh" }}>
                 <Column computer={6} mobile={16} floated="left">
-                  <h1 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center" }} className="thai resize">ค่ายวิศวพัฒน์ ครั้งที่ 1</h1>
+                  <h1 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center" }} className="thai resize">ค่ายวิศวพัฒน์ ครั้งที่ 1</h1>
                 </Column>
               </Row>
               <Row columns={16}>
                 <Column computer={6} mobile={16} floated="right">
-                  <h1 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center" }} className="thai resize">17 - 29 DEC 2017</h1>
+                  <h1 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center" }} className="thai resize">17 - 29 DEC 2017</h1>
                 </Column>
               </Row>
               <Row centered>
                 <div style={{ position: "fixed", bottom: "10vh" }}>
-                  <h2 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center", marginTop: "5vh" }} className="thai resize">
+                  <h2 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center", marginTop: "5vh" }} className="thai resize">
                     ตำบลสะเนียน อำเภอเมือง จ.น่าน <br />
                     ตำบลเมืองจัง อำเภอภูเพียง จ.น่าน
                   </h2>
@@ -50,7 +50,7 @@ class VIC2017 extends Component {
               </Row>
               <Row centered>
                 <div style={{ position: "fixed", bottom: "0vh" }}>
-                  <h3 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center", }} className="thai resize">
+                  <h3 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center", }} className="thai resize">
                     ScrollDown
                   </h3>
                 </div>
@@ -66,7 +66,7 @@ class VIC2017 extends Component {
                 <Grid style={{ height: "70vh", padding: "10vh 0" }}>
                   <Row verticalAlign='top'>
                     <Column>
-                      <h1 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center" }} className="thai resize">EDUCATION TEAM</h1>
+                      <h1 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center" }} className="thai resize">EDUCATION TEAM</h1>
                     </Column>
                   </Row>
                 </Grid>
@@ -75,12 +75,12 @@ class VIC2017 extends Component {
                 <Grid style={{ height: "70vh", padding: "10vh 0" }}>
                   <Row verticalAlign='top'>
                     <Column width={16}>
-                      <h1 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center" }} className="thai resize">ทีมเสริมสร้างทักษะการเรียนรู้</h1>
+                      <h1 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center" }} className="thai resize">ทีมเสริมสร้างทักษะการเรียนรู้</h1>
                     </Column>
                   </Row>
                   <Row centered verticalAlign='bottom'>
                     <Column width={16}>
-                      <h2 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "left" }} className="thai resize">
+                      <h2 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "left" }} className="thai resize">
                         ให้ความรู้เชิงวิชาการแก้เด็กนักเรียน <br />
                         เพื่อเป็นพื้นฐานใช้ต่อยอดการเรียนรู้ </h2>
                     </Column>
@@ -89,7 +89,7 @@ class VIC2017 extends Component {
               </Column>
             </Grid>
             <div style={{ position: "fixed", bottom: "5vh", right: "5vw" }}>
-              <h2 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center", marginTop: "5vh" }} className="thai resize">
+              <h2 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center", marginTop: "5vh" }} className="thai resize">
                 <Icon name="map pin" /> โรงเรียนบ้านวังตาว ตำบลสะเนียน <br /> อำเภอเมือง จ.น่าน
                 </h2>
             </div>
@@ -103,7 +103,7 @@ class VIC2017 extends Component {
               <Grid style={{ height: "70vh", padding: "10vh 0" }}>
                 <Row verticalAlign='top'>
                   <Column>
-                    <h1 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center" }} className="thai resize">SURVEY TEAM</h1>
+                    <h1 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center" }} className="thai resize">SURVEY TEAM</h1>
                   </Column>
                 </Row>
               </Grid>
@@ -112,12 +112,12 @@ class VIC2017 extends Component {
               <Grid style={{ height: "70vh", padding: "10vh 0" }}>
                 <Row verticalAlign='top'>
                   <Column width={16}>
-                    <h1 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center" }} className="thai resize">ทีมสำรวจข้อมูลครัวเรือน</h1>
+                    <h1 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center" }} className="thai resize">ทีมสำรวจข้อมูลครัวเรือน</h1>
                   </Column>
                 </Row>
                 <Row centered verticalAlign='bottom'>
                   <Column width={16}>
-                    <h2 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "left" }} className="thai resize">
+                    <h2 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "left" }} className="thai resize">
                       เก็บข้อมูลชุมชนเข้าสู่ระบบ GIS <br />
                       เพื่อใช้เป็นข้อมูล ในการแก้ไขปัญหาภายในชุมชนต่อไป </h2>
                   </Column>
@@ -126,7 +126,7 @@ class VIC2017 extends Component {
             </Column>
           </Grid>
           <div style={{ position: "fixed", bottom: "5vh", right: "5vw" }}>
-            <h2 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center", marginTop: "5vh" }} className="thai resize">
+            <h2 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center", marginTop: "5vh" }} className="thai resize">
               <Icon name="map pin" />ตำบลสะเนียน อำเภอเมือง จ.น่าน
             </h2>
           </div>
@@ -140,7 +140,7 @@ class VIC2017 extends Component {
               <Grid style={{ height: "70vh", padding: "10vh 0" }}>
                 <Row verticalAlign='top'>
                   <Column>
-                    <h1 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center" }} className="thai resize">SENSOR TEAM</h1>
+                    <h1 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center" }} className="thai resize">SENSOR TEAM</h1>
                   </Column>
                 </Row>
               </Grid>
@@ -149,12 +149,12 @@ class VIC2017 extends Component {
               <Grid style={{ height: "60vh", padding: "10vh 0" }}>
                 <Row verticalAlign='top'>
                   <Column width={16}>
-                    <h1 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center" }} className="thai resize">ทีมติดตั้งระบบเซ็นเซอร์</h1>
+                    <h1 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center" }} className="thai resize">ทีมติดตั้งระบบเซ็นเซอร์</h1>
                   </Column>
                 </Row>
                 <Row centered verticalAlign='bottom'>
                   <Column width={16}>
-                    <h2 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "left" }} className="thai resize">
+                    <h2 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "left" }} className="thai resize">
                       สร้างสถานีวัดระดับน้ำด้วยระบบเซนเซอร์ 4 แห่ง <br />
                       เพื่อใช้เป็นข้อมูลให้กับชุมชน ในการบริหารจัดการน้ำอย่างมีประสิทธิภาพ </h2>
                   </Column>
@@ -163,7 +163,7 @@ class VIC2017 extends Component {
             </Column>
           </Grid>
           <div style={{ position: "fixed", bottom: "5vh", right: "5vw" }}>
-            <h2 style={{ backgroundColor: "#03243c7d", padding: 10, color: "white", textAlign: "center", marginTop: "5vh" }} className="thai resize">
+            <h2 style={{ backgroundColor: "rgba(3, 36, 60,0.49)", padding: 10, color: "white", textAlign: "center", marginTop: "5vh" }} className="thai resize">
               <Icon name="map pin" />ตำบลเมืองจัง อำเภอภูเพียง จ.น่าน
             </h2>
           </div>

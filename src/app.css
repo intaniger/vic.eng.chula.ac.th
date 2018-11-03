@@ -6,7 +6,7 @@ body {
   font-family: 'Kanit', sans-serif!important;
 }
 .particles-js-canvas-el{
-  background-color: #042340;
+  background-color: rgba(4, 35, 64,1);
 }
 .intro-head::before{
   content: "“ค่ายวิศวพัฒน์”\A";
@@ -21,7 +21,7 @@ body {
   color: white;
 }
 #intro_paragraph{
-  color: #ffffff;
+  color: rgba(255, 255, 255,1);
   text-align: left;
 }
 .intro-head{
@@ -34,7 +34,7 @@ body {
   font-size: 22px;
 }
 .bullet{
-  color: #ffffff;
+  color: rgba(255, 255, 255,1);
   font-size: 28px!important;
 }
 .h1{
@@ -49,7 +49,7 @@ body {
   margin: 0 auto;
 }
 .FAQ-Q{
-  background-color: #2d6fad;
+  background-color: rgba(45, 111, 173, 1);
   color: white;
   width: 100%;
   text-align: center;
@@ -57,7 +57,7 @@ body {
 }
 .FAQ-A{
   background-color: white;
-  color: #2d6fad;
+  color: rgba(45, 111, 173, 1);
   width: 100%;
   text-align: center;
   padding: 20px 10px;
