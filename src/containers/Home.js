@@ -20,6 +20,8 @@ import interview_1 from "../asset/interview/interview1.jpg";
 import interview_2 from "../asset/interview/interview2.jpg";
 import interview_3 from "../asset/interview/interview3.jpg";
 import interview_4 from "../asset/interview/interview4.jpg";
+import interview_5 from "../asset/interview/interview5.jpg";
+import interview_6 from "../asset/interview/interview6.jpg";
 import background from "../asset/background.jpg";
 import scbImage from "../asset/scb-icon.png"
 
@@ -327,7 +329,8 @@ class HomePage extends Component {
                             </p>
                         <h1 className="thai interview-overall">
                           ”...การที่เรามาทำค่ายนี้เราไม่ได้เป็นเพียงผู้ให้ <br />
-                          แต่เรายังได้รับประสบการณ์และความรู้ที่หาไม่ได้ในห้องเรียนอีกด้วย...”
+                          แต่เรายังได้รับประสบการณ์<br />
+                          และความรู้ที่หาไม่ได้ในห้องเรียนอีกด้วย...”
                             </h1>
                         <h2 className="thai interviewer">บุ้ค ทีมเสริมสร้างทักษะการเรียนรู้ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
                       </div>
@@ -390,6 +393,47 @@ class HomePage extends Component {
                           แต่ก็ถือเป็นประสบการณ์ที่สนุกมากค่ะ...”
                             </h1>
                         <h2 className="thai interviewer">ปิ่น ทีมเสริมสร้างทักษะการเรียนรู้ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
+                      </div>
+                    </Column>
+                  </Row>
+                </Grid>
+              </div>
+              <div>
+                <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_5}')`, backgroundSize: "cover" }}>
+                  <Row>
+                    <Column computer={9} mobile={11} floated="right">
+                      <div className="interview-container" style={{ backgroundColor: "rgba(255, 255, 255,0.44)" }}>
+                        <p className="thai interview-personal" style={{ textAlign: "left" }}>
+                        ”... ได้สำรวจข้อมูลว่ามีปัญหาอะไรบ้างในชุมชน เพราะอาจจะช่วยได้ในบางเรื่อง <br />
+                        ได้เจอกับชาวบ้านเยอะมากๆ ไปทั้งหมู่บ้าน เกือบร้อยครัวเรือน...”
+                            </p>
+                        <h1 className="thai interview-overall">
+                        “หลังทำค่ายเราได้อะไรหลายอย่างกลับมา <br />
+                        ได้ฝึกสกิลการสื่อสาร มีความสุขทุกครั้งที่ได้คุยกับชาวบ้าน <br />
+                          ได้เห็นวิถีชีวิตของชาวบ้าน เข้าใจคนอื่นมากขึ้น...”
+                            </h1>
+                        <h2 className="thai interviewer">ฝาย ทีมสำรวจข้อมูลครัวเรือน <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
+                      </div>
+                    </Column>
+                  </Row>
+                </Grid>
+              </div>
+              <div>
+                <Grid className="interview-frame" style={{ backgroundImage: `url('${interview_6}')`, backgroundSize: "cover" }}>
+                  <Row>
+                    <Column computer={9} mobile={11} floated="left">
+                      <div className="interview-container" style={{ backgroundColor: "rgba(255, 255, 255,0.44)" }}>
+                        <p className="thai interview-personal" style={{ textAlign: "right" }}>
+                          “ตอนแรกก็กลัวอยู่บ้าง แต่ก็ได้ลองทำสิ่งใหม่ๆอย่างจากการลงมือทำจริง <br />
+                          ค่ายนี้สนุกดี ได้เจอเพื่อนๆพี่ๆเยอะมากๆ เป็นค่ายที่ดีค่ายหนึ่งเลย...”
+
+                            </p>
+                        <h1 className="thai interview-overall">
+                          ”...ถ้าอยากมาทำก็มาทำเลย เพราะบางครั้งสิ่งที่เรากลัว  <br />
+                          มันอาจจะไม่ได้น่ากลัวอย่างที่คิดไว้ มาแล้วก็ได้ประสบการณ์<br />
+                          ได้ลองอะไรใหม่ๆ และที่สำคัญคือการได้ช่วยเหลือสังคม...”
+                            </h1>
+                        <h2 className="thai interviewer">เฟรน ทีมติดตั้งระบบเซนเซอร์ <br />ค่ายวิศวพัฒน์ครั้งที่ 1</h2>
                       </div>
                     </Column>
                   </Row>
