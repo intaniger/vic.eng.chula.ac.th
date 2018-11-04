@@ -687,17 +687,19 @@ class HomePage extends Component {
       // <------------ Timeline Animation --------------->
       if (isMobile || isTablet) {
         for (let TimepointIndex = 1; TimepointIndex <= 3; TimepointIndex++) {
-          const TPScene = new ScrollMagic.Scene({ triggerElement: `.timepoint${TimepointIndex}`, tweenChanges: true, reverse: false, offset: -0.4 * H })
           const TLScene = new ScrollMagic.Scene({ triggerElement: `.timelink${TimepointIndex}`, tweenChanges: true, reverse: false, offset: -0.3 * H })
 
-          // Add timepoint opacity increasing animation to scene
-          TPScene.setTween(Tween.fromTo(`.timepoint${TimepointIndex}`, 0.5, { opacity: 0 }, { opacity: 1 }))
+          if( isTablet ){
+            const TPScene = new ScrollMagic.Scene({ triggerElement: `.timepoint${TimepointIndex}`, tweenChanges: true, reverse: false, offset: -0.4 * H })
+            // Add timepoint opacity increasing animation to scene
+            TPScene.setTween(Tween.fromTo(`.timepoint${TimepointIndex}`, 0.5, { opacity: 0 }, { opacity: 1 }))
+            controller.addScene(TPScene)
+          }
 
           // Add timelink drawing animation to scene
           TLScene.setTween(Tween.fromTo(`.timelink${TimepointIndex}`, 0.5, { width: "0%" }, { width: "100%" }))
 
           // Add scene to controller
-          controller.addScene(TPScene)
           controller.addScene(TLScene)
         }
       } else {
@@ -714,13 +716,14 @@ class HomePage extends Component {
       }
       // <------------ Camp History Animation --------------->
       for (let hisIndex = 1; hisIndex <= 2; hisIndex++) {
-        const HisConScene = new ScrollMagic.Scene({ triggerElement: `.historycontent${hisIndex}`, tweenChanges: true, reverse: false })
 
-        HisConScene.setTween(Tween.fromTo(`.historycontent${hisIndex}`, 0.5, { opacity: 0 }, { opacity: 1 }, 1))
+        if (!isMobile || isTablet){
+          const HisConScene = new ScrollMagic.Scene({ triggerElement: `.historycontent${hisIndex}`, tweenChanges: true, reverse: false, offset: -0.3 * H })
+          HisConScene.setTween(Tween.fromTo(`.historycontent${hisIndex}`, 0.5, { opacity: 0 }, { opacity: 1 }, 1))
+          controller.addScene(HisConScene)
+        }
 
-        controller.addScene(HisConScene)
-
-        const HisLineScene = new ScrollMagic.Scene({ triggerElement: `.hisline${hisIndex}`, tweenChanges: true, reverse: false })
+        const HisLineScene = new ScrollMagic.Scene({ triggerElement: `.hisline${hisIndex}`, tweenChanges: true, reverse: false, offset: -0.3 * H })
 
         HisLineScene.setTween(Tween.fromTo(`.hisline${hisIndex}`, 1.5, { height: "0%" }, { height: "100%" }, 1))
 

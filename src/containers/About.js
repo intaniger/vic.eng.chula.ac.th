@@ -48,7 +48,7 @@ class About extends Component {
               <Row style={{ marginTop: "5vh" }}>
                 <h1 className="thai h1" style={{ color: "white" }}>ทีมบริหารค่าย</h1>
               </Row>
-              <Column width={14} only="computer tablet">
+              <Column width={14} only="computer">
                 <Grid centered>
                   <Row columns={1}>
                     <Column>
@@ -79,9 +79,9 @@ class About extends Component {
                   </Row>
                 </Grid>
               </Column>
-              <Column width={14} only="mobile">
+              <Column width={14} only="mobile tablet">
                 <Grid centered>
-                  <Row>
+                  <Row centered >
                     <Column style={{ overflowY: "scroll", margin: "0 auto" }}>
                       <Contact name="ไทเกอร์ วิศวฯ" position="ประธานค่าย" avatar={PresidentImage} line="intaniger" tel="098-941-7565" />
                     </Column>
