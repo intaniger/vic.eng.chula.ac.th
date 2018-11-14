@@ -64,17 +64,17 @@ const QAList = [
     a: <p style={{ fontSize: "2vh" }} className="thai">ไม่ต้องเสียค่าใช้จ่ายใดๆ<br />ทั้งในการสมัครค่ายและการขึ้นค่ายครับ</p>
   },
   {
-    q: "ตารางกิจกรรมในแต่ละวันมีอะไรบ้าง",
+    q: "รายละเอียดของกิจกรรมในแต่ละวันมีอะไรบ้าง",
     a: <p style={{ fontSize: "2vh" }} className="thai">ข้อมูลส่วนนี้จะมีการชี้แจงรายละเอียด<br />ในวันเฟิร์สมีท ค่ายวิศวพัฒน์ครับ</p>
   },
   {
     q: "ต้องเตรียมของใช้อะไรขึ้นค่ายบ้าง",
     a: <p style={{ fontSize: "1.5vh" }} className="thai">เตรียมเฉพาะของใช้ส่วนตัว และอุปกรณ์การนอน<br />โดยทางค่ายจะมีอุปกรณ์<br />ที่เกี่ยวข้องกับการทำงานเพิ่มเติมให้</p>
   },
-  {
-    q: "ลักษณะที่พักเป็นอย่างไร",
-    a: <p style={{ fontSize: "2vh" }} className="thai">ข้อมูลส่วนนี้ต้องขออุบไว้ก่อนนะครับ <br /> แต่รับรองว่าไม่นอนกลางป่าแน่นอน</p>
-  }
+  // {
+  //   q: "ลักษณะที่พักเป็นอย่างไร",
+  //   a: <p style={{ fontSize: "2vh" }} className="thai">ข้อมูลส่วนนี้ต้องขออุบไว้ก่อนนะครับ <br /> แต่รับรองว่าไม่นอนกลางป่าแน่นอน</p>
+  // }
 ]
 
 class HomePage extends Component {
@@ -282,7 +282,7 @@ class HomePage extends Component {
                       <RegisterIcon style={{ width: "150px", height: "150px", padding: 5, marginLeft: 30 }} />
                     </Row>
                     <Row><p className="thai bullet">Registration</p></Row>
-                    <Row><p className="thai bullet">12 - 13 <Column only="computer" /> Nov 2018</p></Row>
+                    <Row><p className="thai bullet">14 - 17 <Column only="computer" /> Nov 2018</p></Row>
                   </Grid>
                 </Column>
                 <Column computer={2} mobile={12} tablet={7}>
@@ -296,7 +296,7 @@ class HomePage extends Component {
                       <AnnouncedIcon style={{ width: "170px", height: "170px", padding: 5, marginLeft: 30 }} />
                     </Row>
                     <Row><p className="thai bullet">Announced</p></Row>
-                    <Row><p className="thai bullet">14 Nov 2018</p></Row>
+                    <Row><p className="thai bullet">18 Nov 2018</p></Row>
                   </Grid>
                 </Column>
                 <Column computer={3} mobile={12} tablet={7}>
@@ -310,7 +310,7 @@ class HomePage extends Component {
                       <FirstmeetIcon style={{ width: "150px", height: "150px", padding: 5 }} />
                     </Row>
                     <Row centered><p className="thai bullet">First Meet</p> </Row>
-                    <Row><p className="thai bullet">16 Nov 2018</p></Row>
+                    <Row><p className="thai bullet">20 Nov 2018</p></Row>
                   </Grid>
                 </Column>
                 <Column computer={3} mobile={12} tablet={7}>
@@ -457,7 +457,7 @@ class HomePage extends Component {
                 </Grid>
               </div>
             </Slider>
-            {/* <Grid id="FAQ" style={{ margin: "5vh 0" }} stackable>
+            <Grid id="FAQ" style={{ margin: "5vh 0" }} stackable>
               <Row columns={16} style={{ marginTop: "10vh" }} centered>
                 <h1 className="thai" style={{ fontSize: isMobile ? "7.5vw" : "50px", color: "white" }}>คำถามที่พบบ่อย</h1>
               </Row>
@@ -468,7 +468,7 @@ class HomePage extends Component {
                   </Column>
                 ))
               }
-            </Grid> */}
+            </Grid>
             <Grid id="raise_funds" style={{ backgroundImage: `url('${background}')`, backgroundSize: "cover", marginTop: "10vh", height: isMobile ? "50vh" : "65vh", backgroundPosition: isMobile || isTablet ? "85% center" : "center" }}>
               <Row verticalAlign="middle">
                 <Column width={10}>
@@ -554,7 +554,7 @@ class HomePage extends Component {
           </Column>
         </Grid>
       </div>
-      {/* <div id="floating-button" style={{
+      <div id="floating-button" style={{
         position: "fixed", zIndex: 150,
         bottom: 0, right: 0, opacity: 0,
         marginBottom: "10vh",
@@ -576,7 +576,7 @@ class HomePage extends Component {
             </Grid>
           </Button.Content>
         </Button>
-      </div> */}
+      </div>
     </div>
   )
   InitAnimation = async () => {
@@ -689,7 +689,7 @@ class HomePage extends Component {
         for (let TimepointIndex = 1; TimepointIndex <= 3; TimepointIndex++) {
           const TLScene = new ScrollMagic.Scene({ triggerElement: `.timelink${TimepointIndex}`, tweenChanges: true, reverse: false, offset: -0.3 * H })
 
-          if( isTablet ){
+          if (isTablet) {
             const TPScene = new ScrollMagic.Scene({ triggerElement: `.timepoint${TimepointIndex}`, tweenChanges: true, reverse: false, offset: -0.4 * H })
             // Add timepoint opacity increasing animation to scene
             TPScene.setTween(Tween.fromTo(`.timepoint${TimepointIndex}`, 0.5, { opacity: 0 }, { opacity: 1 }))
@@ -717,7 +717,7 @@ class HomePage extends Component {
       // <------------ Camp History Animation --------------->
       for (let hisIndex = 1; hisIndex <= 2; hisIndex++) {
 
-        if (!isMobile || isTablet){
+        if (!isMobile || isTablet) {
           const HisConScene = new ScrollMagic.Scene({ triggerElement: `.historycontent${hisIndex}`, tweenChanges: true, reverse: false, offset: -0.3 * H })
           HisConScene.setTween(Tween.fromTo(`.historycontent${hisIndex}`, 0.5, { opacity: 0 }, { opacity: 1 }, 1))
           controller.addScene(HisConScene)
